@@ -2,7 +2,7 @@
 
 A project-level mechanism for the user to refine each skill's behavior over time. As the team learns what works for them, the user adds rules to CLAUDE.md that each skill reads on startup and applies on top of its normal procedure.
 
-This file is the reference for how the section works. The same mechanism applies to all five skills (specifier, orchestrator, planner, implementer, reviewer).
+This file is the reference for how the section works. The same mechanism applies to all six skills (architect, specifier, orchestrator, planner, implementer, reviewer).
 
 ## Section structure in CLAUDE.md
 
@@ -12,6 +12,11 @@ The section lives at the bottom of `CLAUDE.md`. Each skill has its own subsectio
 ## Skill Behaviors
 
 These sections are read by the corresponding skills at startup and applied as additional instructions for this project. Update them with user input over time.
+
+### Architect
+
+- <rule 1>
+- <rule 2>
 
 ### Specifier
 
@@ -49,6 +54,7 @@ where per-skill refinements live. I'd like to add this empty scaffold to
 the bottom of CLAUDE.md:
 
 ## Skill Behaviors
+### Architect
 ### Specifier
 ### Orchestrator
 ### Planner
@@ -68,7 +74,7 @@ At the start of every invocation:
 
 1. Locate `CLAUDE.md`.
 2. Find the `## Skill Behaviors` section.
-3. Find the subsection matching this skill's name (Specifier / Orchestrator / Planner / Implementer / Reviewer).
+3. Find the subsection matching this skill's name (Architect / Specifier / Orchestrator / Planner / Implementer / Reviewer).
 4. Read the bullet list.
 5. Treat each bullet as an additional instruction that applies on top of the skill's normal procedure.
 

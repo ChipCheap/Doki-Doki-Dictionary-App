@@ -1,0 +1,133 @@
+/* ============================================================================
+   Doki-Doki Dictionary — colour theme
+   ----------------------------------------------------------------------------
+   The ONLY place colour values are allowed to live. Everything else in the app
+   references these names and never a literal colour. Swapping the whole look is
+   therefore swapping this one file — no component needs touching.
+
+   Every role is defined TWICE: once for light, once for dark. A theme that
+   fills in one and not the other is incomplete, not "light-only".
+
+   Adding a role: define it in both blocks, describe what it is for below, and
+   never let a component invent a colour it needs.
+   ========================================================================= */
+
+:root {
+
+  /* --- Surfaces -----------------------------------------------------------
+     page   the app background, behind everything
+     panel  cards, quiz boxes, the result pane — one step up from the page
+     sunken insets within a panel: settings previews, disabled areas         */
+  --page:            #F7F1E4;
+  --panel:           #FFFBF2;
+  --sunken:          #F1E9D9;
+
+  /* --- Text ---------------------------------------------------------------
+     primary    body copy, prompt words, answers
+     secondary  supporting copy — part of speech, example translations
+     muted      metadata that must not compete: counters, hints, "n of N"    */
+  --text-primary:    #2C231A;
+  --text-secondary:  #6B5B48;
+  --text-muted:      #94836D;
+
+  /* --- Lines --------------------------------------------------------------
+     border  hairline separators and control outlines at rest
+     strong  the same line when it needs to assert itself (hover, emphasis)  */
+  --border:          rgba(44, 35, 26, .14);
+  --border-strong:   rgba(44, 35, 26, .28);
+
+  /* --- Brand --------------------------------------------------------------
+     The app's signature colour. Warm amber-brown by default.
+
+     brand      primary buttons, active states, the accent in general
+     on-brand   text ON a brand-filled surface — must clear contrast against it
+     brand-soft tag chips, tooltips, focus halos: brand at low intensity
+     brand-text brand used AS text on a normal surface (links, active labels)
+
+     Light and dark need genuinely different brand values: light mode needs it
+     dark enough to carry on-brand text, dark mode light enough to read against
+     a near-black page. One value cannot do both jobs.                       */
+  --brand:           #B0703A;
+  --on-brand:        #FFFFFF;
+  --brand-soft:      #F2E2D0;
+  --brand-text:      #B0703A;
+
+  /* --- Focus --------------------------------------------------------------
+     The answer field is focused the moment a card appears, so this ring is
+     visible constantly during a session. It has to read as "ready", not as
+     an alarm.                                                               */
+  --focus-ring:      #F2E2D0;
+
+  /* --- Answer feedback ----------------------------------------------------
+     Outcome markers on the result panel. Deliberately quiet — the user sees
+     these dozens of times per session.                                      */
+  --correct:         #4C5B3C;
+  --incorrect:       #8A544D;
+
+  /* --- Diacritic mismatch -------------------------------------------------
+     Per-character highlighting when an answer differs ONLY by diacritics.
+     miss-*  the characters the user got wrong
+     hit-*   the characters as they should have been
+
+     Keep these desaturated. They carry the entire explanation of the error
+     and are read closely, not glanced at. Saturated red/green shouts far
+     louder than the information warrants — especially against dark.
+
+     Colour alone is never sufficient here; the UI also applies weight and a
+     background block, so these work for colour-blind users.                 */
+  --miss-bg:         #F2DEDA;
+  --miss-text:       #8A544D;
+  --hit-bg:          #E0E8D6;
+  --hit-text:        #4C5B3C;
+
+  /* --- Ladder buckets -----------------------------------------------------
+     The deck distribution bar, running light to dark so a deck visibly FILLS
+     with the brand as it is mastered. Keep them within one hue family and
+     monotonically darkening, or the bar stops reading as progress.          */
+  --bucket-new:      #C9BBA6;
+  --bucket-learning: #D9A76A;
+  --bucket-mature:   #B0703A;
+  --bucket-mastered: #6E4423;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --page:            #1B1613;
+    --panel:           #262019;
+    --sunken:          #191411;
+
+    --text-primary:    #F0E8DA;
+    --text-secondary:  #B5A48D;
+    --text-muted:      #8A7B66;
+
+    --border:          rgba(240, 232, 218, .14);
+    --border-strong:   rgba(240, 232, 218, .28);
+
+    --brand:           #D9A76A;
+    --on-brand:        #2C1F12;
+    --brand-soft:      #3D2E1D;
+    --brand-text:      #D9A76A;
+
+    --focus-ring:      #3D2E1D;
+
+    --correct:         #CCDCB9;
+    --incorrect:       #E4C2BC;
+
+    --miss-bg:         #4A3531;
+    --miss-text:       #E4C2BC;
+    --hit-bg:          #3A452F;
+    --hit-text:        #CCDCB9;
+
+    --bucket-new:      #4A4034;
+    --bucket-learning: #8A6437;
+    --bucket-mature:   #C08F52;
+    --bucket-mastered: #E8C48C;
+  }
+}
+
+/* ----------------------------------------------------------------------------
+   Note on the dark ladder buckets: the order INVERTS. On a light page, mastery
+   is the darkest step; on a dark page it is the lightest. The rule is not
+   "dark = mastered" but "furthest from the page background = mastered".
+   A theme that copies the light values into dark will read backwards.
+   ------------------------------------------------------------------------- */

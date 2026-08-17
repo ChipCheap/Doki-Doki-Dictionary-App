@@ -3,6 +3,22 @@ name: generic-planner
 description: Produce an implementation plan for a software feature based on a Spec.md, with batched user clarification before planning, a spec-coverage self-check after, and revision support when reviewer findings come back. Use this skill whenever a planner sub-agent is asked to produce or revise a plan for a feature — typically spawned by the generic-orchestrator skill. Trigger on prompts like "produce a plan for feature X", "revise the plan based on these findings", "you are the planner for…", or any context where a Spec.md exists and the next step is to turn it into actionable implementation steps. The output is a Plan.md file in the feature folder, plus a self-check verdict the orchestrator can act on.
 ---
 
+## Always: read and respect CLAUDE.md
+
+At the **start of every run**, read `CLAUDE.md` fresh from disk. Do not
+rely on memory, a session summary, or an earlier read — it may hold coding
+guidelines, behavioral rules, or project conventions that changed
+mid-project, and those changes are easy to miss otherwise.
+
+Treat everything in it as **additive** to this skill: its rules apply on
+top of the skill's own instructions, they don't replace them. Honor its
+coding and behavioral guidelines in everything this skill produces.
+
+If a CLAUDE.md rule appears to **directly conflict** with a skill
+instruction, do not silently pick one — surface the conflict to the user
+and let them choose. Re-read CLAUDE.md if the session runs long or the user
+mentions changing project rules.
+
 # Generic Planner
 
 A planner sub-agent for the implementation cycle. Produces a `Plan.md` that the implementer can execute and the reviewer can check against. Owns three responsibilities:
@@ -32,8 +48,9 @@ Follow these phases in order.
 
 1. Read `Spec.md` fully.
 2. Read `CLAUDE.md` for project conventions that will constrain the plan. In particular, read the `## Project Context` section to learn the project's language and stack — the plan must be expressed in idioms appropriate to that language.
-3. If a prior `Plan.md` exists, note its version and read it for context (do not start from it on iteration 1; on iteration > 1, see Phase 4).
-4. Identify each discrete **requirement** in the spec. A requirement is anything the implementation must do or satisfy. Number them locally as you read (R1, R2, …) so the self-check can reference them.
+3. Read the project's `architecture.md` (and the feature's `<Feature>.architecture.md`, if present), next to `CLAUDE.md`. These are **optional** — produced by the `architect` skill. When present, the plan must conform to their **Guidelines**, **Structure**, and **Decisions**: don't propose structures, patterns, placements, or infrastructure the architecture rules out. If neither exists, proceed as before.
+4. If a prior `Plan.md` exists, note its version and read it for context (do not start from it on iteration 1; on iteration > 1, see Phase 4).
+5. Identify each discrete **requirement** in the spec. A requirement is anything the implementation must do or satisfy. Number them locally as you read (R1, R2, …) so the self-check can reference them.
 
 If `CLAUDE.md` has no `## Project Context` section, stop and tell the user/orchestrator that the language hasn't been recorded — the planner cannot produce a language-appropriate plan without that fact. Do not guess from file extensions.
 
@@ -45,6 +62,7 @@ After reading, list every point in the spec that is unclear, incomplete, ambiguo
 - A requirement that uses a term not defined elsewhere ("the active slot" — what makes a slot active?).
 - A requirement whose intended scope is ambiguous ("optimize loading" — what counts as "optimized"?).
 - An apparent conflict with CLAUDE.md (e.g. spec implies a singleton, CLAUDE.md forbids them).
+- An apparent conflict with `architecture.md` — a requirement that can't be satisfied without violating an architectural guideline or decision.
 - A gap that the planner would otherwise fill by guessing.
 
 **If the list is non-empty, ask the user all questions in a single batched message before writing any plan.** Use this structure:
@@ -66,6 +84,8 @@ When the user answers:
 2. Show the user the diff of what you changed and ask them to confirm. Do not proceed until they confirm.
 3. If the answers raised new questions, run another batched round. Phase 2 can repeat. **User-clarification rounds do not count against the 3-iteration self-check cap** — that cap is only for the planner's internal self-check loop in Phase 4.
 
+When a point is a conflict with `architecture.md` rather than a spec ambiguity, present it as such and let the user decide: rework the plan within the architecture, amend the architecture (via the `architect` skill), or accept a documented deviation. The planner does not silently plan around the architecture, and does not amend `architecture.md` itself.
+
 If the list is empty, skip directly to Phase 3.
 
 ### Phase 3: Write the plan
@@ -76,6 +96,7 @@ Produce `Plan.md` in the feature folder. See `references/plan-format.md` for the
 - Cover every requirement R1, R2, … with at least one concrete implementation step. (A requirement may map to multiple steps; one step may cover multiple requirements.)
 - Mark steps that don't trace back to a specific requirement as **helpers** with a brief justification (e.g. "scaffolding for R3", "refactor needed to make R5 possible").
 - Respect `CLAUDE.md` conventions throughout — don't propose patterns the project forbids.
+- Conform to `architecture.md` (and any `<Feature>.architecture.md`): follow its Guidelines, Structure, and Decisions; place new code where the architecture says it belongs; don't propose patterns or infrastructure it rules out. Where a plan decision is shaped by the architecture, cite it in a rationale note (e.g. `// arch: persistence via the data-access layer per architecture.md D3`).
 - Include short rationale notes pointing back to the spec where a non-obvious decision was made. Format: `// R3: chose event-based dispatch over direct call because spec requires loose coupling between modules`.
 
 Write the plan to `<feature_folder>/Plan.md`. If a prior plan exists, version the old one first (see Phase 4 for the rule about iteration > 1; on iteration 1 there should be no prior plan).

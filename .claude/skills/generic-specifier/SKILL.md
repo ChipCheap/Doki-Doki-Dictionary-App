@@ -1,7 +1,23 @@
 ---
 name: generic-specifier
-description: Run a specification session with the user for a new software feature in any language or domain, producing a structured Spec.md and the feature folder structure that the generic-orchestrator skill expects. Use this skill whenever the user signals they want to start specifying a new feature — typical triggers include "I want to implement a new feature", "let's add", "I need a feature for", "we should build", "I want to spec out", "let's design", or any similar opening. Activates when there is NO clear Unity context (no Assets/ folder, no Unity project files, and CLAUDE.md's Project Context section does not name Unity); if Unity context is present, this skill defers to unity-specifier instead. On a fresh project, asks the user what language and stack the project uses and records that in CLAUDE.md's Project Context section so downstream skills (generic-planner, generic-implementer, generic-orchestrator, generic-code-review) know what they're working with.
+description: Run a specification session with the user for a new software feature in any language or domain, producing a structured Spec.md and the feature folder structure that the generic-orchestrator skill expects. Use this skill whenever the user signals they want to start specifying a new feature — typical triggers include "I want to implement a new feature", "let's add", "I need a feature for", "we should build", "I want to spec out", "let's design", or any similar opening. Activates when there is NO clear Unity context (no Assets/ folder, no Unity project files, and CLAUDE.md's Project Context section does not name Unity); if Unity context is present, this skill defers to unity-specifier instead. If the explorer skill has produced design frameworks (a project-wide framework.md and/or a feature-level <Feature>.framework.md next to CLAUDE.md), the specifier reads them first and treats them as design input and as boundaries the spec must not break. On a fresh project, asks the user what language and stack the project uses and records that in CLAUDE.md's Project Context section so downstream skills (generic-planner, generic-implementer, generic-orchestrator, generic-code-review) know what they're working with.
 ---
+
+## Always: read and respect CLAUDE.md
+
+At the **start of every run**, read `CLAUDE.md` fresh from disk. Do not
+rely on memory, a session summary, or an earlier read — it may hold coding
+guidelines, behavioral rules, or project conventions that changed
+mid-project, and those changes are easy to miss otherwise.
+
+Treat everything in it as **additive** to this skill: its rules apply on
+top of the skill's own instructions, they don't replace them. Honor its
+coding and behavioral guidelines in everything this skill produces.
+
+If a CLAUDE.md rule appears to **directly conflict** with a skill
+instruction, do not silently pick one — surface the conflict to the user
+and let them choose. Re-read CLAUDE.md if the session runs long or the user
+mentions changing project rules.
 
 # Generic Specifier
 
@@ -41,11 +57,10 @@ Before doing anything else, decide whether this skill is the right one.
 
 If either is true → this is a Unity project. Hand off to `unity-specifier`:
 
-```
 This looks like a Unity project (saw Assets/ folder / Project Context says Unity).
 The unity-specifier skill is a better fit — it has Unity-specific spec conventions.
 Switching to that.
-```
+
 
 Do not proceed with the generic specifier. The user invokes the Unity flow from here.
 
@@ -55,12 +70,10 @@ This is a first-run situation on a non-Unity project. The specifier needs to lea
 
 Ask the user, batched with the Phase 1 context-catching questions below:
 
-```
 A few quick setup questions before we spec the feature:
 
-1. What language and stack is this project using? (e.g. "Python with FastAPI", "TypeScript / React", "Go", "Rust + Axum", "Unity / C#")
-2. Anything else about the project the skills should know — runtime, framework, test setup?
-```
+What language and stack is this project using? (e.g. "Python with FastAPI", "TypeScript / React", "Go", "Rust + Axum", "Unity / C#")
+Anything else about the project the skills should know — runtime, framework, test setup?
 
 If the user answers "Unity" (or otherwise reveals Unity context), defer to `unity-specifier` as in Step R1.
 
@@ -68,19 +81,37 @@ Otherwise, record the answer to `CLAUDE.md`'s `## Project Context` section. See 
 
 **Step R3 — If `## Project Context` already exists and is non-Unity, proceed normally with this skill.**
 
+## Framework inputs (read first)
+
+After routing, and before specifying, check for design frameworks next to `CLAUDE.md`. These are produced by the `explorer` skill and, when present, are the design source of truth this spec must honor. Frameworks are **optional** — if neither file exists, skip this section and elicit the feature from the user as normal.
+
+1. **`framework.md` (project-wide).** The project's rules, goals, and invariants — the design "constitution." If present, read it. Its invariants and goals are inherited by every feature, and the spec you produce must not violate them.
+2. **`<Feature>.framework.md` (feature-level).** A design framework for the specific feature being specified. If one matches what the user is describing, read it — it's your primary design input.
+
+**How to use them:**
+
+- Treat the feature framework as the **seed of the spec, not a blank start.** Translate its *Design* into numbered requirements, its *Edge cases* into the spec's negative/edge sections, and its *Boundaries & invariants* into the spec's Boundaries and Assumptions. You are converting a conceptual design into a testable, implementation-agnostic spec — not re-eliciting the design from scratch.
+- **Carry every framework invariant into the spec** so the planner and reviewer honor it. A "must never" in the framework becomes a load-bearing entry in `Spec.md` (an Assumption or a Boundary), and the draft's Overview names the framework file(s) it derives from.
+- **Probe only the gaps:** the framework's `## Open Questions`, plus the technical-testability details a conceptual framework deliberately omits (concrete acceptance criteria, exact failure responses, precise limits). Don't re-litigate decisions the framework already settled.
+
+**Reconcile the two levels.** A feature framework must not break a boundary in `framework.md`, and its design must serve the project's goals. If they conflict, surface it and let the user choose: revise the feature, or consciously amend the project framework. Never resolve it silently.
+
+**Conflict during the session.** If an answer the user gives while specifying would break a framework invariant, don't just encode it — surface the conflict and let the user choose: change the spec decision, or deliberately amend the framework (feature or project). Same rule as above.
+
 ## Project-knowledge policy
 
 Reading files costs tokens. Read only what's necessary to spec accurately.
 
 In this priority order:
 
-1. **What's already in this session's context.** If `CLAUDE.md` or other relevant files are already loaded, use that knowledge — don't re-read.
-2. **The user's input.** The user is the primary source. If the feature seems standalone (no clear ties to existing systems), don't go file-hunting; just spec it from their description.
-3. **Targeted reads of existing structure.** If the feature explicitly references an existing system, check that system's existing folder or main files. Read narrowly, not broadly.
-4. **`conversation_search`** — only when the user references something Claude should know about but doesn't fully describe ("the thing we discussed last week"). Search by topic keywords; don't paste long passages.
-5. **Never** read every file in the project. If you find yourself sweeping for context, stop and ask the user instead.
+1. **Design frameworks next to `CLAUDE.md`** (see Framework inputs). When present, these are the design source of truth — read them before anything else.
+2. **What's already in this session's context.** If `CLAUDE.md` or other relevant files are already loaded, use that knowledge — don't re-read.
+3. **The user's input.** The user is the primary source. If the feature seems standalone (no clear ties to existing systems), don't go file-hunting; just spec it from their description and any framework.
+4. **Targeted reads of existing structure.** If the feature explicitly references an existing system, check that system's existing folder or main files. Read narrowly, not broadly.
+5. **`conversation_search`** — only when the user references something Claude should know about but doesn't fully describe ("the thing we discussed last week"). Search by topic keywords; don't paste long passages.
+6. **Never** read every file in the project. If you find yourself sweeping for context, stop and ask the user instead.
 
-Default to *less* reading, more asking. The specifier's job is to draw clarity from the user, not to reverse-engineer it from the codebase.
+Default to *less* reading, more asking. The specifier's job is to draw clarity from the user (and from any framework), not to reverse-engineer it from the codebase.
 
 ## Procedure
 
@@ -91,6 +122,7 @@ Run these phases in order. Some can be revisited as the conversation surfaces ne
 1. Read the user's opening prompt carefully. Identify:
    - The rough domain (auth, billing, UI, data pipeline, etc.).
    - Whether the feature appears to be **new**, an **extension** of something existing, or an **update** to something existing.
+   - **If a `<Feature>.framework.md` matches, let it answer these** — its Intent and Scope already state the domain and whether the feature extends existing systems, so use them instead of inferring cold.
 2. Check sibling directories of CLAUDE.md for existing feature folders with related names. If one looks like a match for what the user is describing:
    - Surface it to the user: "I see there's already an `auth-system` folder. Is this an extension of that, a new related feature, or something separate?"
    - If extension/update → propose a feature name that reflects the change. E.g. "add 2FA to auth" → `add-2fa-to-auth`, not `auth-system`.
@@ -99,7 +131,7 @@ Run these phases in order. Some can be revisited as the conversation surfaces ne
 
 ### Phase 2: Propose a feature name
 
-Propose a filesystem-friendly name based on the user's description and the project's language conventions.
+Propose a filesystem-friendly name based on the user's description (or the feature framework's title, if one exists) and the project's language conventions.
 
 Naming style follows the project's idioms:
 
@@ -119,11 +151,13 @@ Show the user the proposed name and the path where the folder will live. Wait fo
 
 ### Phase 3: Elicit the core feature
 
-Ask the user, in plain language, what the feature should do. The user's answer is the seed of the spec — get it in their own words first, before structuring.
+**If a feature framework exists:** don't elicit from scratch. Distil the numbered requirements from its *Design* and *Edge cases*, then present that translation and ask the user to confirm or correct it. Elicit fresh only for what the framework leaves open.
 
-Then identify the **discrete behaviors** the feature is supposed to support. These become the numbered requirements (R1, R2, ...) in the final spec. The planner depends on this numbering for its self-check.
+**If no framework exists:** ask the user, in plain language, what the feature should do. The user's answer is the seed of the spec — get it in their own words first, before structuring.
 
-If the user describes one behavior, ask whether there are others. If they describe many, group related ones together and confirm the grouping.
+Either way, identify the **discrete behaviors** the feature must support. These become the numbered requirements (R1, R2, ...) in the final spec. The planner depends on this numbering for its self-check.
+
+If the user (or framework) describes one behavior, ask whether there are others. If there are many, group related ones together and confirm the grouping.
 
 ### Phase 4: Probe — happy paths
 
@@ -133,11 +167,11 @@ For each requirement, ensure at least one happy path is described:
 - What's the input or trigger? Who or what initiates it?
 - What's the expected output or state change?
 
-Ask in batches. Don't drip-feed questions one at a time.
+If a framework supplied the happy path, confirm it rather than re-asking. Ask in batches. Don't drip-feed questions one at a time.
 
 ### Phase 5: Probe — negative paths and edge cases
 
-For each requirement, ensure the negative paths and edges are explored to a reasonable extent. These three framings are the floor:
+For each requirement, ensure the negative paths and edges are explored to a reasonable extent. **When a feature framework exists, its Edge cases are already decided — carry them in as negative/edge entries rather than re-asking, and probe only what it didn't cover plus its Open Questions.** These three framings are the floor:
 
 1. **At least one negative path per happy path.** What happens if a precondition fails, input is invalid, or the trigger fires when it shouldn't?
 2. **Boundary conditions.** What happens at limits — empty collections, max values, simultaneous operations, the system's first run, a freshly-empty database, etc.?
@@ -153,6 +187,8 @@ If the user says "that's not realistic" or "we'll never hit that case", capture 
 
 Ask the user explicitly: what is *not* part of this feature?
 
+**If a framework exists, its Boundaries & invariants are the starting boundary set.** Project-level invariants from `framework.md` are **hard constraints** — list them explicitly and never spec anything that violates them. If the user's boundary answers conflict with a framework invariant, surface it and let them choose (revise the spec, or amend the framework), as in Framework inputs.
+
 Common boundary questions:
 
 - "Should this also handle X?" where X is adjacent functionality the user might assume is included.
@@ -165,11 +201,10 @@ The goal is to prevent scope drift during implementation. Anything not in the sp
 
 Write the spec to a *draft location* first — do not commit to the feature folder yet. Use:
 
-```
 /tmp/spec-draft-<feature_name>.md
-```
 
-Follow the structure in `references/spec-format.md`.
+
+Follow the structure in `references/spec-format.md`. If the spec derives from framework files, name them in the Overview, and ensure **every framework invariant appears as an Assumption or Boundary** so downstream skills honor it.
 
 ### Phase 8: User review and sign-off
 
@@ -190,9 +225,8 @@ When the user signs off:
 3. Delete the /tmp draft.
 4. Tell the user the folder is ready and what happens next:
 
-```
 Created <feature_name>/Spec.md. The orchestrator will kick in automatically the next time you ask to implement this feature (e.g. "let's implement <feature_name>" or "kick off the build"). Use "implement normally" or "without orchestration" if you'd rather skip orchestration for this one.
-```
+
 
 The specifier's job is done. The orchestrator handles everything from here.
 
@@ -210,3 +244,5 @@ If the user gives feedback during a session that should become a standing rule, 
 - `references/probing-checklist.md` — concrete prompts for happy/negative/edge/boundary probing.
 - `references/project-context-section.md` — the structure of `## Project Context` in CLAUDE.md and how to write to it on first run.
 - `references/claude-md-behavior-section.md` — how the Skill Behaviors section in CLAUDE.md works, shared by all five generic skills.
+
+Note: `framework.md` and `<Feature>.framework.md` are **external inputs** produced by the `explorer` skill, not reference files owned by this skill. See "Framework inputs" above for how they're consumed.

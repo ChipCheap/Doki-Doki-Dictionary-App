@@ -1,7 +1,23 @@
 ---
 name: generic-implementer
-description: Implement a plan in any software project, with technical clarification before coding, immediate user check-ins on architectural ambiguity, post-implementation plan-coverage verification, and disciplined cleanup of unused code within the changeset. Use this skill whenever an implementer sub-agent is asked to execute a plan — typically spawned by the generic-orchestrator skill. Trigger on prompts like "implement this plan", "execute Plan.md", "you are the implementer for…", or any context where a Plan.md exists in a feature folder and the next step is to turn it into code. Activates when CLAUDE.md's Project Context section does NOT name Unity; if Unity context is present, this skill defers to unity-implementer. The output is the code itself on disk plus a structured summary the orchestrator can route onward.
+description: Implement a plan in any software project, with technical clarification before coding, immediate user check-ins on architectural ambiguity (including conflicts with the project's architecture.md), post-implementation plan-coverage verification, and disciplined cleanup of unused code within the changeset. Use this skill whenever an implementer sub-agent is asked to execute a plan — typically spawned by the generic-orchestrator skill. Trigger on prompts like "implement this plan", "execute Plan.md", "you are the implementer for…", or any context where a Plan.md exists in a feature folder and the next step is to turn it into code. Activates when CLAUDE.md's Project Context section does NOT name Unity; if Unity context is present, this skill defers to unity-implementer. The output is the code itself on disk plus a structured summary the orchestrator can route onward.
 ---
+
+## Always: read and respect CLAUDE.md
+
+At the **start of every run**, read `CLAUDE.md` fresh from disk. Do not
+rely on memory, a session summary, or an earlier read — it may hold coding
+guidelines, behavioral rules, or project conventions that changed
+mid-project, and those changes are easy to miss otherwise.
+
+Treat everything in it as **additive** to this skill: its rules apply on
+top of the skill's own instructions, they don't replace them. Honor its
+coding and behavioral guidelines in everything this skill produces.
+
+If a CLAUDE.md rule appears to **directly conflict** with a skill
+instruction, do not silently pick one — surface the conflict to the user
+and let them choose. Re-read CLAUDE.md if the session runs long or the user
+mentions changing project rules.
 
 # Generic Implementer
 
@@ -23,7 +39,7 @@ When spawned, the implementer receives:
 - The current outer iteration number.
 - On iteration > 1: the reviewer findings from the previous iteration (so the implementer knows which issues the new plan is meant to address).
 
-The implementer reads `Plan.md`, `Spec.md`, and the relevant source files itself from the feature folder and the project tree.
+The implementer reads `Plan.md`, `Spec.md`, the project's `architecture.md` (and any `<Feature>.architecture.md`) if present, and the relevant source files itself from the feature folder and the project tree.
 
 ## Procedure
 
@@ -33,8 +49,9 @@ Follow these phases in order.
 
 1. Read `Plan.md` fully.
 2. Read `CLAUDE.md` for project conventions. In particular, read the `## Project Context` section to learn the project's language, stack, and runtime — the implementation must follow idioms appropriate to that environment.
-3. Read `Spec.md` for context on *why* the plan exists, not to second-guess it. The plan is authoritative for what to implement; the spec is reference material.
-4. For each plan step, read the source files it touches. Do not start asking questions until you've actually looked at the relevant code.
+3. Read the project's `architecture.md` (and `<Feature>.architecture.md`, if present), next to `CLAUDE.md`. Optional (from the `architect` skill). When present, the implementation must conform to its **Guidelines** and **Decisions** — and you must **flag, not silently absorb**, any place the plan or a technical necessity would offend them (Phase 4).
+4. Read `Spec.md` for context on *why* the plan exists, not to second-guess it. The plan is authoritative for what to implement; the spec is reference material.
+5. For each plan step, read the source files it touches. Do not start asking questions until you've actually looked at the relevant code.
 
 If `CLAUDE.md` has no `## Project Context` section, stop and tell the user/orchestrator that the language hasn't been recorded — the implementer cannot produce idiomatic code without that fact. Do not guess from file extensions.
 
@@ -128,9 +145,10 @@ Notes are **strictly additive**. Do not edit existing step text. If the existing
 Walk through plan steps in the order given. For each step:
 
 1. **Apply the change** to the file(s) listed.
-2. **Watch for architectural ambiguity.** If at any point you're about to make a placement decision where the plan doesn't specify and the answer isn't obvious (e.g. "this new manager should live somewhere — Services/, Systems/, Managers/, or attached to a singleton object?"), **stop immediately and ask the user.** Do not finish the step and come back; the placement may cascade into later steps. See `references/architectural-pauses.md` for what counts as ambiguity worth pausing on.
+2. **Watch for architectural ambiguity.** If at any point you're about to make a placement decision where the plan doesn't specify and the answer isn't obvious (e.g. "this new manager should live somewhere — Services/, Systems/, Managers/, or attached to a singleton object?"), **stop immediately and ask the user.** Do not finish the step and come back; the placement may cascade into later steps. If an `architecture.md` exists, its **Structure** section is the first place to resolve placement — pause to the user only when the architecture doesn't answer it. See `references/architectural-pauses.md` for what counts as ambiguity worth pausing on.
 3. **Honor CLAUDE.md.** If a plan step would require violating CLAUDE.md, that's a plan dispute — stop and route to the planner.
-4. **Implement with language-appropriate idioms.** Follow best practices for the project's language and stack (per `## Project Context` in CLAUDE.md). General idioms — symmetric setup/teardown, caching, error handling, resource lifecycle — are in `references/implementation-idioms.md`. Language-specific idioms are part of the implementer's domain knowledge; apply them as you would in any project of that language.
+4. **Honor `architecture.md`.** If implementing a step as written — or a technical necessity you hit — would offend the architecture (violate a Guideline, cross a boundary, contradict a Decision), do **not** silently comply and do **not** silently violate. Stop and surface it to the user, naming which guideline/decision is offended and why the code needs to. The user decides: rework within the architecture, amend the architecture (via the `architect` skill), or accept a deliberate deviation. Record the outcome as a Technical note (Phase 3); if the resolution changes *what* to build, route it to the planner via `PlannerQuestions.md`.
+5. **Implement with language-appropriate idioms.** Follow best practices for the project's language and stack (per `## Project Context` in CLAUDE.md). General idioms — symmetric setup/teardown, caching, error handling, resource lifecycle — are in `references/implementation-idioms.md`. Language-specific idioms are part of the implementer's domain knowledge; apply them as you would in any project of that language.
 
 If a plan step turns out to be **impossible or wrong as written** during implementation, do not improvise. Write `PlannerQuestions.md`, stop, and hand back to the orchestrator for one planner round. (Trivial impossibilities — "the plan said use class X but X was renamed to Y" — can be implemented as written with a Technical note instead, since the user can confirm in Phase 3.)
 
@@ -173,6 +191,7 @@ Return to the orchestrator a structured summary with these sections:
 - **Unused-but-required (TODOs)** — list each element flagged for later, with file, member name, and the plan step that justifies keeping it.
 - **Culled** — list of dead members removed during Phase 6 (file + name). Helps the reviewer not wonder where something went.
 - **Deviations** — any place the implementation deviates from the plan, with the linked Technical note.
+- **Architecture conflicts** — any place implementation offended `architecture.md`, what was offended, and how it resolved (reworked / architecture amended / accepted deviation, with the linked Technical note). Empty if none. This is what lets the user see where they intervened and the reviewer tell approved deviations from un-approved ones.
 - **Open questions** — should be empty by this phase. If anything remains, hand back to the orchestrator with the open questions before reporting done.
 
 References to files inside the summary should be relative paths, so the user can navigate to them directly.

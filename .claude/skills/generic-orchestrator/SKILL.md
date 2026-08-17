@@ -3,6 +3,22 @@ name: generic-orchestrator
 description: Coordinate a planner → implementer → reviewer loop of sub-agents to implement a specified feature in any software project, with token-budget-aware checkpointing and escalation on anomalies. Use this skill whenever a feature folder containing a Spec.md exists alongside CLAUDE.md and the user is moving toward implementation — typically signaled by phrases like "let's implement this", "start the build", "kick off the cycle", or by the user pointing at a feature folder. Also use when the user says "continue with the last feature", "resume", or references a Handoff.md. Defers to unity-orchestrator if Unity context is present (Assets/ folder or Project Context names Unity). Orchestrated mode is the default when preconditions are met. Do NOT use this skill if the user explicitly opts out with phrases like "implement normally", "without orchestration", "skip the orchestration", or similar — in those cases hand control back to default planning behavior.
 ---
 
+## Always: read and respect CLAUDE.md
+
+At the **start of every run**, read `CLAUDE.md` fresh from disk. Do not
+rely on memory, a session summary, or an earlier read — it may hold coding
+guidelines, behavioral rules, or project conventions that changed
+mid-project, and those changes are easy to miss otherwise.
+
+Treat everything in it as **additive** to this skill: its rules apply on
+top of the skill's own instructions, they don't replace them. Honor its
+coding and behavioral guidelines in everything this skill produces.
+
+If a CLAUDE.md rule appears to **directly conflict** with a skill
+instruction, do not silently pick one — surface the conflict to the user
+and let them choose. Re-read CLAUDE.md if the session runs long or the user
+mentions changing project rules.
+
 # Generic Orchestrator
 
 A thin coordinator for the plan → implement → review cycle. This skill owns no domain logic — it spawns role-specific sub-agents, routes their outputs between them, watches the token budget, and escalates anomalies to the user. The actual work lives in the planner, implementer, and reviewer skills.

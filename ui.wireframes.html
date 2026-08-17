@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Doki-Doki Dictionary — UI wireframes</title>
+<style>
+:root{--pg:#F7F1E4;--pn:#FFFBF2;--tx:#2C231A;--t2:#6B5B48;--t3:#94836D;--br:rgba(44,35,26,.14);--ac:#B0703A;--acf:#fff;--acb:#F2E2D0;--mb:#F2DEDA;--mf:#8A544D;--hb:#E0E8D6;--hf:#4C5B3C;--doc:#fff;--doctx:#2C231A;--docm:#7a7268}
+@media (prefers-color-scheme:dark){
+:root{--pg:#1B1613;--pn:#262019;--tx:#F0E8DA;--t2:#B5A48D;--t3:#8A7B66;--br:rgba(240,232,218,.14);--ac:#D9A76A;--acf:#2C1F12;--acb:#3D2E1D;--mb:#4A3531;--mf:#E4C2BC;--hb:#3A452F;--hf:#CCDCB9;--doc:#141414;--doctx:#e8e6e3;--docm:#8d8880}}
+*{box-sizing:border-box}
+body{margin:0;padding:32px 20px 64px;background:var(--doc);color:var(--doctx);font:400 15px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:760px;margin:0 auto}
+h1{font-size:22px;font-weight:500;margin:0 0 6px}
+.note{color:var(--docm);font-size:13px;margin:0 0 36px;line-height:1.7}
+.lb{font-size:12px;color:var(--docm);margin:0 0 7px;text-transform:none}
+section{margin-bottom:34px}
+.mk{background:var(--pg);border-radius:12px;padding:14px 16px;color:var(--tx)}
+.cd{background:var(--pn);border:.5px solid var(--br);border-radius:10px;padding:13px 15px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (max-width:620px){.two{grid-template-columns:1fr}}
+.tg{font-size:11px;background:var(--acb);color:var(--ac);padding:2px 7px;border-radius:6px}
+.op{border:.5px solid var(--br);border-radius:8px;padding:7px 10px;font-size:13px}
+.bt{border:.5px solid var(--br);border-radius:8px;padding:6px 11px;font-size:12px;background:none;color:var(--tx);font-family:inherit}
+.pr{background:var(--ac);color:var(--acf);border:none;border-radius:8px;padding:7px 13px;font-size:13px;font-weight:500;font-family:inherit}
+.hl{padding:0 2px;border-radius:3px;font-weight:500}
+.row{border-top:.5px solid var(--br);padding:10px 0;display:flex;justify-content:space-between;align-items:center}
+.hd{display:flex;justify-content:space-between;font-size:11px;color:var(--t3);margin-bottom:12px}
+.pw{font-size:20px;font-weight:500;text-align:center;margin:12px 0 3px}
+.pp{font-size:12px;color:var(--t2);text-align:center;margin-bottom:13px}
+.sw{display:inline-block;width:8px;height:8px;border-radius:2px}
+.cap{font-size:12px;color:var(--docm);margin:7px 0 0;line-height:1.6}
+</style>
+</head>
+<body><div class="wrap">
+
+<h1>Doki-Doki Dictionary — UI wireframes</h1>
+<p class="note">Normative for <strong>structure and placement</strong> — what appears on each screen and where. Not normative for final spacing, type scale, or icon choice. Companion to <code>ui.framework.md</code>. Open in a browser; the page follows your OS light/dark setting so both themes can be checked.</p>
+
+<section>
+<p class="lb">Home</p>
+<div class="mk">
+<div style="display:flex;justify-content:flex-end;margin-bottom:14px"><span style="color:var(--t2);font-size:13px">settings · menu</span></div>
+
+<div style="display:flex;align-items:baseline;gap:9px;margin-bottom:8px">
+<span style="font-size:22px;font-weight:500">Vietnamese</span><span style="font-size:13px;color:var(--t3);letter-spacing:.06em">VI</span></div>
+<div class="cd">
+<div class="row" style="border-top:none;padding-top:0"><div><div style="font-size:14px">Everyday verbs ⌄</div>
+<div style="margin-top:5px;display:flex;gap:5px"><span class="tg">verbs</span><span class="tg">core</span></div></div>
+<button class="pr">Start session · 14</button></div>
+<div class="row"><div><div style="font-size:14px">Hobbies</div><div style="margin-top:5px"><span class="tg">leisure</span></div></div>
+<span style="font-size:12px;color:var(--t2)">next in 3 days</span></div>
+<div class="row" style="padding-bottom:0"><div style="font-size:14px">Kitchen</div>
+<span style="font-size:12px;color:var(--t2)">complete</span></div>
+</div>
+
+<div style="border-top:1px solid var(--br);margin:18px 0 16px"></div>
+
+<div style="display:flex;align-items:baseline;gap:9px;margin-bottom:8px">
+<span style="font-size:22px;font-weight:500">Spanish</span><span style="font-size:13px;color:var(--t3);letter-spacing:.06em">ES</span></div>
+<div class="cd">
+<div class="row" style="border-top:none;padding-top:0"><div><div style="font-size:14px">Basic vocabulary</div>
+<div style="margin-top:5px"><span class="tg">core</span></div></div>
+<button class="pr">Start session · 6</button></div>
+<div class="row" style="padding-bottom:0"><div style="font-size:14px">Finance</div>
+<span style="font-size:12px;color:var(--t2)">no words yet</span></div>
+</div>
+</div>
+<p class="cap">Every installed language at once, as stacked sections in a stable order — header, deck list, horizontal rule. No flag icons: Windows ships no flag glyphs, so they would degrade to letter pairs anyway. Each row carries name, tags, and one state-appropriate value. The four deck states are distinguishable at a glance; <strong>Complete</strong> is never rendered as <strong>Empty</strong>.</p>
+</section>
+
+<section>
+<p class="lb">Deck expanded — after clicking the name</p>
+<div class="mk"><div class="cd">
+<div style="font-size:15px;font-weight:500;margin-bottom:11px">Everyday verbs</div>
+<div style="display:flex;height:24px;border-radius:8px;overflow:hidden;margin-bottom:8px">
+<div style="flex:22;background:#C9BBA6"></div><div style="flex:35;background:#D9A76A"></div><div style="flex:28;background:#B0703A"></div><div style="flex:15;background:#6E4423"></div></div>
+<div style="display:flex;gap:13px;font-size:11px;color:var(--t2);flex-wrap:wrap">
+<span><span class="sw" style="background:#C9BBA6"></span> new 22</span>
+<span><span class="sw" style="background:#D9A76A"></span> learning 35</span>
+<span><span class="sw" style="background:#B0703A"></span> mature 28</span>
+<span><span class="sw" style="background:#6E4423"></span> mastered 15</span></div>
+<div style="margin-top:13px;display:flex;gap:8px"><button class="pr">Start session</button><button class="bt">Browse words</button></div>
+</div></div>
+<p class="cap">Distribution is hidden until the name is clicked. It runs light-to-dark through the brand, so a deck visibly fills with the app's colour as it is mastered. No percentage.</p>
+</section>
+
+<section>
+<p class="lb">New vocabulary — opens any session containing new words</p>
+<div class="mk"><div class="cd" style="max-width:420px;margin:0 auto">
+<div style="display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--t2);margin-bottom:14px">
+<span style="font-size:16px">←</span><span>2 of 8</span><span style="font-size:16px">→</span></div>
+<div style="text-align:center;padding:6px 0 14px">
+<div style="font-size:26px;font-weight:500">bệnh viện</div>
+<div style="font-size:12px;color:var(--t2);margin-top:6px">(noun) hospital, infirmary</div>
+<div style="font-size:11px;color:var(--t3);margin-top:4px">common · health</div></div>
+<div style="display:flex;gap:8px;justify-content:center">
+<button class="bt">Sentences</button></div>
+<div style="border-top:.5px solid var(--br);margin-top:14px;padding-top:11px">
+<div style="font-size:12px;color:var(--t2);margin-bottom:7px">Know this already?</div>
+<div style="display:flex;gap:6px;flex-wrap:wrap">
+<button class="bt">a bit</button><button class="bt">well</button><button class="bt">very well</button><button class="bt">Don't study</button></div>
+<div style="font-size:11px;color:var(--t3);margin-top:8px">Any of these swaps in another new word.</div></div>
+<div style="margin-top:14px;display:flex;justify-content:flex-end"><button class="pr">Start quiz</button></div>
+</div></div>
+<p class="cap">New words are never sprung as an unanswerable question. No images, and no audio in v1 — only the seam where playback would attach, with no control rendered. The already-known row maps to levels 2 / 5 / 8, and <em>Don't study</em> hides the word. Abandoning the preview writes nothing.</p>
+</section>
+
+<section>
+<p class="lb">Quiz — recognition, multiple choice</p>
+<div class="mk"><div class="two">
+<div class="cd">
+<div class="hd"><span>4 of 20</span><span>I don't know</span></div>
+<div class="pw">nhà thờ</div><div class="pp">noun</div>
+<div style="display:flex;flex-direction:column;gap:6px">
+<div class="op"><span style="color:var(--t3)">1</span>&nbsp; product</div>
+<div class="op"><span style="color:var(--t3)">2</span>&nbsp; parents</div>
+<div class="op"><span style="color:var(--t3)">3</span>&nbsp; church</div>
+<div class="op"><span style="color:var(--t3)">4</span>&nbsp; meeting</div></div></div>
+<div class="cd">
+<div style="font-size:12px;color:var(--ac);margin-bottom:9px">correct <span style="color:var(--t3)">· level 4 → 5 · back in 14 days</span></div>
+<div style="font-size:15px;font-weight:500">bệnh viện</div>
+<div style="font-size:12px;color:var(--t2);margin:2px 0 7px">noun · common · health</div>
+<div style="font-size:13px">hospital</div>
+<div style="font-size:12px;color:var(--t2);margin-top:9px;line-height:1.6">Tôi phải đến bệnh viện.<br><span style="color:var(--t3)">I have to go to the hospital.</span></div>
+<div style="margin-top:11px;font-size:11px;color:var(--t3)">mastery <span style="border:.5px solid var(--br);border-radius:6px;padding:1px 6px">5</span></div>
+</div></div></div>
+<p class="cap">The right pane holds the <em>previous</em> word — correct answers advance instantly, so the entry just earned stays readable while the next question is answered. Four options, numbered for <code>1</code>–<code>4</code>. Options shuffled and distractors re-drawn on every presentation.</p>
+</section>
+
+<section>
+<p class="lb">Quiz — production, typed · field autofocused, help on hover</p>
+<div class="mk"><div class="two">
+<div class="cd">
+<div class="hd"><span>5 of 20</span><span>I don't know</span></div>
+<div class="pw">to betray</div><div class="pp">verb</div>
+<div style="display:flex;align-items:center;gap:7px">
+<div style="flex:1;border:.5px solid var(--ac);box-shadow:0 0 0 2px var(--acb);border-radius:8px;padding:8px 10px;font-size:14px">phan boi<span style="color:var(--ac)">|</span></div>
+<span style="font-size:15px;color:var(--t3)">⌨</span></div>
+<div style="margin-top:7px;margin-left:auto;width:fit-content;background:var(--acb);color:var(--ac);font-size:11px;padding:4px 8px;border-radius:6px">Need Vietnamese input?</div>
+</div>
+<div class="cd">
+<div style="font-size:12px;color:var(--t2);margin-bottom:9px">not quite</div>
+<div style="font-size:11px;color:var(--t3)">you typed</div>
+<div style="font-size:17px;margin:2px 0 7px">ph<span class="hl" style="background:var(--mb);color:var(--mf)">a</span>n b<span class="hl" style="background:var(--mb);color:var(--mf)">o</span>i</div>
+<div style="font-size:11px;color:var(--t3)">answer</div>
+<div style="font-size:17px;margin:2px 0 11px">ph<span class="hl" style="background:var(--hb);color:var(--hf)">ả</span>n b<span class="hl" style="background:var(--hb);color:var(--hf)">ộ</span>i</div>
+<div style="display:flex;gap:6px">
+<button class="bt">Mark correct <span style="color:var(--t3)">m</span></button>
+<button class="bt">Redo question <span style="color:var(--t3)">r</span></button></div>
+<div style="font-size:11px;color:var(--t3);margin-top:9px">Enter → continue, level 6 → 5</div>
+</div></div></div>
+<p class="cap">Focus ring shown deliberately: the field is focused the moment the card appears. Per-character highlight applies only when diacritics are the sole difference, and encodes it by background and weight as well as colour. Help is on demand — hover on desktop, tap on mobile.</p>
+</section>
+
+<section>
+<p class="lb">Settings — live preview beside each control</p>
+<div class="mk"><div class="cd">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:center;padding-bottom:11px;border-bottom:.5px solid var(--br)">
+<div><div style="font-size:13px">Text size</div><input type="range" min="1" max="5" value="3" style="width:100%;margin-top:6px"></div>
+<div style="background:var(--pg);border-radius:8px;padding:7px 10px;text-align:center"><div style="font-size:18px">phản bội</div><div style="font-size:11px;color:var(--t3)">preview</div></div></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:center;padding:11px 0;border-bottom:.5px solid var(--br)">
+<div><div style="font-size:13px">Font</div>
+<div style="margin-top:5px;display:flex;flex-wrap:wrap;gap:4px">
+<span style="font-size:11px;border:.5px solid var(--ac);color:var(--ac);padding:2px 7px;border-radius:6px">Noto Sans</span>
+<span style="font-size:11px;border:.5px solid var(--br);color:var(--t2);padding:2px 7px;border-radius:6px">Inter</span>
+<span style="font-size:11px;border:.5px solid var(--br);color:var(--t2);padding:2px 7px;border-radius:6px">Roboto</span>
+<span style="font-size:11px;border:.5px solid var(--br);color:var(--t2);padding:2px 7px;border-radius:6px">Open Sans</span>
+<span style="font-size:11px;border:.5px solid var(--br);color:var(--t2);padding:2px 7px;border-radius:6px">Source Sans 3</span></div></div>
+<div style="background:var(--pg);border-radius:8px;padding:7px 10px;text-align:center"><div style="font-size:18px">ế ộ ữ ẳ</div><div style="font-size:11px;color:var(--t3)">stacked marks</div></div></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:center;padding-top:11px">
+<div style="font-size:13px">Dark mode</div>
+<div style="display:flex;gap:6px">
+<div style="flex:1;background:#F7F1E4;color:#2C231A;border-radius:8px;padding:8px;text-align:center;font-size:14px">phản bội</div>
+<div style="flex:1;background:#1B1613;color:#F0E8DA;border-radius:8px;padding:8px;text-align:center;font-size:14px">phản bội</div></div></div>
+</div></div>
+<p class="cap">Previews sit beside their control and update live — the user never visits a quiz to judge a setting. Previews use stacked-mark test text so a font's failures show rather than a flattering word. Font list is curated for Vietnamese coverage, never free entry.</p>
+</section>
+
+<section>
+<p class="lb">Palette</p>
+<div class="mk">
+<div style="display:flex;flex-wrap:wrap;gap:8px;font-size:11px">
+<div style="background:#B0703A;color:#fff;padding:8px 11px;border-radius:8px">brand light #B0703A</div>
+<div style="background:#D9A76A;color:#2C1F12;padding:8px 11px;border-radius:8px">brand dark #D9A76A</div>
+<div style="background:#F7F1E4;color:#2C231A;padding:8px 11px;border-radius:8px">page light #F7F1E4</div>
+<div style="background:#1B1613;color:#F0E8DA;padding:8px 11px;border-radius:8px">page dark #1B1613</div>
+<div style="background:#F2DEDA;color:#8A544D;padding:8px 11px;border-radius:8px">miss light</div>
+<div style="background:#4A3531;color:#E4C2BC;padding:8px 11px;border-radius:8px">miss dark</div>
+<div style="background:#E0E8D6;color:#4C5B3C;padding:8px 11px;border-radius:8px">hit light</div>
+<div style="background:#3A452F;color:#CCDCB9;padding:8px 11px;border-radius:8px">hit dark</div>
+</div></div>
+<p class="cap">The brand is a pair, not a value — light mode needs it dark enough to carry white button text, dark mode light enough to read against near-black. Mismatch tones stay desaturated; saturated red and green shout louder than the information warrants.</p>
+</section>
+
+</div></body></html>
