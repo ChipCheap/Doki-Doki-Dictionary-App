@@ -1,0 +1,164 @@
+{
+  "schemaVersion": 1,
+  "packVersion": "seed-0.1.0",
+  "language": "es",
+  "baseLanguage": "en",
+  "entries": [
+    {
+      "key": "es:banco:noun:1",
+      "meanings": ["bank"],
+      "exampleTranslations": {
+        "es-banco-1a": "I'm going to the bank.",
+        "es-banco-1b": "The bank is closed today."
+      }
+    },
+    {
+      "key": "es:banco:noun:2",
+      "meanings": ["bench"],
+      "exampleTranslations": { "es-banco-2a": "I sit on the bench." }
+    },
+    {
+      "key": "es:casa:noun:1",
+      "meanings": ["house", "home"],
+      "exampleTranslations": {
+        "es-casa-1a": "This is my house.",
+        "es-casa-1b": "The house is big."
+      }
+    },
+    {
+      "key": "es:salir:verb:1",
+      "meanings": ["to leave", "to go out"],
+      "exampleTranslations": {
+        "es-salir-1a": "I want to leave now.",
+        "es-salir-1b": "We leave at eight."
+      }
+    },
+    {
+      "key": "es:dejar:verb:1",
+      "meanings": ["to leave", "to let"],
+      "exampleTranslations": {
+        "es-dejar-1a": "I'm going to leave the book here.",
+        "es-dejar-1b": "I don't want to leave my job."
+      }
+    },
+    {
+      "key": "es:agua:noun:1",
+      "meanings": ["water"],
+      "exampleTranslations": {
+        "es-agua-1a": "The water is cold.",
+        "es-agua-1b": "I want a glass of water."
+      }
+    },
+    {
+      "key": "es:comer:verb:1",
+      "meanings": ["to eat"],
+      "exampleTranslations": {
+        "es-comer-1a": "Let's eat.",
+        "es-comer-1b": "I don't want to eat now."
+      }
+    },
+    {
+      "key": "es:libro:noun:1",
+      "meanings": ["book"],
+      "exampleTranslations": {
+        "es-libro-1a": "I'm reading a book.",
+        "es-libro-1b": "The book is very long."
+      }
+    },
+    {
+      "key": "es:mesa:noun:1",
+      "meanings": ["table"],
+      "exampleTranslations": {
+        "es-mesa-1a": "The book is on the table.",
+        "es-mesa-1b": "The table is wooden."
+      }
+    },
+    {
+      "key": "es:silla:noun:1",
+      "meanings": ["chair"],
+      "exampleTranslations": {
+        "es-silla-1a": "The chair is new.",
+        "es-silla-1b": "There are four chairs."
+      }
+    },
+    {
+      "key": "es:sí:adverb:1",
+      "meanings": ["yes"],
+      "exampleTranslations": {
+        "es-si-1a": "Yes, of course.",
+        "es-si-1b": "He said yes."
+      }
+    },
+    {
+      "key": "es:si:conjunction:1",
+      "meanings": ["if"],
+      "exampleTranslations": {
+        "es-si-2a": "If you want, let's go.",
+        "es-si-2b": "I don't know if he's coming."
+      }
+    },
+    {
+      "key": "es:tres:numeral:1",
+      "meanings": ["three"],
+      "exampleTranslations": {
+        "es-tres-1a": "I have three books.",
+        "es-tres-1b": "It's three o'clock."
+      }
+    },
+    {
+      "key": "es:trabajo:noun:1",
+      "meanings": ["work", "job"],
+      "exampleTranslations": {
+        "es-trabajo-1a": "I'm going to work.",
+        "es-trabajo-1b": "It's a difficult job."
+      }
+    },
+    {
+      "key": "es:dinero:noun:1",
+      "meanings": ["money"],
+      "exampleTranslations": {
+        "es-dinero-1a": "I don't have money.",
+        "es-dinero-1b": "The money is in the bank."
+      }
+    },
+    {
+      "key": "es:hospital:noun:1",
+      "meanings": ["hospital"],
+      "exampleTranslations": {
+        "es-hospital-1a": "I have to go to the hospital.",
+        "es-hospital-1b": "The hospital is nearby."
+      }
+    },
+    {
+      "key": "es:pequeño:adjective:1",
+      "meanings": ["small", "little"],
+      "exampleTranslations": {
+        "es-pequeno-1a": "It's a small book.",
+        "es-pequeno-1b": "The house is small."
+      }
+    },
+    {
+      "key": "es:rápido:adjective:1",
+      "meanings": ["fast", "quick"],
+      "exampleTranslations": {
+        "es-rapido-1a": "It's a fast car.",
+        "es-rapido-1b": "He speaks very fast."
+      }
+    },
+    {
+      "key": "es:presupuesto:noun:1",
+      "meanings": ["budget"],
+      "exampleTranslations": {
+        "es-presupuesto-1a": "The budget is very high.",
+        "es-presupuesto-1b": "We need a new budget."
+      }
+    },
+    {
+      "key": "es:melancolía:noun:1",
+      "meanings": ["melancholy"],
+      "exampleTranslations": {
+        "es-melancolia-1a": "He feels a great melancholy."
+      }
+    }
+  ]
+}

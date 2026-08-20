@@ -5,7 +5,7 @@
 **Visual reference:** `ui.wireframes.html`, next to this file. It is
 **normative for structure and placement** — what appears on each screen and
 where — and **not normative** for final spacing, type scale, or icon choice.
-**Colour reference:** `ui.theme.css` — the role vocabulary and the default
+**Colour reference:** `src/ui/theme.css` — the role vocabulary and the default
 palette, documented per role.
 
 ---
@@ -183,7 +183,7 @@ The ladder distribution runs light-to-dark through that same brand, so a deck
 visibly fills with the app's colour as it is mastered.
 
 **Colour is data, not code.** Every value lives in **one swappable stylesheet**
-(`ui.theme.css` is the reference), as named custom properties with a comment on
+(`src/ui/theme.css` is the reference), as named custom properties with a comment on
 each explaining what the role is *for* — `--brand`, `--miss-bg`, `--bucket-new`
 — never what it looks like. No component may contain a literal colour, so
 re-skinning the app is exchanging one file and touching nothing else.

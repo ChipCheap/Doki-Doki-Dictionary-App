@@ -1,0 +1,229 @@
+{
+  "schemaVersion": 1,
+  "packVersion": "seed-0.1.0",
+  "language": "vi",
+  "languageName": "Vietnamese",
+  "sources": [
+    {
+      "name": "TEST FIXTURE — not sourced data",
+      "licence": "none",
+      "url": "https://github.com/ChipCheap/Doki-Doki-Dictionary-App"
+    }
+  ],
+  "entries": [
+    {
+      "key": "vi:nhà:noun:1",
+      "term": "nhà",
+      "partOfSpeech": "noun",
+      "difficulty": "basic",
+      "contextTags": [],
+      "examples": [
+        { "id": "vi-nha-1a", "text": "Đây là nhà tôi." },
+        { "id": "vi-nha-1b", "text": "Nhà rất lớn." }
+      ]
+    },
+    {
+      "key": "vi:nước:noun:1",
+      "term": "nước",
+      "partOfSpeech": "noun",
+      "difficulty": "basic",
+      "contextTags": [],
+      "examples": [
+        { "id": "vi-nuoc-1a", "text": "Nước rất lạnh." },
+        { "id": "vi-nuoc-1b", "text": "Tôi muốn uống nước." }
+      ]
+    },
+    {
+      "key": "vi:ăn:verb:1",
+      "term": "ăn",
+      "partOfSpeech": "verb",
+      "difficulty": "basic",
+      "contextTags": ["food"],
+      "examples": [
+        { "id": "vi-an-1a", "text": "Tôi ăn cơm." },
+        { "id": "vi-an-1b", "text": "Chúng ta đi ăn." }
+      ]
+    },
+    {
+      "key": "vi:sách:noun:1",
+      "term": "sách",
+      "partOfSpeech": "noun",
+      "difficulty": "basic",
+      "contextTags": [],
+      "examples": [
+        { "id": "vi-sach-1a", "text": "Tôi đọc sách." },
+        { "id": "vi-sach-1b", "text": "Quyển sách rất hay." }
+      ]
+    },
+    {
+      "key": "vi:bàn:noun:1",
+      "term": "bàn",
+      "partOfSpeech": "noun",
+      "difficulty": "basic",
+      "contextTags": [],
+      "examples": [
+        { "id": "vi-ban-1a", "text": "Sách ở trên bàn." },
+        { "id": "vi-ban-1b", "text": "Cái bàn màu nâu." }
+      ]
+    },
+    {
+      "key": "vi:bàn:verb:1",
+      "term": "bàn",
+      "partOfSpeech": "verb",
+      "difficulty": "common",
+      "contextTags": ["work"],
+      "examples": [{ "id": "vi-ban-2a", "text": "Chúng ta cần bàn về việc này." }]
+    },
+    {
+      "key": "vi:ghế:noun:1",
+      "term": "ghế",
+      "partOfSpeech": "noun",
+      "difficulty": "basic",
+      "contextTags": [],
+      "examples": [
+        { "id": "vi-ghe-1a", "text": "Cái ghế mới." },
+        { "id": "vi-ghe-1b", "text": "Có bốn cái ghế." }
+      ]
+    },
+    {
+      "key": "vi:bệnh viện:noun:1",
+      "term": "bệnh viện",
+      "partOfSpeech": "noun",
+      "difficulty": "common",
+      "contextTags": ["health"],
+      "examples": [
+        { "id": "vi-benhvien-1a", "text": "Tôi phải đến bệnh viện." },
+        { "id": "vi-benhvien-1b", "text": "Bệnh viện ở gần đây." }
+      ]
+    },
+    {
+      "key": "vi:phản bội:verb:1",
+      "term": "phản bội",
+      "partOfSpeech": "verb",
+      "difficulty": "advanced",
+      "contextTags": [],
+      "examples": [
+        { "id": "vi-phanboi-1a", "text": "Anh ấy phản bội bạn mình." }
+      ]
+    },
+    {
+      "key": "vi:nhà thờ:noun:1",
+      "term": "nhà thờ",
+      "partOfSpeech": "noun",
+      "difficulty": "common",
+      "contextTags": [],
+      "examples": [
+        { "id": "vi-nhatho-1a", "text": "Nhà thờ rất cũ." },
+        { "id": "vi-nhatho-1b", "text": "Tôi đi đến nhà thờ." }
+      ]
+    },
+    {
+      "key": "vi:tiền:noun:1",
+      "term": "tiền",
+      "partOfSpeech": "noun",
+      "difficulty": "common",
+      "contextTags": ["finance"],
+      "examples": [
+        { "id": "vi-tien-1a", "text": "Tôi không có tiền." },
+        { "id": "vi-tien-1b", "text": "Tiền ở trong túi." }
+      ]
+    },
+    {
+      "key": "vi:công việc:noun:1",
+      "term": "công việc",
+      "partOfSpeech": "noun",
+      "difficulty": "common",
+      "contextTags": ["work"],
+      "examples": [
+        { "id": "vi-congviec-1a", "text": "Công việc rất khó." },
+        { "id": "vi-congviec-1b", "text": "Tôi thích công việc này." }
+      ]
+    },
+    {
+      "key": "vi:ba:numeral:1",
+      "term": "ba",
+      "partOfSpeech": "numeral",
+      "difficulty": "basic",
+      "contextTags": [],
+      "sequence": { "group": "number", "ordinal": 3 },
+      "examples": [
+        { "id": "vi-ba-1a", "text": "Tôi có ba quyển sách." },
+        { "id": "vi-ba-1b", "text": "Ba giờ chiều." }
+      ]
+    },
+    {
+      "key": "vi:đá:noun:1",
+      "term": "đá",
+      "partOfSpeech": "noun",
+      "difficulty": "common",
+      "contextTags": [],
+      "examples": [
+        { "id": "vi-da-1a", "text": "Hòn đá rất nặng." },
+        { "id": "vi-da-1b", "text": "Nhà làm bằng đá." }
+      ]
+    },
+    {
+      "key": "vi:đá:verb:1",
+      "term": "đá",
+      "partOfSpeech": "verb",
+      "difficulty": "common",
+      "contextTags": [],
+      "examples": [{ "id": "vi-da-2a", "text": "Anh ấy đá bóng." }]
+    },
+    {
+      "key": "vi:nhỏ:adjective:1",
+      "term": "nhỏ",
+      "partOfSpeech": "adjective",
+      "difficulty": "basic",
+      "contextTags": [],
+      "examples": [
+        { "id": "vi-nho-1a", "text": "Nhà rất nhỏ." },
+        { "id": "vi-nho-1b", "text": "Quyển sách nhỏ." }
+      ]
+    },
+    {
+      "key": "vi:nhanh:adjective:1",
+      "term": "nhanh",
+      "partOfSpeech": "adjective",
+      "difficulty": "common",
+      "contextTags": [],
+      "examples": [
+        { "id": "vi-nhanh-1a", "text": "Anh ấy nói rất nhanh." },
+        { "id": "vi-nhanh-1b", "text": "Xe rất nhanh." }
+      ]
+    },
+    {
+      "key": "vi:rời:verb:1",
+      "term": "rời",
+      "partOfSpeech": "verb",
+      "difficulty": "common",
+      "contextTags": [],
+      "examples": [
+        { "id": "vi-roi-1a", "text": "Tôi phải rời đây." },
+        { "id": "vi-roi-1b", "text": "Chúng tôi rời nhà lúc tám giờ." }
+      ]
+    },
+    {
+      "key": "vi:bỏ:verb:1",
+      "term": "bỏ",
+      "partOfSpeech": "verb",
+      "difficulty": "common",
+      "contextTags": [],
+      "examples": [
+        { "id": "vi-bo-1a", "text": "Tôi không muốn bỏ công việc." },
+        { "id": "vi-bo-1b", "text": "Anh ấy bỏ sách ở đây." }
+      ]
+    },
+    {
+      "key": "vi:ngân sách:noun:1",
+      "term": "ngân sách",
+      "partOfSpeech": "noun",
+      "difficulty": "advanced",
+      "contextTags": ["finance", "work"],
+      "examples": [
+        { "id": "vi-ngansach-1a", "text": "Ngân sách rất lớn." },
+        { "id": "vi-ngansach-1b", "text": "Chúng tôi cần ngân sách mới." }
+      ]
+    }
+  ]
+}

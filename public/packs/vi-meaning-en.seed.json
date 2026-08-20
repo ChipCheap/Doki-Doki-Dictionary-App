@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "packVersion": "seed-0.1.0",
+  "language": "vi",
+  "baseLanguage": "en",
+  "entries": [
+    {
+      "key": "vi:nhà:noun:1",
+      "meanings": ["house", "home"],
+      "exampleTranslations": {
+        "vi-nha-1a": "This is my house.",
+        "vi-nha-1b": "The house is very big."
+      }
+    },
+    {
+      "key": "vi:nước:noun:1",
+      "meanings": ["water"],
+      "exampleTranslations": {
+        "vi-nuoc-1a": "The water is very cold.",
+        "vi-nuoc-1b": "I want to drink water."
+      }
+    },
+    {
+      "key": "vi:ăn:verb:1",
+      "meanings": ["to eat"],
+      "exampleTranslations": {
+        "vi-an-1a": "I eat rice.",
+        "vi-an-1b": "Let's go eat."
+      }
+    },
+    {
+      "key": "vi:sách:noun:1",
+      "meanings": ["book"],
+      "exampleTranslations": {
+        "vi-sach-1a": "I read a book.",
+        "vi-sach-1b": "The book is very good."
+      }
+    },
+    {
+      "key": "vi:bàn:noun:1",
+      "meanings": ["table"],
+      "exampleTranslations": {
+        "vi-ban-1a": "The book is on the table.",
+        "vi-ban-1b": "The table is brown."
+      }
+    },
+    {
+      "key": "vi:bàn:verb:1",
+      "meanings": ["to discuss"],
+      "exampleTranslations": { "vi-ban-2a": "We need to discuss this matter." }
+    },
+    {
+      "key": "vi:ghế:noun:1",
+      "meanings": ["chair"],
+      "exampleTranslations": {
+        "vi-ghe-1a": "The chair is new.",
+        "vi-ghe-1b": "There are four chairs."
+      }
+    },
+    {
+      "key": "vi:bệnh viện:noun:1",
+      "meanings": ["hospital"],
+      "exampleTranslations": {
+        "vi-benhvien-1a": "I have to go to the hospital.",
+        "vi-benhvien-1b": "The hospital is nearby."
+      }
+    },
+    {
+      "key": "vi:phản bội:verb:1",
+      "meanings": ["to betray"],
+      "exampleTranslations": { "vi-phanboi-1a": "He betrayed his friend." }
+    },
+    {
+      "key": "vi:nhà thờ:noun:1",
+      "meanings": ["church"],
+      "exampleTranslations": {
+        "vi-nhatho-1a": "The church is very old.",
+        "vi-nhatho-1b": "I go to the church."
+      }
+    },
+    {
+      "key": "vi:tiền:noun:1",
+      "meanings": ["money"],
+      "exampleTranslations": {
+        "vi-tien-1a": "I don't have money.",
+        "vi-tien-1b": "The money is in the bag."
+      }
+    },
+    {
+      "key": "vi:công việc:noun:1",
+      "meanings": ["work", "job"],
+      "exampleTranslations": {
+        "vi-congviec-1a": "The work is very difficult.",
+        "vi-congviec-1b": "I like this job."
+      }
+    },
+    {
+      "key": "vi:ba:numeral:1",
+      "meanings": ["three"],
+      "exampleTranslations": {
+        "vi-ba-1a": "I have three books.",
+        "vi-ba-1b": "Three in the afternoon."
+      }
+    },
+    {
+      "key": "vi:đá:noun:1",
+      "meanings": ["stone"],
+      "exampleTranslations": {
+        "vi-da-1a": "The stone is very heavy.",
+        "vi-da-1b": "The house is made of stone."
+      }
+    },
+    {
+      "key": "vi:đá:verb:1",
+      "meanings": ["to kick"],
+      "exampleTranslations": { "vi-da-2a": "He kicks the ball." }
+    },
+    {
+      "key": "vi:nhỏ:adjective:1",
+      "meanings": ["small", "little"],
+      "exampleTranslations": {
+        "vi-nho-1a": "The house is very small.",
+        "vi-nho-1b": "A small book."
+      }
+    },
+    {
+      "key": "vi:nhanh:adjective:1",
+      "meanings": ["fast", "quick"],
+      "exampleTranslations": {
+        "vi-nhanh-1a": "He speaks very fast.",
+        "vi-nhanh-1b": "The car is very fast."
+      }
+    },
+    {
+      "key": "vi:rời:verb:1",
+      "meanings": ["to leave"],
+      "exampleTranslations": {
+        "vi-roi-1a": "I have to leave here.",
+        "vi-roi-1b": "We leave home at eight."
+      }
+    },
+    {
+      "key": "vi:bỏ:verb:1",
+      "meanings": ["to leave", "to abandon"],
+      "exampleTranslations": {
+        "vi-bo-1a": "I don't want to leave the job.",
+        "vi-bo-1b": "He leaves the book here."
+      }
+    },
+    {
+      "key": "vi:ngân sách:noun:1",
+      "meanings": ["budget"],
+      "exampleTranslations": {
+        "vi-ngansach-1a": "The budget is very large.",
+        "vi-ngansach-1b": "We need a new budget."
+      }
+    }
+  ]
+}

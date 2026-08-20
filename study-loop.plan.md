@@ -79,11 +79,17 @@ Slice 1 of 2. Delivers a shippable app: install a language, build a deck, study 
 **Description:** Given the correct entry and candidate pools (deck members first, wider dictionary second), pick three distractors sharing the correct answer's part of speech and **excluding any entry sharing its target term**. Degradation ladder when the pools are too thin: same part of speech → any part of speech → fewer options, minimum two. Never fails. Options are shuffled and distractors re-drawn on every presentation, so a repeated card never shows the same set.
 **Rationale:** The degradation ladder exists for the 20-word seed pack, where three same-part-of-speech nouns may simply not exist. Real packs should never reach past the first rung.
 
+**Technical note:** `shuffle` and `randomOf` live in `src/domain/random.ts` rather than here. `session` needs to shuffle its queue, and having it import from `distractors` to do so would be the wrong dependency between two unrelated concerns.
+
 ### S6: Session composition
 **Covers:** G7, G8, G9, G10, G12, G4
 **Files:** `src/domain/session.ts` (new)
 **Description:** A pure function taking a deck's members, their progress, the deck settings and today, returning an ordered queue. Reviews are cards due on or before today, ordered by `today − dueDay` descending, ties arbitrary. New words are un-introduced deck members chosen by **weighted random sampling over difficulty tier without replacement** — Basic heaviest through Niche lightest — capped by the deck's new-words-per-day budget minus the count of deck members already introduced today. **New words fill the session first**, reviews take the remainder, up to the deck's card cap. **Each word yields exactly one card.** Vector selection considers **only the vectors actually due**: if one is due it is served; if several are due the one with the lower level wins, ties broken randomly. A vector that is not due is never a candidate, whatever its level. Mastered words (level 9) are excluded unless the deck's re-query setting is on. Also exposes the re-query queue mechanics: a second queue worked after the first empties, with cards that fail again returning to it, so it terminates only on a correct answer or an explicit clear.
 **Rationale:** One-word-one-card is what keeps the new-word budget honest — otherwise "5 new words" would mean 10 cards and crowd out every review.
+
+**Technical note:** An un-quizzed vector of an introduced word takes `introducedOn` as its due day, not today. Introduction is what makes every vector live, so that is genuinely when it became due. Without this it would rank as zero-overdue while always winning the lowest-level pick — so the most neglected words in a deck would be the first ones cut when the cap bites.
+
+**Technical note:** Selection is ordered by overdue; **presentation is then shuffled**. The two are separate concerns: the ordering decides which reviews survive the card cap, and the shuffle stops new words arriving bunched at the front where the hardest cards would all land least warmed up.
 
 ### S7: Deck state determination
 **Covers:** G13
@@ -92,8 +98,10 @@ Slice 1 of 2. Delivers a shippable app: install a language, build a deck, study 
 
 ### S8: Database schema
 **Covers:** G32
-**Files:** `src/progress/db.ts` (new), `src/dictionary/db.ts` (new)
+**Files:** `src/database.ts` (new), `src/dictionary/schema.ts` (new), `src/progress/schema.ts` (new)
 **Description:** One Dexie database, with `dictionary` and `progress` each declaring their own stores so ownership is visible in code. Dictionary side: `entries` keyed by word key, indexed on part of speech, target term, and meaning. Progress side: `progress` keyed by `[wordKey, vectorId]` and **indexed on `dueDay`**; `words` holding `introducedOn` and `hidden` per word key; `decks`; `settings`; `packs` holding installed-pack metadata and the ready flag. Migrations are declared as cumulative Dexie versions from the first schema onward and are never destructive.
+
+**Technical note:** Three files, not two. Each module declares the stores it owns in its own `schema.ts`, but Dexie needs a **single connection** with every store declared together — and putting that in either module would force it to import the other's schema, creating precisely the `dictionary ↔ progress` dependency the four-module split exists to prevent. So the connection sits above both in `src/database.ts`. Named `database` and `schema` rather than three files called `db.ts`, which hid the fact that they do different jobs.
 
 ### S9: Pack format types and validation
 **Covers:** G24
@@ -139,6 +147,8 @@ Slice 1 of 2. Delivers a shippable app: install a language, build a deck, study 
 **Covers:** G30
 **Files:** `src/progress/transfer.ts` (new)
 **Description:** Export everything the `progress` module owns — levels, due days, `introducedOn`, hidden words, decks with their recipes, settings, the revision marker — as one JSON document with a schema version. **The dictionary is never exported**; it is reproducible from the pack. Import validates the document, rejects a newer schema version by name, and otherwise **replaces local progress entirely** after explicit confirmation. Both directions report counts.
+
+**Technical note:** A profile with no settings block imports successfully, applying stored defaults, rather than being rejected. An older export or a hand-edited file legitimately lacks it — and failing the whole import over a missing optional section would punish exactly the hand-editability `framework.md` asked for. Missing *progress*, *words* or *decks* is still a hard rejection: those are the payload.
 
 ### S17: First run and pack install screen
 **Covers:** G25, G27
@@ -305,3 +315,19 @@ Slice 1 of 2. Delivers a shippable app: install a language, build a deck, study 
 - **G30 satisfied when:** export then wipe then import restores identical levels, due days, decks and settings, and an import from a newer schema version is refused by name.
 - **G31 satisfied when:** `persist()` is requested at startup and a declined update is not re-offered on the next visit.
 - **G32 satisfied when:** `domain` imports nothing from the other three modules and no screen touches storage directly.
+
+---
+
+## Open points
+
+Deliberately parked for review at the end of the slice. **None blocks UI work** —
+each degrades to something usable in the meantime.
+
+| # | Point | Current state | Why it can wait |
+|---|---|---|---|
+| O1 | **Font files.** H2 calls for self-hosted `.woff2` for the five curated faces; binaries cannot be authored here. | Font stacks name all five with system fallbacks. | The settings picker works; text renders in a fallback face. Only the Vietnamese-coverage guarantee is unproven until the real files land. |
+| O2 | **PWA icons.** `icon-192.png` and `icon-512.png`, same problem — and the 512 needs its subject inside the maskable safe zone, which is a design call. | Referenced by the manifest, files absent. | Dev and build run without them; only installability is affected. |
+| O3 | **Seed pack content is authored, not sourced.** Both packs are labelled `TEST FIXTURE — not sourced data`. | 20 words per language, chosen to exercise the hard paths. | It proves the format, which is its whole job. It must not be trusted for actual study — especially the Vietnamese tones — and is replaced when the real pipeline exists. |
+| O4 | **`.gitattributes` for line endings.** Windows is normalising LF→CRLF on commit. | Absent. | Harmless locally; causes spurious whole-file diffs if the repo is ever cloned on Linux. One line fixes it permanently. |
+| O5 | **Data-layer review.** The user wants to read the `dictionary` and `progress` code once the slice is complete. | Written, typechecked, tests green. | Nothing depends on the review; it is a read-through, not a gate. |
+| O6 | **Ungraded revision sessions.** Today a deck with nothing due offers no session at all. The user wants to be able to run one anyway — over any words in the deck, respecting the mastered re-query flag — **without grading**, purely for revision. | Not built. | Not a bug: the current behaviour is what the framework specifies. **It is a design addition and belongs in the explorer, not here** — it introduces a second session *mode*, and the ungraded part is load-bearing: grading a practice session would let a user push words past the spacing the ladder intends, which is the whole reason the ladder exists. Also needs deciding what `Complete` and `Caught up` offer, since both would gain an action. |

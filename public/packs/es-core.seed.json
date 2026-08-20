@@ -1,0 +1,232 @@
+{
+  "schemaVersion": 1,
+  "packVersion": "seed-0.1.0",
+  "language": "es",
+  "languageName": "Spanish",
+  "sources": [
+    {
+      "name": "TEST FIXTURE — not sourced data",
+      "licence": "none",
+      "url": "https://github.com/ChipCheap/Doki-Doki-Dictionary-App"
+    }
+  ],
+  "entries": [
+    {
+      "key": "es:banco:noun:1",
+      "term": "banco",
+      "partOfSpeech": "noun",
+      "difficulty": "common",
+      "contextTags": ["finance"],
+      "examples": [
+        { "id": "es-banco-1a", "text": "Voy al banco." },
+        { "id": "es-banco-1b", "text": "El banco está cerrado hoy." }
+      ]
+    },
+    {
+      "key": "es:banco:noun:2",
+      "term": "banco",
+      "partOfSpeech": "noun",
+      "difficulty": "common",
+      "contextTags": [],
+      "examples": [{ "id": "es-banco-2a", "text": "Me siento en el banco." }]
+    },
+    {
+      "key": "es:casa:noun:1",
+      "term": "casa",
+      "partOfSpeech": "noun",
+      "difficulty": "basic",
+      "contextTags": [],
+      "examples": [
+        { "id": "es-casa-1a", "text": "Esta es mi casa." },
+        { "id": "es-casa-1b", "text": "La casa es grande." }
+      ]
+    },
+    {
+      "key": "es:salir:verb:1",
+      "term": "salir",
+      "partOfSpeech": "verb",
+      "difficulty": "common",
+      "contextTags": [],
+      "examples": [
+        { "id": "es-salir-1a", "text": "Quiero salir ahora." },
+        { "id": "es-salir-1b", "text": "Salimos a las ocho." }
+      ]
+    },
+    {
+      "key": "es:dejar:verb:1",
+      "term": "dejar",
+      "partOfSpeech": "verb",
+      "difficulty": "common",
+      "contextTags": [],
+      "examples": [
+        { "id": "es-dejar-1a", "text": "Voy a dejar el libro aquí." },
+        { "id": "es-dejar-1b", "text": "No quiero dejar mi trabajo." }
+      ]
+    },
+    {
+      "key": "es:agua:noun:1",
+      "term": "agua",
+      "partOfSpeech": "noun",
+      "difficulty": "basic",
+      "contextTags": [],
+      "examples": [
+        { "id": "es-agua-1a", "text": "El agua está fría." },
+        { "id": "es-agua-1b", "text": "Quiero un vaso de agua." }
+      ]
+    },
+    {
+      "key": "es:comer:verb:1",
+      "term": "comer",
+      "partOfSpeech": "verb",
+      "difficulty": "basic",
+      "contextTags": ["food"],
+      "examples": [
+        { "id": "es-comer-1a", "text": "Vamos a comer." },
+        { "id": "es-comer-1b", "text": "No quiero comer ahora." }
+      ]
+    },
+    {
+      "key": "es:libro:noun:1",
+      "term": "libro",
+      "partOfSpeech": "noun",
+      "difficulty": "basic",
+      "contextTags": [],
+      "examples": [
+        { "id": "es-libro-1a", "text": "Leo un libro." },
+        { "id": "es-libro-1b", "text": "El libro es muy largo." }
+      ]
+    },
+    {
+      "key": "es:mesa:noun:1",
+      "term": "mesa",
+      "partOfSpeech": "noun",
+      "difficulty": "basic",
+      "contextTags": [],
+      "examples": [
+        { "id": "es-mesa-1a", "text": "El libro está en la mesa." },
+        { "id": "es-mesa-1b", "text": "La mesa es de madera." }
+      ]
+    },
+    {
+      "key": "es:silla:noun:1",
+      "term": "silla",
+      "partOfSpeech": "noun",
+      "difficulty": "basic",
+      "contextTags": [],
+      "examples": [
+        { "id": "es-silla-1a", "text": "La silla es nueva." },
+        { "id": "es-silla-1b", "text": "Hay cuatro sillas." }
+      ]
+    },
+    {
+      "key": "es:sí:adverb:1",
+      "term": "sí",
+      "partOfSpeech": "adverb",
+      "difficulty": "basic",
+      "contextTags": [],
+      "examples": [
+        { "id": "es-si-1a", "text": "Sí, claro." },
+        { "id": "es-si-1b", "text": "Dijo que sí." }
+      ]
+    },
+    {
+      "key": "es:si:conjunction:1",
+      "term": "si",
+      "partOfSpeech": "conjunction",
+      "difficulty": "basic",
+      "contextTags": [],
+      "examples": [
+        { "id": "es-si-2a", "text": "Si quieres, vamos." },
+        { "id": "es-si-2b", "text": "No sé si viene." }
+      ]
+    },
+    {
+      "key": "es:tres:numeral:1",
+      "term": "tres",
+      "partOfSpeech": "numeral",
+      "difficulty": "basic",
+      "contextTags": [],
+      "sequence": { "group": "number", "ordinal": 3 },
+      "examples": [
+        { "id": "es-tres-1a", "text": "Tengo tres libros." },
+        { "id": "es-tres-1b", "text": "Son las tres." }
+      ]
+    },
+    {
+      "key": "es:trabajo:noun:1",
+      "term": "trabajo",
+      "partOfSpeech": "noun",
+      "difficulty": "common",
+      "contextTags": ["work"],
+      "examples": [
+        { "id": "es-trabajo-1a", "text": "Voy al trabajo." },
+        { "id": "es-trabajo-1b", "text": "Es un trabajo difícil." }
+      ]
+    },
+    {
+      "key": "es:dinero:noun:1",
+      "term": "dinero",
+      "partOfSpeech": "noun",
+      "difficulty": "common",
+      "contextTags": ["finance"],
+      "examples": [
+        { "id": "es-dinero-1a", "text": "No tengo dinero." },
+        { "id": "es-dinero-1b", "text": "El dinero está en el banco." }
+      ]
+    },
+    {
+      "key": "es:hospital:noun:1",
+      "term": "hospital",
+      "partOfSpeech": "noun",
+      "difficulty": "common",
+      "contextTags": ["health"],
+      "examples": [
+        { "id": "es-hospital-1a", "text": "Tengo que ir al hospital." },
+        { "id": "es-hospital-1b", "text": "El hospital está cerca." }
+      ]
+    },
+    {
+      "key": "es:pequeño:adjective:1",
+      "term": "pequeño",
+      "partOfSpeech": "adjective",
+      "difficulty": "basic",
+      "contextTags": [],
+      "examples": [
+        { "id": "es-pequeno-1a", "text": "Es un libro pequeño." },
+        { "id": "es-pequeno-1b", "text": "La casa es pequeña." }
+      ]
+    },
+    {
+      "key": "es:rápido:adjective:1",
+      "term": "rápido",
+      "partOfSpeech": "adjective",
+      "difficulty": "common",
+      "contextTags": [],
+      "examples": [
+        { "id": "es-rapido-1a", "text": "Es un coche rápido." },
+        { "id": "es-rapido-1b", "text": "Habla muy rápido." }
+      ]
+    },
+    {
+      "key": "es:presupuesto:noun:1",
+      "term": "presupuesto",
+      "partOfSpeech": "noun",
+      "difficulty": "advanced",
+      "contextTags": ["finance", "work"],
+      "examples": [
+        { "id": "es-presupuesto-1a", "text": "El presupuesto es muy alto." },
+        { "id": "es-presupuesto-1b", "text": "Necesitamos un presupuesto nuevo." }
+      ]
+    },
+    {
+      "key": "es:melancolía:noun:1",
+      "term": "melancolía",
+      "partOfSpeech": "noun",
+      "difficulty": "niche",
+      "contextTags": [],
+      "examples": [
+        { "id": "es-melancolia-1a", "text": "Siente una gran melancolía." }
+      ]
+    }
+  ]
+}

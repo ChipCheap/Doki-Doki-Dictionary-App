@@ -1,0 +1,105 @@
+/* ============================================================================
+   Doki-Doki Dictionary — colour theme
+   ----------------------------------------------------------------------------
+   The ONLY place colour values are allowed to live. Everything else references
+   these names and never a literal colour, so swapping the whole look means
+   replacing this one file and touching no component.
+
+   Each role is written as `light-dark(<light>, <dark>)` — ONE line carrying both
+   values. Editing a role means editing one place, and it is impossible to
+   update light and forget dark.
+
+   Which value applies is decided by `color-scheme`:
+     - `:root` declares `light dark`, so the OS preference wins by default
+     - `[data-theme="light"]` / `[data-theme="dark"]` pin it when the user chooses
+
+   Adding a role: add one `light-dark()` line, describe what it is FOR below,
+   and never let a component invent a colour it needs.
+   ========================================================================= */
+
+:root {
+  color-scheme: light dark;
+
+  /* --- Surfaces -----------------------------------------------------------
+     page    the app background, behind everything
+     panel   cards, quiz boxes, the result pane — one step up from the page
+     sunken  insets within a panel: settings previews, disabled areas        */
+  --page: light-dark(#f7f1e4, #1b1613);
+  --panel: light-dark(#fffbf2, #262019);
+  --sunken: light-dark(#f1e9d9, #191411);
+
+  /* --- Text ---------------------------------------------------------------
+     primary    body copy, prompt words, answers
+     secondary  supporting copy — part of speech, example translations
+     muted      metadata that must not compete: counters, hints, "n of N"    */
+  --text-primary: light-dark(#2c231a, #f0e8da);
+  --text-secondary: light-dark(#6b5b48, #b5a48d);
+  --text-muted: light-dark(#94836d, #8a7b66);
+
+  /* --- Lines --------------------------------------------------------------
+     border  hairline separators and control outlines at rest
+     strong  the same line asserting itself (hover, emphasis)                */
+  --border: light-dark(rgba(44, 35, 26, 0.14), rgba(240, 232, 218, 0.14));
+  --border-strong: light-dark(rgba(44, 35, 26, 0.28), rgba(240, 232, 218, 0.28));
+
+  /* --- Brand --------------------------------------------------------------
+     The app's signature colour. Warm amber-brown.
+
+     brand       primary buttons, active states, the accent in general
+     on-brand    text ON a brand-filled surface — must clear contrast
+     brand-soft  tag chips, tooltips, focus halos: brand at low intensity
+     brand-text  brand used AS text on a normal surface
+
+     The two sides differ by more than lightness and that is deliberate: light
+     mode needs the brand dark enough to carry white button text, dark mode
+     light enough to read against a near-black page. One value cannot do both. */
+  --brand: light-dark(#b0703a, #d9a76a);
+  --on-brand: light-dark(#ffffff, #2c1f12);
+  --brand-soft: light-dark(#f2e2d0, #3d2e1d);
+  --brand-text: light-dark(#b0703a, #d9a76a);
+
+  /* --- Focus --------------------------------------------------------------
+     The answer field is focused the entire time a card is up, so this ring is
+     on screen constantly during a session. It reads as "ready", not "alarm". */
+  --focus-ring: light-dark(#f2e2d0, #3d2e1d);
+
+  /* --- Answer feedback ----------------------------------------------------
+     Outcome markers. Deliberately quiet — seen dozens of times per session.  */
+  --correct: light-dark(#4c5b3c, #ccdcb9);
+  --incorrect: light-dark(#8a544d, #e4c2bc);
+
+  /* --- Diacritic mismatch -------------------------------------------------
+     Per-character highlighting when an answer differs ONLY by diacritics.
+     miss-*  what the user typed wrong
+     hit-*   what it should have been
+
+     Kept desaturated. These carry the entire explanation of the error and are
+     read closely rather than glanced at; saturated red and green shout far
+     louder than the information warrants, especially against dark.
+
+     Colour alone is never sufficient — the UI also applies weight and a
+     background block, so this works with colour vision deficiency.           */
+  --miss-bg: light-dark(#f2deda, #4a3531);
+  --miss-text: light-dark(#8a544d, #e4c2bc);
+  --hit-bg: light-dark(#e0e8d6, #3a452f);
+  --hit-text: light-dark(#4c5b3c, #ccdcb9);
+
+  /* --- Ladder buckets -----------------------------------------------------
+     The deck distribution bar, running FURTHEST-FROM-THE-PAGE as mastery. Note
+     the light and dark sides run in opposite directions: the rule is not "dark
+     means mastered" but "furthest from the background means mastered". A theme
+     that copies the light values into dark reads backwards.                  */
+  --bucket-new: light-dark(#c9bba6, #4a4034);
+  --bucket-learning: light-dark(#d9a76a, #8a6437);
+  --bucket-mature: light-dark(#b0703a, #c08f52);
+  --bucket-mastered: light-dark(#6e4423, #e8c48c);
+}
+
+/* Explicit user choice pins the scheme, overriding the OS preference. */
+:root[data-theme='light'] {
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+}
