@@ -10,8 +10,11 @@
  * app (architecture.md guideline 5).
  */
 
+import { isGender, type Gender } from '../domain/articles';
 import type { DifficultyTier, WordKey } from '../domain/types';
 import { DIFFICULTY_TIERS } from '../domain/types';
+
+export type { Gender };
 
 /** Bumped only when the shape changes incompatibly. Additions do not bump it. */
 export const SUPPORTED_SCHEMA_VERSION = 1;
@@ -38,6 +41,18 @@ export interface CorePackEntry {
   contextTags?: string[];
   sequence?: SequenceTag;
   examples?: CoreExample[];
+  /**
+   * Grammatical gender, where the language has one. Sourced — Wiktionary tags
+   * nouns `masculine` / `feminine` / `neuter` in the same array we already read
+   * register labels from.
+   */
+  gender?: Gender;
+  /**
+   * Explicit article, for words whose article does not follow from their
+   * gender: Spanish `el agua` is feminine but takes `el`, and French elides to
+   * `l'`. Overrides the gender rule when present.
+   */
+  article?: string;
 }
 
 export interface CorePack {
@@ -78,6 +93,8 @@ export interface DictionaryEntry {
   difficulty: DifficultyTier;
   contextTags: string[];
   sequence?: SequenceTag;
+  gender?: Gender;
+  article?: string;
   meanings: string[];
   examples: { id: string; text: string; translation?: string; source?: string }[];
 }
@@ -172,6 +189,10 @@ export function validateCoreEntries(
         ? entry.contextTags.filter(isNonEmptyString)
         : [],
       ...(entry.sequence ? { sequence: entry.sequence } : {}),
+      // Unknown gender values are dropped rather than failing the entry: a
+      // wrong article is worse than none, and the word is still learnable.
+      ...(isGender(entry.gender) ? { gender: entry.gender } : {}),
+      ...(isNonEmptyString(entry.article) ? { article: entry.article } : {}),
       examples: Array.isArray(entry.examples)
         ? entry.examples.filter((e) => isNonEmptyString(e?.text) && isNonEmptyString(e?.id))
         : [],

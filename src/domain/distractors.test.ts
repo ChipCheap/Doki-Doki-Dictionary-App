@@ -54,6 +54,23 @@ describe('the same-spelling exclusion', () => {
     expect(r.options.map((o) => o.displayed)).not.toContain('bench');
   });
 
+  it('never offers the same text twice, even from different entries', () => {
+    // `salir` and `dejar` are different words that both mean "to leave".
+    // Showing both would put two identical options on screen, one of which is
+    // arbitrarily wrong.
+    const salir = candidate('es:salir:verb:1', 'salir', 'verb', 'to leave');
+    const dejar = candidate('es:dejar:verb:1', 'dejar', 'verb', 'to leave');
+    const r = pickDistractors({
+      correct,
+      deckPool: [salir, dejar, ...nouns],
+      dictionaryPool: [],
+      rng,
+    });
+
+    const labels = r.options.map((o) => o.displayed);
+    expect(new Set(labels).size).toBe(labels.length);
+  });
+
   it('never offers the correct answer twice under another key', () => {
     const duplicate = candidate('es:otro:noun:1', 'otro', 'noun', 'bank');
     const r = pickDistractors({

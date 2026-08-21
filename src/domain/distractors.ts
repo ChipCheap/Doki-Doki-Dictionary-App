@@ -74,16 +74,24 @@ export function pickDistractors(req: DistractorRequest): DistractorResult {
 
   const picked: DistractorCandidate[] = [];
   const taken = new Set<WordKey>();
+  // Two DIFFERENT entries can carry the same meaning — `salir` and `dejar` are
+  // both "to leave" — so options are deduplicated by what is SHOWN, not only by
+  // key. Otherwise the same text appears twice and one of the two identical
+  // options is arbitrarily wrong.
+  const shown = new Set<string>([req.correct.displayed.toLocaleLowerCase()]);
 
   const drawFrom = (pool: readonly DistractorCandidate[]) => {
     const available = shuffle(
-      pool.filter((c) => !taken.has(c.key)),
+      pool.filter((c) => !taken.has(c.key) && !shown.has(c.displayed.toLocaleLowerCase())),
       rng,
     );
     for (const candidate of available) {
       if (picked.length >= wanted) return;
+      const label = candidate.displayed.toLocaleLowerCase();
+      if (shown.has(label)) continue;
       picked.push(candidate);
       taken.add(candidate.key);
+      shown.add(label);
     }
   };
 

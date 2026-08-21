@@ -13,6 +13,7 @@
 
 import type { DictionaryEntry } from '../../dictionary/pack-format';
 import { entriesByPartOfSpeech, entriesForLanguage, getEntries, synonymTerms } from '../../dictionary/queries';
+import { acceptedFormsWithArticle, displayWithArticle } from '../../domain/articles';
 import { pickDistractors, type DistractorResult } from '../../domain/distractors';
 import { grade, resolveRequeue, type Outcome, type RequeueOutcome } from '../../domain/grading';
 import { toDayNumber, type DayNumber } from '../../domain/ladder';
@@ -80,7 +81,23 @@ const EMPTY_TALLY: SessionTally = { promoted: 0, held: 0, demoted: 0, mastered: 
 function expectedAnswerFor(card: PresentedCard): string {
   return card.method === QuestionMethod.FOREIGN_TO_BASE_MC
     ? card.entry.meanings.join(', ')
-    : card.entry.term;
+    : termWithArticle(card.entry);
+}
+
+/**
+ * The target word as it should be shown and typed.
+ *
+ * For a gendered noun the article is part of the word — `el libro`, not
+ * `libro` — because the gender is one of the things being learned. Words in
+ * languages without gender, and non-nouns, are unaffected.
+ */
+export function termWithArticle(entry: DictionaryEntry): string {
+  return displayWithArticle(entry.language, entry.term, entry.gender, entry.article);
+}
+
+/** Every spelling accepted for the typed vector, article included. */
+export function acceptedTermForms(entry: DictionaryEntry): string[] {
+  return acceptedFormsWithArticle(entry.language, entry.term, entry.gender, entry.article);
 }
 
 export class SessionStore {
@@ -284,7 +301,7 @@ export class SessionStore {
     const accepted =
       card.method === QuestionMethod.FOREIGN_TO_BASE_MC
         ? card.entry.meanings
-        : [card.entry.term];
+        : acceptedTermForms(card.entry);
 
     const verdict = classifyAnswer({
       typed: answer,

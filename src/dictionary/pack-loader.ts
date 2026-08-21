@@ -86,6 +86,8 @@ export function mergePack(core: CorePack, meaning: MeaningPack): MergeReport {
       difficulty: entry.difficulty,
       contextTags: entry.contextTags ?? [],
       ...(entry.sequence ? { sequence: entry.sequence } : {}),
+      ...(entry.gender ? { gender: entry.gender } : {}),
+      ...(entry.article ? { article: entry.article } : {}),
       meanings: meanings.meanings,
       examples,
     });

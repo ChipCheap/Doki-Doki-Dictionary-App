@@ -8,7 +8,7 @@
    */
   import type { DictionaryEntry } from '../../dictionary/pack-format';
   import { MASTERED_LEVEL } from '../../domain/ladder';
-  import type { ResolvedResult } from '../session/session-store.svelte';
+  import { termWithArticle, type ResolvedResult } from '../session/session-store.svelte';
   import DiacriticDiff from './DiacriticDiff.svelte';
 
   interface Props {
@@ -63,7 +63,7 @@
     {/if}
 
     <div class="entry">
-      <div class="term">{entry.term}</div>
+      <div class="term">{termWithArticle(entry)}</div>
       <div class="meta">
         {entry.partOfSpeech} · {entry.difficulty}{#each entry.contextTags as tag (tag)} · {tag}{/each}
       </div>

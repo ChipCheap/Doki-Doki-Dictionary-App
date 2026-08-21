@@ -127,6 +127,8 @@ judgment calls get revised.
 | Difficulty | core | `Basic` · `Common` · `Advanced` · `Niche` |
 | Context tags | core | `trade`, `finance`, `hobby`, `work`, … — from a **controlled vocabulary**, see below |
 | Sequence tag | core | Optional, with ordinal — see below |
+| Gender | core | Optional: `m` / `f` / `n` / `mf`, where the language has grammatical gender |
+| Article | core | Optional explicit article, overriding what the gender implies |
 | Example sentences | core | Target language, with source ID |
 | Base terms | meaning | Meanings of this sense — **all accepted as answers** |
 | Target synonyms | meaning | **Derived**, not authored — entries sharing a meaning and part of speech are synonyms of each other |
@@ -193,6 +195,36 @@ cross-language tag query would stop meaning anything.
 
 Unmappable topics are dropped rather than passed through. A tag nobody can query
 is worse than no tag.
+
+### Gender and its article
+
+Nouns in gendered languages carry a **gender**; the **article** is derived per
+language, because `m` means `el` in Spanish and `der` in German. Keeping the
+mapping in the app rather than on every entry means adding a language is one
+line, not a pass over the whole pack.
+
+Gender is **sourced, not inferred** — Wiktionary tags nouns `masculine` /
+`feminine` / `neuter` in the same array the register labels come from.
+
+Entries split per sense, so the hard cases resolve themselves: Spanish
+`el capital` (money) and `la capital` (city) are already two entries, each with
+one gender.
+
+**An explicit `article` overrides the gender rule**, for words whose article does
+not follow from their gender. Spanish `el agua` is feminine but takes `el` before
+a stressed *a*; French elides to `l'`. How often this matters varies sharply by
+language — essentially never in German, a small closed set in Spanish, and
+frequently in French and Italian where the article's *form* changes for
+phonological reasons rather than grammatical ones.
+
+**The article is part of the typed answer.** `el libro` is correct; `la libro`
+and a bare `libro` are both wrong, because the gender is one of the things being
+learned. *Redo question* already covers "I was close".
+
+Gender is deliberately **not** its own learning vector in v1. The vector model
+would support it — one enum value, one component — but getting the data into the
+pack is the part that is expensive to retrofit; how it is tested is cheap to
+change later.
 
 ### Sequence tag
 

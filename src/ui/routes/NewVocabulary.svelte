@@ -10,7 +10,7 @@
   import { sessionSettingsFor } from '../../progress/deck-repo';
   import { markIntroduced, setHidden, setLevelForAllVectors } from '../../progress/progress-repo';
   import { router } from '../router.svelte';
-  import { session } from '../session/session-store.svelte';
+  import { session, termWithArticle } from '../session/session-store.svelte';
 
   let index = $state(0);
 
@@ -65,7 +65,7 @@
   <div class="card"><p class="hint">No new words in this session.</p></div>
 {:else}
   <div class="card">
-    <div class="term">{entry.term}</div>
+    <div class="term">{termWithArticle(entry)}</div>
     <div class="meta">({entry.partOfSpeech}) {entry.meanings.join(', ')}</div>
     <div class="hint tags">{entry.difficulty}{#each entry.contextTags as t (t)} · {t}{/each}</div>
 

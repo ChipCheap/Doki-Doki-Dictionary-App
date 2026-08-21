@@ -15,7 +15,7 @@
   import ResultPanel from '../components/ResultPanel.svelte';
   import { questionTypeFor } from '../questions/registry';
   import { resolveKey, fieldShouldBeFocused } from '../session/keyboard';
-  import { session } from '../session/session-store.svelte';
+  import { session, termWithArticle } from '../session/session-store.svelte';
   import MultipleChoice from '../questions/MultipleChoice.svelte';
   import TypedAnswer from '../questions/TypedAnswer.svelte';
   import SessionSummary from './SessionSummary.svelte';
@@ -143,7 +143,7 @@
       <p class="done">All done.</p>
     {:else if card.method === QuestionMethod.FOREIGN_TO_BASE_MC}
       <MultipleChoice
-        term={card.entry.term}
+        term={termWithArticle(card.entry)}
         partOfSpeech={card.entry.partOfSpeech}
         options={card.options ?? []}
         disabled={!answering}
