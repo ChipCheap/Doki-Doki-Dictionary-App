@@ -7,9 +7,9 @@
    * The pane runs one card behind, deliberately.
    */
   import type { DictionaryEntry } from '../../dictionary/pack-format';
-  import { MASTERED_LEVEL } from '../../domain/ladder';
   import { termWithArticle, type ResolvedResult } from '../session/session-store.svelte';
   import DiacriticDiff from './DiacriticDiff.svelte';
+  import MasteryPicker from './MasteryPicker.svelte';
 
   interface Props {
     entry?: DictionaryEntry;
@@ -40,8 +40,6 @@
 
   const correct = $derived(result?.correct ?? false);
   const movement = $derived(result?.movement);
-
-  const levels = Array.from({ length: MASTERED_LEVEL + 1 }, (_, i) => i);
 </script>
 
 <div class="panel">
@@ -90,15 +88,9 @@
       </div>
     {/if}
 
-    <label class="mastery">
-      <span class="hint">Set mastery — applies to every vector of this word</span>
-      <select
-        value={movement?.to ?? 0}
-        onchange={(e) => onsetlevel(Number(e.currentTarget.value))}
-      >
-        {#each levels as level (level)}<option value={level}>{level}</option>{/each}
-      </select>
-    </label>
+    <div class="picker">
+      <MasteryPicker level={movement?.to ?? 0} onset={onsetlevel} />
+    </div>
   {/if}
 </div>
 
@@ -152,13 +144,7 @@
     color: var(--text-muted);
   }
 
-  .mastery {
-    display: block;
+  .picker {
     margin-top: 14px;
-  }
-
-  .mastery select {
-    width: auto;
-    margin-top: 4px;
   }
 </style>

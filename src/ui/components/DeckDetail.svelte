@@ -5,9 +5,14 @@
   interface Props {
     state: DeckState;
     onstart: () => void;
+    onbrowse: () => void;
+    /** New matches a pack update brought in. Hidden entirely when there are none. */
+    pending: number;
+    absent: number;
+    onaddpending: () => void;
   }
 
-  let { state, onstart }: Props = $props();
+  let { state, onstart, onbrowse, pending, absent, onaddpending }: Props = $props();
 
   const d = $derived(state.distribution);
   const total = $derived(Math.max(1, d.new + d.learning + d.mature + d.mastered));
@@ -37,10 +42,23 @@
     <p class="hint">{state.overdueCount} reviews overdue.</p>
   {/if}
 
+  {#if absent > 0}
+    <!-- Absence needs no mechanism — the word does not exist and there is
+         nothing to restore it to. But a count that shrinks on its own needs an
+         explanation, which is all this is. -->
+    <p class="hint">{absent} {absent === 1 ? 'word is' : 'words are'} no longer in the pack.</p>
+  {/if}
+
   <div class="actions">
     <button class="primary" onclick={onstart} disabled={state.status !== 'due'}>
       Start session
     </button>
+    <button class="quiet" onclick={onbrowse}>Browse words in deck</button>
+    {#if pending > 0}
+      <button class="quiet" onclick={onaddpending}>
+        Add {pending} new from pack update
+      </button>
+    {/if}
   </div>
 </div>
 
@@ -75,6 +93,9 @@
   }
 
   .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
     margin-top: 12px;
   }
 </style>

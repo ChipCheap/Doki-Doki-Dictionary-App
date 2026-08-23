@@ -14,11 +14,13 @@ import Dexie, { type Table } from 'dexie';
 import { DICTIONARY_STORES, type DictionaryEntry, type InstalledPack } from './dictionary/schema';
 import {
   PROGRESS_STORES,
+  SNAPSHOT_STORES,
   type DeckRecipe,
   type DeckRow,
   type LegacyDeckRecipe,
   type ProgressRow,
   type SettingRow,
+  type SnapshotRow,
   type WordRow,
 } from './progress/schema';
 
@@ -29,6 +31,7 @@ export class AppDatabase extends Dexie {
   words!: Table<WordRow, string>;
   decks!: Table<DeckRow, string>;
   settings!: Table<SettingRow, string>;
+  snapshots!: Table<SnapshotRow, string>;
 
   constructor(name = 'doki-doki-dictionary') {
     super(name);
@@ -55,6 +58,11 @@ export class AppDatabase extends Dexie {
         };
       });
     });
+
+    // v3: snapshots, for the mass-edit undo. Purely additive — a new store and
+    // no change to any existing row, so an upgrade from v1 or v2 carries every
+    // deck and every progress row across untouched.
+    this.version(3).stores({ ...SNAPSHOT_STORES });
   }
 }
 

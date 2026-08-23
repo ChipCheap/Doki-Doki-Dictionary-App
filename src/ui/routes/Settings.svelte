@@ -15,7 +15,16 @@
     type GlobalSettings,
     type ThemeMode,
   } from '../../progress/settings-repo';
+  import {
+    backupNow,
+    backupState,
+    chooseFolder,
+    forgetFolder,
+    type BackupState,
+  } from '../../progress/backup';
+  import { fromDayNumber } from '../../domain/ladder';
   import { applySettings } from '../app-init';
+  import BackupWarning from '../components/BackupWarning.svelte';
   import SettingPreview from '../components/SettingPreview.svelte';
   import { router } from '../router.svelte';
 
@@ -28,6 +37,8 @@
   let global = $state<GlobalSettings | undefined>();
   let decks = $state<DeckRow[]>([]);
   let selected = $state<DeckRow | undefined>();
+  let backup = $state<BackupState>({ status: 'unsupported' });
+  let backupNote = $state<string | undefined>();
 
   onMount(() => void load());
 
@@ -35,6 +46,31 @@
     global = await getGlobalSettings();
     decks = await listDecks();
     selected = decks.find((d) => d.id === deckId) ?? decks[0];
+    backup = await backupState();
+  }
+
+  async function pickFolder(): Promise<void> {
+    backupNote = undefined;
+    try {
+      // Must run from the click: the picker and the permission prompt both
+      // require a user gesture, which is why none of this can be automatic.
+      backup = await chooseFolder();
+      const wrote = await backupNow();
+      backupNote = wrote.wrote ? `Backed up to ${wrote.fileName}.` : undefined;
+      backup = await backupState();
+    } catch {
+      // A cancelled folder picker throws. Nothing was chosen and nothing broke,
+      // so there is nothing to report.
+      backup = await backupState();
+    }
+  }
+
+  async function backupNowClicked(): Promise<void> {
+    const outcome = await backupNow();
+    backupNote = outcome.wrote
+      ? `Backed up to ${outcome.fileName}.`
+      : 'Could not back up — see above.';
+    backup = await backupState();
   }
 
   async function patch(change: Partial<GlobalSettings>): Promise<void> {
@@ -185,12 +221,68 @@
   </div>
 {/if}
 
+<h2>Automatic backup</h2>
+
+<BackupWarning {backup} onchange={(next) => (backup = next)} />
+
+<div class="backup">
+  {#if backup.status === 'unsupported'}
+    <p class="hint">
+      This browser cannot write to a folder on disk — the File System Access API is Chrome and Edge
+      only. Use <button class="link" onclick={() => router.go('transfer')}>manual export</button>
+      instead, and do it regularly: browser storage can be cleared, evicted, or deleted by Safari
+      after seven days without a visit.
+    </p>
+  {:else if backup.status === 'unconfigured'}
+    <p class="hint">
+      Choose a folder and the app will back your profile up there after every mass-edit, and at
+      startup when the last backup is over a week old. Backups that depend on remembering are not
+      backups.
+    </p>
+    <button onclick={() => void pickFolder()}>Choose backup folder…</button>
+  {:else}
+    <p class="hint">
+      Backing up to <strong>{backup.folderName}</strong>
+      {#if backup.lastBackupDay !== undefined}
+        · last backup {fromDayNumber(backup.lastBackupDay).toLocaleDateString()}
+      {:else}
+        · not backed up yet
+      {/if}
+    </p>
+    <div class="row">
+      <button onclick={() => void backupNowClicked()}>Back up now</button>
+      <button class="quiet" onclick={() => void pickFolder()}>Change folder…</button>
+      <button class="quiet" onclick={async () => (backup = await forgetFolder())}>
+        Stop backing up
+      </button>
+    </div>
+  {/if}
+
+  {#if backupNote}<p class="hint">{backupNote}</p>{/if}
+</div>
+
 <button style="margin-top: 16px" onclick={() => router.go('home')}>Done</button>
 
 <style>
   h2 {
     font-size: var(--size-body);
     margin: 20px 0 8px;
+  }
+
+  .backup .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+  }
+
+  .backup .link {
+    border: none;
+    background: none;
+    padding: 0;
+    font-size: inherit;
+    color: var(--brand-text);
+    text-decoration: underline;
   }
 
   .pair {

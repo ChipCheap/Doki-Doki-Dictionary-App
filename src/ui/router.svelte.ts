@@ -16,7 +16,13 @@ export type RouteName =
   | 'summary'
   | 'settings'
   | 'transfer'
-  | 'keyboardHelp';
+  | 'keyboardHelp'
+  // Maintenance. Reached from the deck list and never from inside a session,
+  // which is what makes "no restore happens mid-quiz" an assumption rather than
+  // a case to handle.
+  | 'browse'
+  | 'massEdit'
+  | 'snapshots';
 
 export interface Route {
   name: RouteName;

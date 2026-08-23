@@ -16,13 +16,18 @@
   import { listInstalledPacks } from '../../dictionary/install';
   import type { InstalledPack } from '../../dictionary/schema';
   import {
+    absentMembers,
+    applyPendingAdditions,
     countForRecipe,
     describeRecipe,
     listDecksByLanguage,
+    pendingAdditions,
     quickCreateDeck,
     sessionSettingsFor,
     type DeckRow,
   } from '../../progress/deck-repo';
+  import { backupIfStale, backupState, type BackupState } from '../../progress/backup';
+  import BackupWarning from '../components/BackupWarning.svelte';
   import type { DeckRecipe } from '../../progress/schema';
   import type { DifficultyTier } from '../../domain/types';
   import { getWordProgress } from '../../progress/progress-repo';
@@ -35,6 +40,9 @@
   let packs = $state<InstalledPack[]>([]);
   let byLanguage = $state<Map<string, DeckRow[]>>(new Map());
   let states = $state<Map<string, DeckState>>(new Map());
+  let pending = $state<Map<string, number>>(new Map());
+  let absent = $state<Map<string, number>>(new Map());
+  let backup = $state<BackupState>({ status: 'unsupported' });
   let expanded = $state<string | undefined>();
   let creatingFor = $state<string | undefined>();
   let tiers = $state<DifficultyTier[]>([]);
@@ -53,10 +61,15 @@
     byLanguage = await listDecksByLanguage();
 
     const next = new Map<string, DeckState>();
+    const nextPending = new Map<string, number>();
+    const nextAbsent = new Map<string, number>();
+
     for (const decks of byLanguage.values()) {
       for (const deck of decks) {
         const progress = await getWordProgress(deck.memberKeys);
         const settings = sessionSettingsFor(deck);
+        nextPending.set(deck.id, (await pendingAdditions(deck)).length);
+        nextAbsent.set(deck.id, (await absentMembers(deck)).length);
         next.set(
           deck.id,
           computeDeckState({
@@ -74,6 +87,18 @@
       }
     }
     states = next;
+    pending = nextPending;
+    absent = nextAbsent;
+
+    // Startup cadence: back up when the newest one is over a week old. Reports
+    // state either way, so a lapsed permission surfaces as the warning above.
+    await backupIfStale();
+    backup = await backupState();
+  }
+
+  async function addPending(deck: DeckRow): Promise<void> {
+    await applyPendingAdditions(deck);
+    await load();
   }
 
   async function openCreate(language: string): Promise<void> {
@@ -146,9 +171,14 @@
   <div class="menu">
     <button class="quiet" onclick={() => router.go('settings')}>Settings</button>
     <button class="quiet" onclick={() => router.go('transfer')}>Backup</button>
+    <!-- Profile-wide, not per language: a snapshot covers every language at
+         once, so it does not belong in a language's own section. -->
+    <button class="quiet" onclick={() => router.go('snapshots')}>Snapshots</button>
     <button class="quiet" onclick={() => router.go('keyboardHelp')}>Keyboard</button>
   </div>
 </div>
+
+<BackupWarning {backup} onchange={(next) => (backup = next)} />
 
 {#each packs as pack, i (pack.id)}
   {#if i > 0}<hr />{/if}
@@ -157,6 +187,22 @@
     <div class="lang">
       <h2>{pack.languageName}</h2>
       <span class="code">{pack.id.toUpperCase()}</span>
+
+      <!-- Language-scoped, so they live in the language's own header rather
+           than the top menu: a selection can never span two languages. -->
+      <div class="lang-actions">
+        {#if (byLanguage.get(pack.id) ?? []).some((d) => (pending.get(d.id) ?? 0) > 0)}
+          <button class="quiet" onclick={() => router.go('browse', { language: pack.id, updates: '1' })}>
+            New from pack update
+          </button>
+        {/if}
+        <button class="quiet" onclick={() => router.go('browse', { language: pack.id })}>
+          Browse
+        </button>
+        <button class="quiet" onclick={() => router.go('massEdit', { language: pack.id })}>
+          Mass edit
+        </button>
+      </div>
     </div>
 
     <div class="card">
@@ -167,8 +213,12 @@
             {deck}
             state={states.get(deck.id)!}
             expanded={expanded === deck.id}
+            pending={pending.get(deck.id) ?? 0}
+            absent={absent.get(deck.id) ?? 0}
             ontoggle={() => (expanded = expanded === deck.id ? undefined : deck.id)}
             onstart={() => void start(deck)}
+            onbrowse={() => router.go('browse', { language: pack.id, deck: deck.id })}
+            onaddpending={() => void addPending(deck)}
           />
         {/if}
       {:else}
@@ -269,6 +319,12 @@
     align-items: baseline;
     gap: 9px;
     margin-bottom: 8px;
+  }
+
+  .lang-actions {
+    display: flex;
+    gap: 4px;
+    margin-left: auto;
   }
 
   h2 {

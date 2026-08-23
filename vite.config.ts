@@ -44,5 +44,8 @@ export default defineConfig({
     globals: true,
     environment: 'node',
     include: ['src/**/*.test.ts'],
+    // Installs an in-memory IndexedDB so the repositories can be tested against
+    // real Dexie transactions. See src/test-setup.ts.
+    setupFiles: ['src/test-setup.ts'],
   },
 } as Parameters<typeof defineConfig>[0]);

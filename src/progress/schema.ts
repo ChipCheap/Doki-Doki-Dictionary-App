@@ -77,11 +77,36 @@ export interface SettingRow {
   value: unknown;
 }
 
+/**
+ * S3 — a point-in-time copy of everything a mass-edit can damage.
+ *
+ * Settings are deliberately absent: a mass-edit never changes them, so its undo
+ * must not revert them. No size is stored either — the comment is what
+ * identifies a snapshot months later, and measuring the payload would mean
+ * serializing it a second time on every mass-edit for a number nobody acts on.
+ */
+export interface SnapshotRow {
+  id: string;
+  takenOn: DayNumber;
+  /** Written by the user for a mass-edit; generated for a restore swap-back. */
+  comment: string;
+  payload: {
+    progress: ProgressRow[];
+    words: WordRow[];
+    decks: DeckRow[];
+  };
+}
+
 export const PROGRESS_STORES = {
   progress: '[wordKey+vectorId], wordKey, vectorId, dueDay',
   words: 'key, introducedOn',
   decks: 'id, language',
   settings: 'key',
+} as const;
+
+/** Added in database version 3. Declared apart so v1 and v2 stay as they were. */
+export const SNAPSHOT_STORES = {
+  snapshots: 'id, takenOn',
 } as const;
 
 /** Re-exported so callers of this module do not reach into `domain` for them. */

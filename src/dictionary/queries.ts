@@ -123,6 +123,58 @@ export async function countForRecipe(language: string, recipe: DeckRecipe): Prom
   return (await entriesForRecipe(language, recipe)).length;
 }
 
+/**
+ * S8 — the dictionary-side half of a browse or mass-edit selection.
+ *
+ * Level and vector are NOT here: they read progress, which this module may not
+ * see. `domain/maintenance.ts` applies those against the candidates returned
+ * here, which keeps thousands of rows out of `domain` while leaving the two
+ * halves of a filter in the module that owns each.
+ */
+export interface BrowseFilter {
+  language: string;
+  /** Restrict to a deck's members, or to any explicit key set. */
+  keys?: readonly WordKey[];
+  difficulties?: readonly DifficultyTier[];
+  contextTags?: readonly string[];
+  /** Free text over term and meanings, for finding one word in ten thousand. */
+  search?: string;
+}
+
+/**
+ * Candidates matching the dictionary-side axes, sorted by term.
+ *
+ * Sorted here rather than at the call site so paging is stable: a page is only
+ * meaningful against a fixed order.
+ */
+export async function browseCandidates(
+  filter: BrowseFilter,
+): Promise<DictionaryEntry[]> {
+  const rows =
+    filter.keys !== undefined
+      ? (await db.entries.bulkGet([...filter.keys])).filter(
+          (r): r is DictionaryEntry => r !== undefined,
+        )
+      : await db.entries.where('language').equals(filter.language).toArray();
+
+  const wantedTiers = new Set(filter.difficulties ?? []);
+  const wantedTags = new Set(filter.contextTags ?? []);
+  const needle = filter.search?.trim().toLowerCase();
+
+  return rows
+    .filter((entry) => {
+      if (entry.language !== filter.language) return false;
+      if (wantedTiers.size > 0 && !wantedTiers.has(entry.difficulty)) return false;
+      if (wantedTags.size > 0 && !entry.contextTags.some((t) => wantedTags.has(t))) return false;
+      if (needle) {
+        const hay = [entry.term, ...entry.meanings].join(' ').toLowerCase();
+        if (!hay.includes(needle)) return false;
+      }
+      return true;
+    })
+    .sort((a, b) => a.term.localeCompare(b.term) || a.key.localeCompare(b.key));
+}
+
 /** Difficulty tiers actually present in a language, for the quick-create buttons. */
 export async function availableTiers(language: string): Promise<DifficultyTier[]> {
   const rows = await db.entries.where('language').equals(language).toArray();

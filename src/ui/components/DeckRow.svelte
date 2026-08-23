@@ -16,9 +16,23 @@
     expanded: boolean;
     ontoggle: () => void;
     onstart: () => void;
+    onbrowse: () => void;
+    pending: number;
+    absent: number;
+    onaddpending: () => void;
   }
 
-  let { deck, state, expanded, ontoggle, onstart }: Props = $props();
+  let {
+    deck,
+    state,
+    expanded,
+    ontoggle,
+    onstart,
+    onbrowse,
+    pending,
+    absent,
+    onaddpending,
+  }: Props = $props();
 </script>
 
 <div class="row">
@@ -59,7 +73,7 @@
 </div>
 
 {#if expanded}
-  <DeckDetail {state} {onstart} />
+  <DeckDetail {state} {onstart} {onbrowse} {pending} {absent} {onaddpending} />
 {/if}
 
 <style>

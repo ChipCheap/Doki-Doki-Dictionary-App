@@ -3,8 +3,11 @@
   import { listInstalledPacks } from '../dictionary/install';
   import { startup } from './app-init';
   import { router } from './router.svelte';
+  import Browse from './routes/Browse.svelte';
   import FirstRun from './routes/FirstRun.svelte';
   import Home from './routes/Home.svelte';
+  import MassEdit from './routes/MassEdit.svelte';
+  import Snapshots from './routes/Snapshots.svelte';
   import InstallPack from './routes/InstallPack.svelte';
   import KeyboardHelp from './routes/KeyboardHelp.svelte';
   import NewVocabulary from './routes/NewVocabulary.svelte';
@@ -56,6 +59,16 @@
   <Transfer />
 {:else if route.name === 'keyboardHelp'}
   <KeyboardHelp />
+{:else if route.name === 'browse'}
+  <Browse
+    language={route.params.language ?? ''}
+    deck={route.params.deck ?? ''}
+    updates={route.params.updates === '1'}
+  />
+{:else if route.name === 'massEdit'}
+  <MassEdit language={route.params.language ?? ''} />
+{:else if route.name === 'snapshots'}
+  <Snapshots />
 {:else}
   <Home />
 {/if}

@@ -14,7 +14,7 @@ import { db } from '../database';
 import { countForRecipe, entriesForRecipe } from '../dictionary/queries';
 import { toDayNumber } from '../domain/ladder';
 import type { DeckMember, WordKey } from '../domain/types';
-import { bumpRevision } from './progress-repo';
+import { bumpRevision, bumpRevisionInTransaction } from './revision';
 import { DEFAULT_DECK_SETTINGS } from './settings-repo';
 import type { DeckRecipe, DeckRow } from './schema';
 import type { SessionSettings } from '../domain/session';
@@ -108,11 +108,77 @@ export async function quickCreateDeck(input: QuickCreateInput): Promise<DeckRow>
 /** Re-exported so the deck-creation UI does not reach into `dictionary`. */
 export { countForRecipe };
 
-/** New matches a pack update brought in. Slice 2 turns this into one button. */
+/** New matches a pack update brought in. */
 export async function pendingAdditions(deck: DeckRow): Promise<WordKey[]> {
   const entries = await entriesForRecipe(deck.language, deck.recipe);
   const existing = new Set(deck.memberKeys);
   return entries.map((e) => e.key).filter((key) => !existing.has(key));
+}
+
+/**
+ * The one-press action: take everything the recipe now matches.
+ *
+ * Adds only. A pack update that REMOVED words prunes nothing — absence is not an
+ * operation, it is simply data that is not there, and a key left behind costs
+ * nothing while making the word's return free if a later pack restores it.
+ */
+export async function applyPendingAdditions(deck: DeckRow): Promise<number> {
+  const additions = await pendingAdditions(deck);
+  if (additions.length === 0) return 0;
+  await addWordsToDeck(deck.id, additions);
+  return additions.length;
+}
+
+/**
+ * Member keys that no longer resolve to a pack entry.
+ *
+ * Reported to the user as information only. Every count already comes from
+ * `deckMembers`, which skips unresolvable rows, so a deck simply shrinks — but a
+ * number that changes on its own needs an explanation somewhere.
+ */
+export async function absentMembers(deck: DeckRow): Promise<WordKey[]> {
+  const rows = await db.entries.bulkGet([...deck.memberKeys]);
+  return deck.memberKeys.filter((_, i) => rows[i] === undefined);
+}
+
+/** Idempotent: adding a word already in the deck changes nothing. */
+export async function addWordsToDeck(
+  id: string,
+  keys: readonly WordKey[],
+): Promise<void> {
+  await mutateMembers(id, (members) => {
+    for (const key of keys) members.add(key);
+  });
+}
+
+/**
+ * Remove words from one deck. Progress is untouched — the deck owns no progress,
+ * so a word removed from its only deck keeps every level and due day it had and
+ * becomes an unstudied dictionary word again.
+ */
+export async function removeWordsFromDeck(
+  id: string,
+  keys: readonly WordKey[],
+): Promise<void> {
+  await mutateMembers(id, (members) => {
+    for (const key of keys) members.delete(key);
+  });
+}
+
+async function mutateMembers(
+  id: string,
+  mutate: (members: Set<WordKey>) => void,
+): Promise<void> {
+  await db.transaction('rw', db.decks, db.settings, async () => {
+    const deck = await db.decks.get(id);
+    if (!deck) throw new Error('That deck no longer exists.');
+
+    const members = new Set(deck.memberKeys);
+    mutate(members);
+    // Copied into a plain array for the same reason as `plainRecipe`.
+    await db.decks.put({ ...deck, memberKeys: [...members] });
+    await bumpRevisionInTransaction();
+  });
 }
 
 export async function renameDeck(id: string, name: string, tags?: string[]): Promise<void> {
