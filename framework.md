@@ -48,6 +48,9 @@ lets recognition — the easy half — masquerade as mastery.
 - **The UI layer.** Screen inventory, navigation, interaction detail. Gets
   `ui.framework.md`, and is expected to be the largest of the three — it is the
   part the user actually touches.
+- **The dictionary panel.** Looking words up in the installed pack as a
+  reference, rather than as progress to manage. Not yet explored — see the open
+  question below.
 
 ### Out — not planned
 
@@ -475,12 +478,14 @@ alongside an app is a *Collection*, not an *Adaptation*.
 | `ui.framework.md` + `ui.wireframes.html` + `ui.theme.css` | Screens, keyboard model, theming, typography | **written** |
 | `packs.framework.md` | Pack contract, word identity, sourcing, tagging, versioning | **written** |
 | `maintenance.framework.md` | Deck creation and adjustment, mastery editing, mass-edit, hiding, snapshots | **written** |
+| `dictionary-panel.framework.md` | Looking up a word in the pack; search; adding single words to decks | **not written** |
 
 ## Open questions
 
 | Question | Recommended default |
 |---|---|
-| Does a manual level override reset the due day, or preserve the existing one? | Reset: `due = today + ladder[new level]`. Belongs to the maintenance framework. |
+| ~~Does a manual level override reset the due day, or preserve the existing one?~~ | **Decided 2026-08-22 — preserve**, the opposite of the default guessed here. `maintenance.framework.md` owns it: an existing due day is never moved in either direction, and only a vector that has none is assigned one. |
+| **A dictionary panel for looking words up.** A slide-in from the right, opened by a dictionary icon beside settings, listing pack words filtered by a search bar that matches term or translation with **regex accepted by default**, and able to add single words to a deck. Wanted; not yet explored. | Its own framework via the explorer, after the maintenance slice. Three things it must settle: (1) it overlaps the whole-dictionary browse in `maintenance.framework.md`, so it decides whether it replaces that route or complements it — two word-list surfaces that drift apart is the failure mode; (2) regex by default has two teeth — an invalid pattern throws while the user is still typing, and a pathological one can hang on 10k entries, so both need a defined behaviour; (3) whether lookup is reading *reference data* or a second place to manage progress, which decides how much of the browse row it inherits. |
 | Exact frequency-rank cutoffs between Basic / Common / Advanced | Start at top 1000 / 1000–3000 / 3000–6000 of a 6k pack; tune against real data. |
 | Does a deck bundle its own enabled-vector set, or inherit the language's? | Deck-level, defaulting to the language's set. Keeps later splitting additive. |
 

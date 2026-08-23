@@ -1,6 +1,8 @@
 # Maintenance — Design Framework
 
-**Status:** established 2026-08-13
+**Status:** established 2026-08-13 · amended 2026-08-22 (mass-edit preview is a
+count plus a sample, not the full list; a manual level set on an unstudied word
+marks it introduced)
 **Inherits:** `framework.md`, `ui.framework.md`, `packs.framework.md` — every
 boundary in those binds this document.
 
@@ -122,6 +124,24 @@ due day. Setting a level has to assign one, and there the assignment is
 **staggered** across the coming days. Without that, "I already know all 1,000
 Basic words" would make 1,000 reviews fall due simultaneously.
 
+**Setting a level on an unstudied word also marks it introduced.** Whether a
+word is served as *new vocabulary* or as a *review* is decided by introduction,
+not by level — new words are rationed by the new-words-per-day budget, reviews
+are not. So without the mark, claiming to know 1,000 words would leave all 1,000
+queued as new vocabulary, trickling out a handful a day, and the level that was
+set would never be used. Asserting a level is asserting that the word is already
+known: it belongs on the review schedule, not in the introduction queue.
+
+A single word set this way rests for its new level's interval and then comes up:
+`today + ladder[level]`, which is what the *already known* rows on the new
+vocabulary screen have always done. Quizzing a word the moment the user declared
+they know it would be a strange reward for saying so.
+
+A **mass-edit** starts from the same day and then **staggers**, across as many
+days as the deck's card cap needs to absorb the batch — otherwise the whole batch
+shares one due day, and being the oldest-overdue cards they would out-sort every
+genuine review until the batch drained.
+
 ### Mass-edit
 
 Three operations. Not more — this is a rare corrective tool, and anything richer
@@ -152,11 +172,21 @@ shared across packs** — see `packs.framework.md`.
 makes a snapshot identifiable months later, when "restore the one from Tuesday"
 is not a usable description.
 
-**Before committing, the user sees exactly what will change**: every affected
-word with its vector and its old and new level, sorted lexicographically, in its
-own scrollable frame. Scrollable rather than paged specifically so it can be
-*skimmed and dismissed* — the point is that checking is possible, not that it is
-mandatory.
+**Before committing, the user sees the shape of the change** — not an exhaustive
+list. Three things: how many words are affected, how many would **lose mastery**
+(already above the chosen level on at least one vector), and a sample of the
+affected words with their part of speech and their old and new level.
+
+The loss count is in **words, not vectors**, because the operation is
+word-scoped: setting a level writes every vector, so "two vectors move down"
+invites the reading that those two could be dealt with separately.
+
+The sample is what makes a mis-aimed selection visible: if the intent was "only
+verbs", a sample carrying nouns says so immediately. The full list was
+considered and dropped — a mass-edit routinely touches thousands of words, and
+a list nobody can read is not a safeguard. The **downward count** is the real
+guard, because an unintended demotion is the damage worth catching, and the
+snapshot is what makes any of it recoverable.
 
 The surface carries **plain warnings** about the risk. A user should rarely feel
 the need to do this, and the UI should say so rather than presenting it as
@@ -169,12 +199,24 @@ integers per `(word, vector)` pair, so a full snapshot is on the order of
 200 KB — insurance this cheap is not worth rationing.
 
 **Restore is a swap, not a rollback.** Loading a snapshot writes the current
-state into a snapshot and consumes the one being loaded. The user can therefore
-toggle back and forth freely while deciding whether they like the change, rather
-than committing to a one-way door.
+state into a snapshot and consumes the one being loaded, in the same breath. The
+user can therefore toggle back and forth freely while deciding whether they like
+the change, rather than committing to a one-way door.
+
+**But it is a full reload, not a targeted undo, and must be warned about as
+such.** Restoring replaces progress, words and decks entirely with the state at
+the time the snapshot was taken — so *everything* that happened since is
+discarded, study included. Grade fifty cards after a mass-edit and then restore,
+and those fifty grades are gone along with the edit. Restore is for use right
+after the operation it protects against, while nothing else has accumulated; it
+is not a way to reach back into last month. The warning says exactly this, and
+the swap is what makes a restore chosen by mistake survivable.
 
 Snapshots live **in the app's own storage alongside the packs**, with a
-management view listing date, comment and size, and a delete action.
+management view listing date and comment, and a delete action. No size is shown:
+the comment is what identifies a snapshot months later, and measuring the payload
+means serializing it a second time on every mass-edit for a number nobody acts
+on.
 
 They are not files in a folder on disk. A browser PWA has no such folder to
 write to — the File System Access API exists but is Chrome and Edge only, so
@@ -203,8 +245,8 @@ single-word edits, and the place hidden words remain visible.
 | Mass-edit would affect every word in a language | Allowed, with the count shown. The warning is the guard, not a cap. |
 | Snapshot restored, then immediately restored again | Returns to the prior state. The swap is symmetric by construction. |
 | Storage full when taking a snapshot | Mass-edit is refused rather than performed unprotected. |
-| Manual level set on a level-0 word | Due day assigned, staggered. |
-| Manual level set on any other word | Due day untouched. |
+| Manual level set on a level-0 word | Word marked introduced. Due day assigned as `today + ladder[level]`; a mass-edit staggers from there. |
+| Manual level set on any other word | Due day untouched, in either direction. A demotion moves the ladder position, not the arrival — the next review at the old interval is itself the check. |
 | Word has one vector above and one below the chosen level | Both land on it. The higher vector moves **down**; that is the operation working, not a bug. |
 | Word has a vector at level 0 and another at level 6, set to 5 | Both become 5. The level-0 vector gains a staggered due day, the other keeps its own. |
 | Level set from the result panel mid-quiz | Applies to every vector, and the control says so before it is used. |
@@ -217,7 +259,9 @@ single-word edits, and the place hidden words remain visible.
 
 1. A mass-edit is preceded by a snapshot, and refused if one cannot be taken.
 2. A mass-edit carries a user-written comment.
-3. The affected set is shown in full before the change commits.
+3. Before a mass-edit commits, the user sees the number of words affected, the
+   number that would **lose mastery**, and a sample of the affected words with
+   their part of speech and old→new level. The full list is not required.
 4. Hiding preserves progress and is reversible.
 5. Restore swaps rather than overwrites, so any restore can be undone.
 6. A deck stores the recipe that created it, not only its members.
@@ -262,7 +306,7 @@ tag queries stop meaning anything.
 
 ## Standards adopted
 
-**Accepted:** destructive actions preview their full effect first; automatic
+**Accepted:** destructive actions preview their effect first; automatic
 snapshots before bulk changes; reversible-by-default restore; required
 annotation on consequential operations; honest warnings on genuinely risky
 surfaces; empty states that explain rather than fail.
@@ -277,6 +321,9 @@ into doing it in several passes.
 ---
 
 ## Open questions
+
+All four were **adopted as recommended on 2026-08-22** and are carried into
+`maintenance.plan.md`. Kept here with their reasoning rather than deleted.
 
 | Question | Recommended default |
 |---|---|
