@@ -284,8 +284,15 @@ for an existing target costs ~4 MB rather than ~10 MB.
 array is therefore the only meaningful size lever — a third example on every word
 adds ~2.6 MB at 10,000 entries.
 
-Packs ship **pre-built indexes** by part of speech, by meaning, and by term, since
-all three are needed at question time.
+**Packs ship no indexes.** A pack carries the dictionary and nothing else; the
+app builds its own indexes by part of speech, by meaning and by term at install
+time.
+
+*Superseded 2026-08-23.* This section previously called for pre-built indexes in
+the pack. `architecture.md` D4 decided the opposite — indexes are built by the
+database, not shipped — and that is what slice 1 implemented: `install.ts`
+declares them on the Dexie store and `pack-format.ts` has no field to carry one.
+Shipping them would also duplicate data the app derives in a second anyway.
 
 ---
 
@@ -346,8 +353,8 @@ back deck quick-create.
 **Inherits:** progress keyed on `(word, vector)` — the reason identity is the
 central concern here; **the base language as a parameter**, which drives both the
 sense-ordinal key and the two-layer split; verified sources over generation;
-CC BY-SA propagation; cheap indexed distractor lookup, which is why indexes ship
-pre-built.
+CC BY-SA propagation; cheap indexed distractor lookup, which the app provides by
+indexing at install rather than the pack by carrying indexes.
 
 **Amends `framework.md`:**
 
