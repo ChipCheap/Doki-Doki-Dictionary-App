@@ -9,7 +9,10 @@
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "packs:fetch": "vite-node tools/packs/main.ts -- fetch",
+    "packs:build": "vite-node tools/packs/main.ts -- build",
+    "packs:prune": "vite-node tools/packs/main.ts -- prune"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^5.0.3",
@@ -19,7 +22,9 @@
     "svelte": "^5.19.0",
     "svelte-check": "^4.1.4",
     "typescript": "^5.7.3",
+    "unbzip2-stream": "^1.4.3",
     "vite": "^6.0.11",
+    "vite-node": "^6.0.0",
     "vite-plugin-pwa": "^0.21.1",
     "vitest": "^3.0.5"
   },

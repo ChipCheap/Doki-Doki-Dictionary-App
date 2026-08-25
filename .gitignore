@@ -6,6 +6,10 @@ dist/
 dev-dist/
 *.local
 
+# Cached pack sources. Hundreds of MB, reproducible from sources.lock.json.
+# The registry under packs/ is NOT ignored — it is committed and irreplaceable.
+dumps/
+
 # Vite / tooling caches
 .vite/
 .svelte-kit/

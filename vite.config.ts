@@ -43,7 +43,9 @@ export default defineConfig({
   test: {
     globals: true,
     environment: 'node',
-    include: ['src/**/*.test.ts'],
+    // `tools/**` too: the pack generator's registry decides whether a user
+    // keeps their progress, so its tests run with the app's.
+    include: ['src/**/*.test.ts', 'tools/**/*.test.ts'],
     // Installs an in-memory IndexedDB so the repositories can be tested against
     // real Dexie transactions. See src/test-setup.ts.
     setupFiles: ['src/test-setup.ts'],

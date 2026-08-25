@@ -18,5 +18,8 @@
     "verbatimModuleSyntax": true,
     "types": ["vite/client", "vitest/globals", "node"]
   },
-  "include": ["src/**/*.ts", "src/**/*.svelte"]
+  // `tools/**` is included so the pack generator is typechecked against the
+  // app's own pack format. Without it the generator could drift from
+  // `pack-format.ts` and only fail at install time, on a user's machine.
+  "include": ["src/**/*.ts", "src/**/*.svelte", "tools/**/*.ts"]
 }
