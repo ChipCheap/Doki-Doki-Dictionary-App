@@ -1,0 +1,86 @@
+{
+  "vi": [
+    {
+      "id": "kaikki",
+      "url": "https://kaikki.org/dictionary/Vietnamese/kaikki.org-dictionary-Vietnamese.jsonl",
+      "file": "vi-kaikki.jsonl",
+      "bytes": 78749951,
+      "sha256": "e232fba734687210f5a2f52b78aa38f41aaa2c13804f71bc013f4a1c9f8cb952",
+      "fetchedAt": "2026-08-24T15:35:10.195Z"
+    },
+    {
+      "id": "tatoeba-sentences",
+      "url": "https://downloads.tatoeba.org/exports/per_language/vie/vie_sentences.tsv.bz2",
+      "file": "vi-sentences.tsv",
+      "bytes": 2005614,
+      "sha256": "43f9d5b3a66233c7e60fae3d1e9bd268ca91b9476df771e596537ad57477cf99",
+      "fetchedAt": "2026-08-24T15:35:10.205Z"
+    },
+    {
+      "id": "tatoeba-links",
+      "url": "https://downloads.tatoeba.org/exports/per_language/vie/vie-eng_links.tsv.bz2",
+      "file": "vi-links.tsv",
+      "bytes": 363322,
+      "sha256": "7cd2407cd12c476c9ded258a5bb019a92df5dadb1eb12e7de7a0ebc16ffbe8d2",
+      "fetchedAt": "2026-08-24T15:35:10.208Z"
+    },
+    {
+      "id": "tatoeba-english",
+      "url": "https://downloads.tatoeba.org/exports/per_language/eng/eng_sentences.tsv.bz2",
+      "file": "eng-sentences.tsv",
+      "bytes": 108548130,
+      "sha256": "c3bba21db2cabb06982ce0dd33cc119945f176a89a37bf93ce6de40d6538e274",
+      "fetchedAt": "2026-08-24T15:35:25.293Z"
+    },
+    {
+      "id": "frequency",
+      "url": "https://raw.githubusercontent.com/hermitdave/FrequencyWords/master/content/2018/vi/vi_full.txt",
+      "file": "vi-frequency.txt",
+      "bytes": 950342,
+      "sha256": "b9063a8ec6a40fb22db9a2f8f5f90a06784669f235a95b25d5f28ae093ebaf07",
+      "fetchedAt": "2026-08-24T15:35:25.300Z"
+    }
+  ],
+  "es": [
+    {
+      "id": "kaikki",
+      "url": "https://kaikki.org/dictionary/Spanish/kaikki.org-dictionary-Spanish.jsonl",
+      "file": "es-kaikki.jsonl",
+      "bytes": 1026540836,
+      "sha256": "fc331ccf9cfbbcabb34729c5629858ae8fbecbbac0d750bbc45f152e7a33f1e3",
+      "fetchedAt": "2026-08-24T22:39:30.601Z"
+    },
+    {
+      "id": "tatoeba-sentences",
+      "url": "https://downloads.tatoeba.org/exports/per_language/spa/spa_sentences.tsv.bz2",
+      "file": "es-sentences.tsv",
+      "bytes": 24146162,
+      "sha256": "1cf15796e2945fc3b0da446b0e105d98893b6513f38cc992a0f34b59669d210c",
+      "fetchedAt": "2026-08-24T22:39:30.731Z"
+    },
+    {
+      "id": "tatoeba-links",
+      "url": "https://downloads.tatoeba.org/exports/per_language/spa/spa-eng_links.tsv.bz2",
+      "file": "es-links.tsv",
+      "bytes": 4430333,
+      "sha256": "7e9d241ba092451564cd0c58171fe466a1653e67a4d17baea6738c6c7ae77b1e",
+      "fetchedAt": "2026-08-24T22:39:30.759Z"
+    },
+    {
+      "id": "tatoeba-english",
+      "url": "https://downloads.tatoeba.org/exports/per_language/eng/eng_sentences.tsv.bz2",
+      "file": "eng-sentences.tsv",
+      "bytes": 108548130,
+      "sha256": "c3bba21db2cabb06982ce0dd33cc119945f176a89a37bf93ce6de40d6538e274",
+      "fetchedAt": "2026-08-24T22:39:31.240Z"
+    },
+    {
+      "id": "frequency",
+      "url": "https://raw.githubusercontent.com/doozan/spanish_data/master/frequency.csv",
+      "file": "es-frequency.csv",
+      "bytes": 2672990,
+      "sha256": "6392e2aefb118555fdb9955d9314522fe946be4e7be0eee0bc1712a6760e057c",
+      "fetchedAt": "2026-08-24T22:39:31.861Z"
+    }
+  ]
+}

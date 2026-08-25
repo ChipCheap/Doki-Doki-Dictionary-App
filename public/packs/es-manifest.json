@@ -1,0 +1,56 @@
+{
+  "language": "es",
+  "languageName": "Spanish",
+  "baseLanguage": "en",
+  "packVersion": "2026-08-24",
+  "schemaVersion": 1,
+  "entryCount": 10000,
+  "builtAt": "2026-08-24T22:49:33.239Z",
+  "licence": "CC BY-SA 4.0",
+  "licenceNote": "Derived from share-alike sources, so this pack is itself CC BY-SA. Attribution for every source is listed below and must travel with the data.",
+  "sources": [
+    {
+      "name": "English Wiktionary, extracted by wiktextract via kaikki.org",
+      "licence": "CC BY-SA 4.0 (and GFDL)",
+      "url": "https://kaikki.org/dictionary/Spanish/kaikki.org-dictionary-Spanish.jsonl",
+      "fetchedAt": "2026-08-24T22:39:30.601Z",
+      "bytes": 1026540836
+    },
+    {
+      "name": "Tatoeba Project",
+      "licence": "CC BY 2.0 FR",
+      "url": "https://downloads.tatoeba.org/exports/per_language/spa/spa_sentences.tsv.bz2",
+      "fetchedAt": "2026-08-24T22:39:30.731Z",
+      "bytes": 24146162
+    },
+    {
+      "name": "Tatoeba Project",
+      "licence": "CC BY 2.0 FR",
+      "url": "https://downloads.tatoeba.org/exports/per_language/spa/spa-eng_links.tsv.bz2",
+      "fetchedAt": "2026-08-24T22:39:30.759Z",
+      "bytes": 4430333
+    },
+    {
+      "name": "Tatoeba Project",
+      "licence": "CC BY 2.0 FR",
+      "url": "https://downloads.tatoeba.org/exports/per_language/eng/eng_sentences.tsv.bz2",
+      "fetchedAt": "2026-08-24T22:39:31.240Z",
+      "bytes": 108548130
+    },
+    {
+      "name": "doozan/spanish_data, lemmatized from hermitdave/FrequencyWords (OpenSubtitles)",
+      "licence": "CC BY 4.0",
+      "url": "https://raw.githubusercontent.com/doozan/spanish_data/master/frequency.csv",
+      "fetchedAt": "2026-08-24T22:39:31.861Z",
+      "bytes": 2672990
+    }
+  ],
+  "reportSummary": {
+    "examplesWithTwo": 5415,
+    "examplesWithNone": 3844,
+    "contextTagPercent": 6.1,
+    "homographTerms": 3024,
+    "keysMinted": 0,
+    "keysOrphaned": 0
+  }
+}
