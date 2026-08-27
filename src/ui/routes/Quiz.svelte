@@ -122,7 +122,11 @@
   }
 </script>
 
-<div class="head">
+<!-- Once the queue is empty both of these are stale: the counter counts
+     nothing and "I don't know" answers nothing. They are hidden rather than
+     removed, so the summary below does not jump up the page as the last card
+     resolves — `visibility` keeps the box, `display` would not. -->
+<div class="head" class:spent={!card && !session.loading}>
   <span class="hint">
     {#if session.inRequeuePass}
       {session.requeue.length} to get right
@@ -199,6 +203,10 @@
     /* Stacked by default; the same content in the same order, so the desktop
        layout is one axis change rather than a second design. */
     grid-template-columns: 1fr;
+  }
+
+  .head.spent {
+    visibility: hidden;
   }
 
   .panes.wide {
