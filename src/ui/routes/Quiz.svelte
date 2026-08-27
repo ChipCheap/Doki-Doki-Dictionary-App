@@ -168,7 +168,8 @@
   <ResultPanel
     entry={session.lastResolved?.entry}
     result={session.lastResult}
-    showChoices={session.phase === 'resultWrong'}
+    showChoices={session.phase === 'resultWrong' ||
+      (session.phase === 'resultCorrect' && !wide)}
     inRequeuePass={session.inRequeuePass}
     onmarkcorrect={() => void session.chooseMarkCorrect().then(clear)}
     onredo={() => void session.chooseRedo().then(clear)}

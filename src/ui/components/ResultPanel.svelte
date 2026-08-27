@@ -79,11 +79,20 @@
       <div class="choices">
         <!-- The default path, and deliberately the plain one: continuing is
              what demotes, and the other two take a conscious press. It needs a
-             button as well as a key, or a pointer user has no way forward. -->
+             button as well as a key, or a pointer user has no way forward.
+             That last sentence was the bug: below the auto-advance breakpoint a
+             CORRECT answer rendered no buttons at all, so every right answer on
+             a phone was a dead end with Enter as the only escape. -->
         <button class="primary" onclick={oncontinue}>Continue <span class="key">⏎</span></button>
-        <button onclick={onmarkcorrect}>Mark correct <span class="key">m</span></button>
-        {#if !inRequeuePass}
-          <button onclick={onredo}>Redo question <span class="key">r</span></button>
+
+        <!-- Only a wrong answer can be argued with. Offering "mark correct" on
+             something already correct, or a redo of a card just passed, would
+             be two controls that mean nothing. -->
+        {#if !correct}
+          <button onclick={onmarkcorrect}>Mark correct <span class="key">m</span></button>
+          {#if !inRequeuePass}
+            <button onclick={onredo}>Redo question <span class="key">r</span></button>
+          {/if}
         {/if}
       </div>
     {/if}

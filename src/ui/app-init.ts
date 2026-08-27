@@ -39,10 +39,19 @@ export function isInstalled(): boolean {
 export function applySettings(settings: GlobalSettings): void {
   const root = document.documentElement;
   root.style.setProperty('--app-text-scale', String(settings.textScale));
-  root.style.setProperty(
-    '--app-font',
-    `'${settings.fontFamily}', 'Noto Sans', 'Segoe UI', system-ui, sans-serif`,
-  );
+  // Noto Sans is the coverage backstop, so it is dropped from the tail when it
+  // is already the choice — otherwise the default setting yields
+  // `'Noto Sans', 'Noto Sans', ...`. The rest of the stack always stays: a
+  // fallback list is not a load-failure backup, it is PER-GLYPH cover, and the
+  // browser walks it whenever the chosen face lacks a character.
+  const stack = [
+    `'${settings.fontFamily}'`,
+    ...(settings.fontFamily === 'Noto Sans' ? [] : [`'Noto Sans'`]),
+    `'Segoe UI'`,
+    'system-ui',
+    'sans-serif',
+  ];
+  root.style.setProperty('--app-font', stack.join(', '));
 
   if (settings.themeMode === 'system') root.removeAttribute('data-theme');
   else root.setAttribute('data-theme', settings.themeMode);
