@@ -25,6 +25,21 @@ export interface InstalledPack {
   entryCount: number;
   installedOn: number;
   /**
+   * Where this pack's data came from, copied off the pack at install.
+   *
+   * Persisted rather than fetched because attribution is a licence obligation
+   * that does not pause when the network does — and `public/packs/**` is
+   * excluded from the service-worker precache, so a screen reading the manifest
+   * would be blank offline. Taken from the pack rather than hard-coded so a
+   * pack built later, for a language this build has never heard of, attributes
+   * itself with no code change.
+   *
+   * Optional only for rows written before database version 4; the v4 upgrade
+   * clears `ready` on those so they are reinstalled rather than displayed
+   * without their sources.
+   */
+  sources?: { name: string; licence: string; url?: string }[];
+  /**
    * Written LAST, after every row lands. A pack without it is treated as absent
    * and reinstalled — which makes a half-written install self-correcting
    * without a verification scan over every row (architecture.md D-S11).

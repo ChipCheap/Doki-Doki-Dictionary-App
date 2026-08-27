@@ -164,6 +164,27 @@
 
   /** Languages in the catalogue that are not installed yet. */
   const missing = $derived(CATALOG.filter((c) => !packs.some((p) => p.id === c.language)));
+
+  /**
+   * Languages that have decks but no ready pack.
+   *
+   * Home renders one section per INSTALLED pack, so a pack whose ready flag was
+   * cleared takes its language and all its decks off the screen with no
+   * explanation. That happens legitimately — the version 4 upgrade clears the
+   * flag on packs installed before sources were recorded — and without this the
+   * only route back is the "Add a language" list, which reads as adding
+   * something new rather than repairing something present. No progress is lost
+   * either way; only the display is affected.
+   */
+  const needsRepair = $derived(
+    [...byLanguage.keys()]
+      .filter((language) => !packs.some((p) => p.id === language))
+      .map((language) => ({
+        language,
+        name: CATALOG.find((c) => c.language === language)?.languageName ?? language,
+        decks: byLanguage.get(language)?.length ?? 0,
+      })),
+  );
 </script>
 
 <div class="top">
@@ -175,10 +196,24 @@
          once, so it does not belong in a language's own section. -->
     <button class="quiet" onclick={() => router.go('snapshots')}>Snapshots</button>
     <button class="quiet" onclick={() => router.go('keyboardHelp')}>Keyboard</button>
+    <button class="quiet" onclick={() => router.go('attributions')}>Attributions</button>
   </div>
 </div>
 
 <BackupWarning {backup} onchange={(next) => (backup = next)} />
+
+{#each needsRepair as repair (repair.language)}
+  <div class="repair">
+    <div>
+      <strong>{repair.name} needs reinstalling.</strong>
+      Its {repair.decks} {repair.decks === 1 ? 'deck is' : 'decks are'} safe and your progress is
+      untouched — the pack itself has to be rebuilt before its words can be served again.
+    </div>
+    <button class="primary" onclick={() => router.go('installPack', { language: repair.language })}>
+      Reinstall
+    </button>
+  </div>
+{/each}
 
 {#each packs as pack, i (pack.id)}
   {#if i > 0}<hr />{/if}
@@ -319,6 +354,19 @@
     align-items: baseline;
     gap: 9px;
     margin-bottom: 8px;
+  }
+
+  .repair {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    border: 1px solid var(--incorrect);
+    border-radius: 10px;
+    padding: 10px 12px;
+    margin-bottom: 14px;
+    font-size: var(--size-small);
   }
 
   .lang-actions {

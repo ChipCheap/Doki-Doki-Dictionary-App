@@ -3,6 +3,7 @@
   import { listInstalledPacks } from '../dictionary/install';
   import { startup } from './app-init';
   import { router } from './router.svelte';
+  import Attributions from './routes/Attributions.svelte';
   import Browse from './routes/Browse.svelte';
   import FirstRun from './routes/FirstRun.svelte';
   import Home from './routes/Home.svelte';
@@ -69,6 +70,8 @@
   <MassEdit language={route.params.language ?? ''} />
 {:else if route.name === 'snapshots'}
   <Snapshots />
+{:else if route.name === 'attributions'}
+  <Attributions />
 {:else}
   <Home />
 {/if}

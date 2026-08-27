@@ -55,6 +55,7 @@ export async function installPack(
     schemaVersion: SUPPORTED_SCHEMA_VERSION,
     entryCount: total,
     installedOn: Date.now(),
+    sources: core.sources ?? [],
     ready: false,
   });
 

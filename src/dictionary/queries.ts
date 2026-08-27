@@ -186,3 +186,49 @@ export async function availableTags(language: string): Promise<string[]> {
   const rows = await db.entries.where('language').equals(language).toArray();
   return [...new Set(rows.flatMap((r) => r.contextTags))].sort();
 }
+
+/**
+ * S4 — everything the attributions screen needs, per installed language.
+ *
+ * The packs are derived from share-alike sources, so crediting them is a
+ * licence obligation rather than a courtesy (framework.md, "Licensing
+ * position"). This lives in `dictionary` because no screen may touch storage
+ * directly (architecture.md guideline 2), and it reads only what install
+ * recorded — nothing here reaches the network.
+ */
+export interface PackAttribution {
+  language: string;
+  languageName: string;
+  packVersion: string;
+  entryCount: number;
+  sources: { name: string; licence: string; url?: string }[];
+}
+
+/** The licence every generated pack carries. Share-alike propagates. */
+export const PACK_LICENCE = 'CC BY-SA 4.0';
+
+export async function listAttributions(): Promise<PackAttribution[]> {
+  const packs = await db.packs.toArray();
+
+  return packs
+    .filter((pack) => pack.ready)
+    .sort((a, b) => a.languageName.localeCompare(b.languageName))
+    .map((pack) => {
+      // Tatoeba supplies three files — sentences, links and the English corpus
+      // — so it appears three times in every pack's source list. Listing it
+      // three times would read as three separate obligations.
+      const seen = new Map<string, { name: string; licence: string; url?: string }>();
+      for (const source of pack.sources ?? []) {
+        const key = `${source.name}|${source.licence}`;
+        if (!seen.has(key)) seen.set(key, source);
+      }
+
+      return {
+        language: pack.id,
+        languageName: pack.languageName,
+        packVersion: pack.packVersion,
+        entryCount: pack.entryCount,
+        sources: [...seen.values()],
+      };
+    });
+}

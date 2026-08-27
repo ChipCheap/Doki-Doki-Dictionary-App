@@ -17,6 +17,7 @@ export type RouteName =
   | 'settings'
   | 'transfer'
   | 'keyboardHelp'
+  | 'attributions'
   // Maintenance. Reached from the deck list and never from inside a session,
   // which is what makes "no restore happens mid-quiz" an assumption rather than
   // a case to handle.

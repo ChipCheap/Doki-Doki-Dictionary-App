@@ -63,6 +63,19 @@ export class AppDatabase extends Dexie {
     // no change to any existing row, so an upgrade from v1 or v2 carries every
     // deck and every progress row across untouched.
     this.version(3).stores({ ...SNAPSHOT_STORES });
+
+    // v4: packs record the sources they were built from, so the attributions
+    // screen works offline. A pack installed before this carries none, and a
+    // language shown without its attribution is the same licence failure as
+    // having no screen at all — so its ready flag is cleared and the existing
+    // install flow rebuilds it. Non-destructive: only the flag is touched, and
+    // progress rows are never part of a pack.
+    this.version(4).upgrade(async (tx) => {
+      const packs = tx.table<InstalledPack, string>('packs');
+      await packs.toCollection().modify((pack) => {
+        if (!pack.sources || pack.sources.length === 0) pack.ready = false;
+      });
+    });
   }
 }
 
