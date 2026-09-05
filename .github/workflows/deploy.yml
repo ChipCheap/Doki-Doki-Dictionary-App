@@ -1,0 +1,59 @@
+# Builds the app and publishes it to GitHub Pages.
+#
+# The site lives at https://chipcheap.github.io/Doki-Doki-Dictionary-App/, which
+# matches `base` in vite.config.ts. architecture.md D7 makes that pair load-bearing:
+# IndexedDB is per-origin, so a different host or path is a different, empty profile.
+name: Deploy to Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Read the repo, mint the OIDC token deploy-pages exchanges for a deployment.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Never let two deployments race. `cancel-in-progress: false` so a run that is
+# already publishing finishes rather than leaving the site half-swapped.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      # The packs decide whether a user keeps their progress, so their tests
+      # gate the deploy alongside the app's.
+      - run: npm test
+
+      # `build` runs svelte-check first: a type error fails here, not in a browser.
+      - run: npm run build
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

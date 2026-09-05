@@ -28,3 +28,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+
+# Automatic backups written by the app when a folder is picked here.
+# Personal progress data, not source.
+backups/
