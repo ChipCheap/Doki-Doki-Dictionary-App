@@ -218,9 +218,12 @@ staggering only those with none.
 Global settings with defaults applied on read.
 
 `ThemeMode` · `GlobalSettings` · `FONT_CHOICES` · `DEFAULT_GLOBAL_SETTINGS` ·
-`DEFAULT_DECK_SETTINGS` · `getGlobalSettings` · `updateGlobalSettings`
+`DEFAULT_DECK_SETTINGS` · `getGlobalSettings` · `updateGlobalSettings` ·
+`DeviceKey` · `getDeviceValue` · `setDeviceValue`
 
-Per-deck settings live on the deck row, not here.
+Per-deck settings live on the deck row, not here. Device values (a dismissed
+notice, a declined update) sit under their own keys, outside `GlobalSettings`,
+so they are never written into an exported profile.
 
 ### `deck-repo.ts`
 Decks and quick-create.
@@ -262,10 +265,11 @@ deck recipes to the multi-select shape.
 
 | File | Purpose | Exports |
 |---|---|---|
-| `main.ts` | Mounts the app, imports both stylesheets | default mount |
-| `App.svelte` | Route outlet, startup, first-run redirect | — |
+| `main.ts` | Mounts the app, imports both stylesheets, starts `pwa.listen()` before mount | default mount |
+| `App.svelte` | Route outlet, startup, first-run redirect, update prompt | — |
 | `router.svelte.ts` | Hash router | `RouteName` · `Route` · `router` |
-| `app-init.ts` | `persist()`, theme application, install detection | `StartupReport` · `requestPersistentStorage` · `isInstalled` · `applySettings` · `startup` |
+| `app-init.ts` | `persist()`, theme application, install detection, which durability notice to show | `StartupReport` · `requestPersistentStorage` · `isInstalled` · `applySettings` · `startup` · `DurabilityNotice` · `DurabilityInputs` · `durabilityNotice` · `dismissedNotices` · `dismissNotice` |
+| `pwa.svelte.ts` | Install offer capture, installed state, service-worker registration and updates. Owns registration — `injectRegister` is off | `pwa` |
 | `audio.ts` | The inert seam. `isAvailable` is hard-coded false | `SpeechRequest` · `isAvailable` · `speak` |
 | `theme.css` | Every colour, once, as `light-dark()` pairs | — |
 | `base.css` | Element styling; defines no colour of its own | — |
@@ -302,6 +306,8 @@ rejection note, and the keyboard-help affordance.
 
 | File | Purpose |
 |---|---|
+| `components/DurabilityNotice.svelte` | Home banner: install offer with its reason, or the "not protected" warning where no install exists |
+| `components/UpdatePrompt.svelte` | Global toast offering a waiting app version; "Not now" is remembered per version |
 | `components/DeckRow.svelte` | One deck: name, tags, one state-appropriate value, rotating chevron |
 | `components/DeckDetail.svelte` | Ladder distribution bar, overdue count, start button |
 | `components/ResultPanel.svelte` | Outcome, entry, examples, the two buttons, mastery picker |

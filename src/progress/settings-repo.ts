@@ -64,3 +64,27 @@ export async function updateGlobalSettings(
   await db.settings.put({ key: GLOBAL_KEY, value: next });
   return next;
 }
+
+/**
+ * Device-local values, each under its own key and deliberately NOT inside
+ * `GlobalSettings` — for the same reason backup.ts keeps its folder handle out:
+ * `exportProfile` serializes global settings into every profile file, and these
+ * describe THIS browser, not the learner. A dismissed install notice or a
+ * declined app update means nothing on another machine.
+ *
+ * The keys are a closed union so a typo cannot silently read another row, and
+ * so nothing here can ever collide with `globalSettings`.
+ */
+export type DeviceKey =
+  /** Which durability notices were dismissed — see app-init.ts. */
+  | 'dismissedDurabilityNotices'
+  /** Fingerprint of the app update the user last said "not now" to. */
+  | 'declinedUpdate';
+
+export async function getDeviceValue(key: DeviceKey): Promise<unknown> {
+  return (await db.settings.get(key))?.value;
+}
+
+export async function setDeviceValue(key: DeviceKey, value: unknown): Promise<void> {
+  await db.settings.put({ key, value });
+}

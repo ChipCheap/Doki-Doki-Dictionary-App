@@ -2,6 +2,8 @@
   import { onMount } from 'svelte';
   import { listInstalledPacks } from '../dictionary/install';
   import { startup } from './app-init';
+  import { pwa } from './pwa.svelte';
+  import UpdatePrompt from './components/UpdatePrompt.svelte';
   import { router } from './router.svelte';
   import Attributions from './routes/Attributions.svelte';
   import Browse from './routes/Browse.svelte';
@@ -24,7 +26,9 @@
     const stop = router.start();
 
     void (async () => {
-      await startup();
+      const report = await startup();
+      pwa.persisted = report.storagePersisted;
+      pwa.installed = report.installed;
       hasPack = (await listInstalledPacks()).length > 0;
       // Nothing installed means there is nothing to study and no deck to make,
       // so the first-run flow is the only sensible destination.
@@ -75,3 +79,5 @@
 {:else}
   <Home />
 {/if}
+
+<UpdatePrompt />

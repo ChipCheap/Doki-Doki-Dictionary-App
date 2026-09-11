@@ -28,6 +28,7 @@
   } from '../../progress/deck-repo';
   import { backupIfStale, backupState, type BackupState } from '../../progress/backup';
   import BackupWarning from '../components/BackupWarning.svelte';
+  import DurabilityNotice from '../components/DurabilityNotice.svelte';
   import type { DeckRecipe } from '../../progress/schema';
   import type { DifficultyTier } from '../../domain/types';
   import { getWordProgress } from '../../progress/progress-repo';
@@ -200,6 +201,7 @@
   </div>
 </div>
 
+<DurabilityNotice />
 <BackupWarning {backup} onchange={(next) => (backup = next)} />
 
 {#each needsRepair as repair (repair.language)}

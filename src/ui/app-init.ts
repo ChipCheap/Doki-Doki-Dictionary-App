@@ -8,7 +8,12 @@
  * why the install prompt here is a data-safety mechanism, not decoration.
  */
 
-import { getGlobalSettings, type GlobalSettings } from '../progress/settings-repo';
+import {
+  getDeviceValue,
+  getGlobalSettings,
+  setDeviceValue,
+  type GlobalSettings,
+} from '../progress/settings-repo';
 
 export interface StartupReport {
   /** True when the browser agreed not to evict this origin under pressure. */
@@ -64,4 +69,55 @@ export async function startup(): Promise<StartupReport> {
     storagePersisted: await requestPersistentStorage(),
     installed: isInstalled(),
   };
+}
+
+/**
+ * Which durability notice Home shows, if any.
+ *
+ * - `install`: the browser offered to install the app. Installing is what earns
+ *   persistent storage from Chromium browsers and exempts the origin from
+ *   Safari's seven-day rule, so this is offered even when storage is already
+ *   persisted — it is still the stronger guarantee, and it is the taskbar entry.
+ * - `unprotected`: no install is on offer AND the browser refused `persist()`.
+ *   Opera and Firefox on desktop land here: neither can install web apps at all.
+ *
+ * `installSettled` exists because Chromium fires `beforeinstallprompt` a moment
+ * AFTER the page loads. Deciding `unprotected` before then would flash a false
+ * "your progress is not protected" at every Edge and Chrome user, just before
+ * the install offer replaced it.
+ */
+export type DurabilityNotice = 'install' | 'unprotected' | 'none';
+
+export interface DurabilityInputs {
+  installed: boolean;
+  persisted: boolean;
+  canInstall: boolean;
+  installSettled: boolean;
+  dismissed: readonly DurabilityNotice[];
+}
+
+export function durabilityNotice(inputs: DurabilityInputs): DurabilityNotice {
+  const { installed, persisted, canInstall, installSettled, dismissed } = inputs;
+  if (installed) return 'none';
+  if (canInstall) return dismissed.includes('install') ? 'none' : 'install';
+  if (!installSettled || persisted) return 'none';
+  return dismissed.includes('unprotected') ? 'none' : 'unprotected';
+}
+
+/**
+ * Dismissals live in IndexedDB, next to the data they warn about, and that is
+ * deliberate: a browser that wipes the app's storage wipes the dismissal too, so
+ * the `unprotected` notice coming back is itself the evidence of a wipe.
+ */
+export async function dismissedNotices(): Promise<DurabilityNotice[]> {
+  const value = await getDeviceValue('dismissedDurabilityNotices');
+  return Array.isArray(value)
+    ? value.filter((v): v is DurabilityNotice => v === 'install' || v === 'unprotected')
+    : [];
+}
+
+export async function dismissNotice(notice: DurabilityNotice): Promise<DurabilityNotice[]> {
+  const next = [...new Set([...(await dismissedNotices()), notice])];
+  await setDeviceValue('dismissedDurabilityNotices', next);
+  return next;
 }

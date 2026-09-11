@@ -13,6 +13,9 @@ export default defineConfig({
     svelte(),
     VitePWA({
       registerType: 'prompt',
+      // Registered by src/ui/pwa.svelte.ts, which owns the update prompt. The
+      // injected script would register a second time with no prompt at all.
+      injectRegister: false,
       // Packs are fetched once and imported into IndexedDB; precaching them too
       // would duplicate ~10 MB in the service-worker cache (architecture.md D9).
       workbox: {
