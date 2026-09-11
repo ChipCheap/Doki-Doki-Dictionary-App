@@ -25,6 +25,9 @@
     onredo: () => void;
     oncontinue: () => void;
     onsetlevel: (level: number) => void;
+    /** Whether the word shown here has been hidden during this session. */
+    hidden: boolean;
+    ontogglehidden: () => void;
   }
 
   let {
@@ -36,7 +39,11 @@
     onredo,
     oncontinue,
     onsetlevel,
+    hidden,
+    ontogglehidden,
   }: Props = $props();
+
+  const HIDE_EFFECT = 'Hidden words are left out of every session until unhidden';
 
   const correct = $derived(result?.correct ?? false);
   const movement = $derived(result?.movement);
@@ -97,8 +104,18 @@
       </div>
     {/if}
 
+    <!-- Hide sits beside the mastery control because both answer the same
+         question — "what should happen to this word from now on?" — and a word
+         not worth studying is best dismissed while it is on screen, not hunted
+         down in Browse after the session. Its label is its state. -->
     <div class="picker">
       <MasteryPicker level={movement?.to ?? 0} onset={onsetlevel} />
+      <button class="hide" title={HIDE_EFFECT} onclick={ontogglehidden}>
+        {hidden ? 'Unhide' : 'Hide'}
+      </button>
+      {#if hidden}
+        <span class="hint" role="status">hidden from sessions</span>
+      {/if}
     </div>
   {/if}
 </div>
@@ -153,7 +170,13 @@
     color: var(--text-muted);
   }
 
+  /* `last baseline`: the picker stacks a hint above its controls, so aligning
+     on the LAST line puts Hide and its status on the same line as Apply. */
   .picker {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: last baseline;
+    gap: 6px 8px;
     margin-top: 14px;
   }
 </style>

@@ -109,6 +109,13 @@
     if (session.phase === 'resultCorrect' && wide) await advance();
   }
 
+  /** Acts on the word in the result pane — the previous card on desktop. */
+  async function toggleHidden(): Promise<void> {
+    const key = session.lastResolved?.card.wordKey;
+    if (!key) return;
+    await session.setWordHidden(key, !session.hiddenWords.has(key));
+  }
+
   async function setLevel(level: number): Promise<void> {
     const resolved = session.lastResolved;
     if (!resolved || !session.deck) return;
@@ -179,6 +186,8 @@
     onredo={() => void session.chooseRedo().then(clear)}
     oncontinue={() => void advance()}
     onsetlevel={(l) => void setLevel(l)}
+    hidden={session.lastResolved ? session.hiddenWords.has(session.lastResolved.card.wordKey) : false}
+    ontogglehidden={() => void toggleHidden()}
   />
 </div>
 

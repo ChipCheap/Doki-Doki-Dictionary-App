@@ -310,7 +310,7 @@ rejection note, and the keyboard-help affordance.
 | `components/UpdatePrompt.svelte` | Global toast offering a waiting app version; "Not now" is remembered per version |
 | `components/DeckRow.svelte` | One deck: name, tags, one state-appropriate value, rotating chevron |
 | `components/DeckDetail.svelte` | Ladder distribution bar, overdue count, start button |
-| `components/ResultPanel.svelte` | Outcome, entry, examples, the two buttons, mastery picker |
+| `components/ResultPanel.svelte` | Outcome, entry, examples, the two buttons, mastery picker, Hide/Unhide |
 | `components/DiacriticDiff.svelte` | Per-character highlight, only when diacritics are the sole difference |
 | `components/SettingPreview.svelte` | Live preview using stacked-mark test text |
 

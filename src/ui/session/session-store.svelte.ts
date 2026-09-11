@@ -22,7 +22,7 @@ import { composeSession, type SessionSettings } from '../../domain/session';
 import type { Card, WordKey } from '../../domain/types';
 import { QuestionMethod, vectorById } from '../../domain/vectors';
 import { deckMembers, sessionSettingsFor, type DeckRow } from '../../progress/deck-repo';
-import { getWordProgress, recordGrade } from '../../progress/progress-repo';
+import { getWordProgress, recordGrade, setHidden } from '../../progress/progress-repo';
 
 export type Phase =
   /** Field focused, all keys go to it. */
@@ -136,6 +136,18 @@ export class SessionStore {
   graded = $state(0);
 
   #entries = new Map<WordKey, DictionaryEntry>();
+
+  /**
+   * Words hidden from the result panel during this session.
+   *
+   * Purging the re-query queue at hide time is not enough on its own: a wrong
+   * answer is not graded — and so not re-queued — until the user picks
+   * Continue, Mark correct or Redo, which can come AFTER Hide. So the set is
+   * also consulted wherever a card would be queued, and once more at
+   * presentation as the backstop. Replaced rather than mutated so the panel's
+   * label reacts.
+   */
+  hiddenWords = $state<ReadonlySet<WordKey>>(new Set());
   /** Must be `$state`: the header reads it, and a plain field is not tracked. */
   #inRequeuePass = $state(false);
 
@@ -208,6 +220,24 @@ export class SessionStore {
     this.#total = 0;
     this.#entries = new Map();
     this.#inRequeuePass = false;
+    this.hiddenWords = new Set();
+  }
+
+  /**
+   * Hide or unhide a word from the result panel. Persisted at once, like every
+   * grade; the session then skips any card of it still to come. The grade the
+   * word already earned stands, so unhiding later loses nothing.
+   */
+  async setWordHidden(wordKey: WordKey, hidden: boolean): Promise<void> {
+    await setHidden(wordKey, hidden);
+    const next = new Set(this.hiddenWords);
+    if (hidden) next.add(wordKey);
+    else next.delete(wordKey);
+    this.hiddenWords = next;
+    // At once, so "n to get right" never counts a word the user dismissed.
+    // Unhiding does not restore a dropped re-query: that pass is ungraded, so
+    // nothing the word earned is lost.
+    if (hidden) this.requeue = this.requeue.filter((c) => c.wordKey !== wordKey);
   }
 
   async #present(): Promise<void> {
@@ -226,9 +256,10 @@ export class SessionStore {
     this.#inRequeuePass = this.drawn.length === 0;
 
     const entry = this.#entries.get(next.wordKey);
-    if (!entry) {
-      // The word vanished from the dictionary between composition and now.
-      // Drop the card rather than showing an empty question.
+    // Either the word vanished from the dictionary between composition and
+    // now, or the user hid it mid-session. Drop the card rather than showing
+    // an empty question or one the user asked never to see.
+    if (!entry || this.hiddenWords.has(next.wordKey)) {
       this.#drop(next);
       return this.#present();
     }
@@ -410,7 +441,9 @@ export class SessionStore {
     this.graded += 1;
 
     this.drawn = this.drawn.filter((c) => c !== card.card);
-    if (result.requeue) this.requeue = [...this.requeue, card.card];
+    if (result.requeue && !this.hiddenWords.has(card.card.wordKey)) {
+      this.requeue = [...this.requeue, card.card];
+    }
 
     this.#show(card, {
       // *Mark correct* raises the level but the answer WAS wrong, so the panel
@@ -439,7 +472,7 @@ export class SessionStore {
     const { clears } = resolveRequeue(requeueOutcome);
     const without = this.requeue.filter((c) => c !== card.card);
 
-    this.requeue = clears ? without : [...without, card.card];
+    this.requeue = clears || this.hiddenWords.has(card.card.wordKey) ? without : [...without, card.card];
     // No movement: a re-query appearance never changes a level.
     this.#show(card, {
       correct: requeueOutcome === 'correct',
