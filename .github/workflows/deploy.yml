@@ -1,8 +1,9 @@
 # Builds the app and publishes it to GitHub Pages.
 #
 # The site lives at https://chipcheap.github.io/Doki-Doki-Dictionary-App/, which
-# matches `base` in vite.config.ts. architecture.md D7 makes that pair load-bearing:
-# IndexedDB is per-origin, so a different host or path is a different, empty profile.
+# matches `base` in vite.config.ts. IndexedDB is per-ORIGIN (https://chipcheap.github.io),
+# so a different host is a different, empty profile. The path is not part of the
+# origin: it scopes the service worker and the installed app's identity, not the data.
 name: Deploy to Pages
 
 on:
