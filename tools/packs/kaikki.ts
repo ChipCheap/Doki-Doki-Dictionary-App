@@ -13,6 +13,7 @@
 
 import { createReadStream } from 'node:fs';
 import { createInterface } from 'node:readline';
+import { normalizeTerm } from './registry';
 
 /** Only the fields this pipeline reads. The extract carries far more. */
 export interface KaikkiSense {
@@ -103,7 +104,141 @@ const EXCLUDED_POS = new Set([
   // of 亞". A pronunciation note for a character the learner never sees, not a
   // Vietnamese word. 546 of these sit in the Vietnamese extract.
   'romanization',
+  // Single letters — "A", the letter. Nothing to translate.
+  'character',
 ]);
+
+/**
+ * Which proper names are vocabulary.
+ *
+ * The frequency lists rank SPELLINGS, so names riding on a common word's
+ * spelling were selected with it: `Sociedad` "a town in Morazán department, El
+ * Salvador", `Acero` the surname, `Cometa` the reindeer — each shown with an
+ * article it never takes. About 250 per language.
+ *
+ * A keep-list of countries was tried first and failed the other way: Wiktionary
+ * files `mặt trời` (the sun), `trái đất` (the earth) and `tiếng Đức` (German)
+ * ONLY as proper names, and gives `Trung Quốc` just "China" with no country
+ * category. So the decision has two stages:
+ *
+ * 1. `nameVerdict`, per sense: drop what is never vocabulary — people,
+ *    spellings, scientific names, acronyms — and note whether the sense is a
+ *    MAJOR name (country, continent, national capital, language, sun/moon/earth)
+ *    or a minor place.
+ * 2. `keepNames`, once every sense is read: a name spelled like an ordinary
+ *    word in the extract (`Cometa` beside `cometa`) is a homograph that only got
+ *    in on that word's frequency, so it stays only if major. Other names stay
+ *    unless they are a minor place.
+ */
+const PERSON_GLOSS = /\b(surname|given name|male name|female name|unisex name|home name|diminutive|nickname|patronymic)\b/i;
+const PERSON_CATEGORY = /\b(surnames|given names|home names)\b/i;
+
+/** "Traditional tone placement spelling of Hoà" — a spelling, not a word. */
+const SPELLING_GLOSS = /\bspelling of\b/i;
+const SPELLING_CATEGORY = /\b(alternative spellings|tone placement spellings|obsolete forms)\b/i;
+
+/**
+ * Scientific names. Wiktionary gives `Người` the proper-noun sense "Hominidae"
+ * and `Chim` "Aves"; the everyday nouns person and bird are separate entries,
+ * and learning `người` as "Hominidae" would be actively wrong.
+ */
+const TAXON_GLOSS =
+  /^(?:[A-Z][a-z]+(?:idae|inae|aceae|ales|formes|oidea)|Aves|Mammalia|Reptilia|Amphibia|Insecta|Pisces|Animalia|Plantae|Fungi)$/;
+
+/** "a town in …", "(a province of …)", "an island between …". */
+const MINOR_PLACE_GLOSS =
+  /(?:^|\()(?:a|an|the)\s+(?:[\w-]+\s+){0,2}?(?:town|village|commune|municipality|district|department|parish|county|barrio|neighbou?rhood|river|mountain|island|province|region|state|city|ward|canton|suburb|locality)\b|\bhighway\b/i;
+const MINOR_PLACE_CATEGORY =
+  /^(towns|villages|communes|municipalities|districts|departments|barrios|neighbou?rhoods|parishes|counties|rivers|mountains|islands|provinces|regions|states|cities|wards|localities|places)\b/i;
+
+/**
+ * "(a country in …)", "(the largest continent …)". The few words allowed between
+ * the article and the noun stop "(a state of Australia, … of the country)" from
+ * qualifying.
+ */
+const COUNTRY_GLOSS = /\((?:a|an|the)(?:\s+[\w-]+){0,3}?\s+(?:country|continent)\b/i;
+const LANGUAGE_GLOSS = /^[\p{L}-]+(?:\s[\p{L}-]+)?\s+language$/iu;
+const CELESTIAL_GLOSS = /^(?:the\s+)?(?:sun|moon|earth|earth's moon)$/i;
+const MAJOR_CATEGORY = /^(countries|continents|official names of countries|languages)\b/i;
+const CAPITAL_GLOSS = /\bthe capital (?:city )?of\b/i;
+const CAPITAL_CATEGORY = /^national capitals\b/i;
+
+/**
+ * "Vietnam (a country …); Việt" → ["vietnam", "việt"]: the names a gloss gives.
+ * Split on semicolons only — a comma is as likely to be "a town in Morazán
+ * department, El Salvador", and "El Salvador" must not make that town a country.
+ */
+function bareNames(glosses: readonly string[]): string[] {
+  return glosses
+    .flatMap((g) => g.replace(/\([^)]*\)/g, ' ').split(';'))
+    .map((s) => s.trim().toLowerCase())
+    .filter((s) => s.length > 0);
+}
+
+function categoryNames(sense: KaikkiSense): string[] {
+  return (sense.categories ?? [])
+    .map((c) => (typeof c === 'string' ? c : c.name))
+    .filter((c): c is string => typeof c === 'string');
+}
+
+export type NameVerdict = 'drop' | 'major' | 'capital' | 'minor-place' | 'other';
+
+export function nameVerdict(term: string, glosses: readonly string[], sense: KaikkiSense): NameVerdict {
+  const gloss = glosses.join(' ; ');
+  const categories = categoryNames(sense);
+
+  if (PERSON_GLOSS.test(gloss) || categories.some((c) => PERSON_CATEGORY.test(c))) return 'drop';
+  if (SPELLING_GLOSS.test(gloss) || categories.some((c) => SPELLING_CATEGORY.test(c))) return 'drop';
+  if (glosses.some((g) => TAXON_GLOSS.test(g.trim()))) return 'drop';
+  // AVE, CHICO: acronyms of companies and bodies, not words.
+  if (term.length > 1 && term === term.toUpperCase() && /\p{Lu}/u.test(term)) return 'drop';
+
+  if (
+    COUNTRY_GLOSS.test(gloss) ||
+    glosses.some((g) => LANGUAGE_GLOSS.test(g.trim()) || CELESTIAL_GLOSS.test(g.trim())) ||
+    categories.some((c) => MAJOR_CATEGORY.test(c))
+  ) {
+    return 'major';
+  }
+  if (CAPITAL_GLOSS.test(gloss) || categories.some((c) => CAPITAL_CATEGORY.test(c))) return 'capital';
+
+  const minor =
+    glosses.some((g) => MINOR_PLACE_GLOSS.test(g)) ||
+    categories.some((c) => MINOR_PLACE_CATEGORY.test(c));
+  return minor ? 'minor-place' : 'other';
+}
+
+/**
+ * Stage 2, over the whole extract. `names` pairs each surviving name candidate
+ * with its stage-1 verdict.
+ */
+export function keepNames(
+  candidates: readonly SenseCandidate[],
+  names: ReadonlyMap<SenseCandidate, NameVerdict>,
+): SenseCandidate[] {
+  const ordinaryTerms = new Set(
+    candidates.filter((c) => c.partOfSpeech !== 'name').map((c) => normalizeTerm(c.term)),
+  );
+  // English names some sense has shown to be a country, continent or language
+  // — how `Trung Quốc` "China" is recognised, via `Trung Hoa` "China" in
+  // Countries in Asia.
+  const majorNames = new Set<string>();
+  for (const [candidate, verdict] of names) {
+    if (verdict === 'major') for (const n of bareNames(candidate.glosses)) majorNames.add(n);
+  }
+
+  return candidates.filter((c) => {
+    const verdict = names.get(c);
+    if (verdict === undefined) return true;
+    if (verdict === 'major') return true;
+    // A minor place is never rescued by a country its gloss happens to name.
+    if (verdict === 'minor-place') return false;
+    if (bareNames(c.glosses).some((n) => majorNames.has(n))) return true;
+    // Capitals and everything else survive only on their own spelling: Hanoi
+    // and London do; `Victoria` — a capital, but also `victoria` — does not.
+    return !ordinaryTerms.has(normalizeTerm(c.term));
+  });
+}
 
 /**
  * `raw_glosses` keeps the label prefix — "(finance) a bank" — while `glosses`
@@ -121,6 +256,7 @@ export async function readKaikki(
   language: string,
 ): Promise<ReadResult> {
   const candidates: SenseCandidate[] = [];
+  const names = new Map<SenseCandidate, NameVerdict>();
   const formLinks: FormLink[] = [];
   let glosslessSenses = 0;
 
@@ -167,8 +303,10 @@ export async function readKaikki(
         glosslessSenses += 1;
         return;
       }
+      const verdict = partOfSpeech === 'name' ? nameVerdict(term, glosses, sense) : undefined;
+      if (verdict === 'drop') return;
 
-      candidates.push({
+      const candidate: SenseCandidate = {
         language,
         term,
         partOfSpeech,
@@ -183,7 +321,9 @@ export async function readKaikki(
             ...(e.ref ? { ref: e.ref } : {}),
           })),
         sourceIndex,
-      });
+      };
+      candidates.push(candidate);
+      if (verdict) names.set(candidate, verdict);
     });
 
     // The lemma's own inflection table is the other direction of the same map,
@@ -195,5 +335,5 @@ export async function readKaikki(
     }
   }
 
-  return { candidates, formLinks, glosslessSenses };
+  return { candidates: keepNames(candidates, names), formLinks, glosslessSenses };
 }

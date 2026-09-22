@@ -100,6 +100,8 @@ New words claim slots before reviews. One word yields exactly one card, on the
 lowest-level **due** vector, ties random. Reviews are ranked most-overdue-first
 because that decides which survive the cap — then the whole queue is **shuffled**
 for presentation, so new words land throughout rather than bunched at the front.
+New words are drawn weighted by tier, and a sense is held back while an easier
+sense of the same word is still unseen — `lại` "again" before "to recover".
 
 ### `deck-state.ts`
 Which of the four states a deck is in, and the numbers each needs.
@@ -163,10 +165,12 @@ meaning, and how many fell short of two examples.
 Writing a pack into the database.
 
 `InstallProgress` · `InstallResult` · `installPack` · `isPackInstalled` ·
-`listInstalledPacks` · `removePack`
+`listInstalledPacks` · `removePack` · `availableUpdate`
 
 Chunked writes with progress reporting; clears the ready flag first and sets it
 last. Never touches `progress` — a word that disappears keeps its history.
+`availableUpdate` reads the published manifest (`no-store`) and returns its
+version when newer than the installed pack; quiet on any failure.
 
 ### `queries.ts`
 All dictionary reads.
@@ -183,6 +187,8 @@ groups AND'd, `sequence` excluded by default.
 The packs bundled with this build.
 
 `CatalogEntry` · `CATALOG` · `catalogEntry`
+
+Each entry names the core pack, the meaning layer and the manifest beside them.
 
 `provisional: true` marks the seed fixtures as not-real-data.
 
@@ -319,8 +325,8 @@ rejection note, and the keyboard-help affordance.
 | File | Purpose |
 |---|---|
 | `routes/FirstRun.svelte` | Language picker on a fresh profile |
-| `routes/InstallPack.svelte` | Explicit install with a real progress bar |
-| `routes/Home.svelte` | All languages as stacked sections; deck list; quick-create with live count; add-a-language |
+| `routes/InstallPack.svelte` | Explicit install with a real progress bar; `update` mode replaces an installed pack |
+| `routes/Home.svelte` | All languages as stacked sections; deck list; quick-create with live count; add-a-language; pack-update banner |
 | `routes/NewVocabulary.svelte` | Preview of new words, already-known row, replacement pull-in |
 | `routes/Quiz.svelte` | Two-pane shell, keyboard wiring, auto-advance on correct, summary below when finished |
 | `routes/SessionSummary.svelte` | Promoted / held / demoted / mastered counts |

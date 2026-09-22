@@ -16,6 +16,12 @@ export interface CatalogEntry {
   baseLanguage: string;
   corePath: string;
   meaningPath: string;
+  /**
+   * The manifest published beside the packs. Read on Home to notice that a
+   * newer pack has shipped with an app update — the app never downloads packs
+   * from anywhere but its own origin.
+   */
+  manifestPath: string;
   /** Set while the content is a fixture rather than sourced data. */
   provisional?: boolean;
 }
@@ -29,6 +35,7 @@ export const CATALOG: readonly CatalogEntry[] = Object.freeze([
     baseLanguage: 'en',
     corePath: `${base}packs/es-core.json`,
     meaningPath: `${base}packs/es-meaning-en.json`,
+    manifestPath: `${base}packs/es-manifest.json`,
   },
   {
     language: 'vi',
@@ -36,6 +43,7 @@ export const CATALOG: readonly CatalogEntry[] = Object.freeze([
     baseLanguage: 'en',
     corePath: `${base}packs/vi-core.json`,
     meaningPath: `${base}packs/vi-meaning-en.json`,
+    manifestPath: `${base}packs/vi-manifest.json`,
   },
 ]);
 

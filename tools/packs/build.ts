@@ -17,12 +17,12 @@ import { SUPPORTED_SCHEMA_VERSION } from '../../src/dictionary/pack-format';
 import { readKaikki } from './kaikki';
 import { buildFormMap, foldToLemmas, rankDirectly, readFrequencyList } from './frequency';
 import { mergeRanks, segmentCorpus } from './segment';
-import { tierFor } from './difficulty';
+import { isDemotedForEvidence, tierFor, type SenseEvidence } from './difficulty';
 import { capSenses, type CappedGroup } from './senses';
 import { contextTagsFor } from './topics';
 import { genderOf, articleOverrideFor } from './gender';
 import { sequenceFor } from './sequence';
-import { assembleExamples, readTatoeba, type TatoebaCorpus } from './examples';
+import { assembleExamples, readTatoeba, routeSentences, type TatoebaCorpus } from './examples';
 import {
   applyOutcome,
   blockingFailures,
@@ -206,17 +206,42 @@ export async function build(options: BuildOptions): Promise<BuildResult> {
   // thousands of entries.
   const flatSenses = selected.flatMap((g) => g.kept);
 
-  // The first sense of each (term, POS) — the only one a term-matched corpus
-  // sentence can be trusted to illustrate.
-  const primaryIndices = new Set<number>();
-  let seen = 0;
-  for (const group of selected) {
-    primaryIndices.add(seen);
-    seen += group.kept.length;
+  // Every sense of a term competes for the corpus sentences found by that
+  // term, across parts of speech: `lại` the adverb and `lại` the verb are found
+  // by the same sentences, and each sentence illustrates at most one of them.
+  const sensesByTerm = new Map<string, number[]>();
+  flatSenses.forEach((sense, index) => {
+    const term = normalizeTerm(sense.term);
+    const list = sensesByTerm.get(term);
+    if (list) list.push(index);
+    else sensesByTerm.set(term, [index]);
+  });
+
+  const routedIds: string[][] = flatSenses.map(() => []);
+  const evidence: SenseEvidence[] = flatSenses.map(() => ({ sense: 0, term: 0, senses: 1 }));
+  let unroutedSentences = 0;
+  if (corpus) {
+    for (const [term, indices] of sensesByTerm) {
+      const ids = corpus.byToken.get(term) ?? [];
+      const routed = routeSentences(
+        indices.map((i) => flatSenses[i]!.glosses),
+        ids,
+        corpus,
+      );
+      unroutedSentences += routed.unrouted;
+      // Evidence counts genuine gloss matches only, never the dominant-sense
+      // fallback — otherwise the fallback would count its own guesses.
+      const termTotal = routed.matched.reduce((sum, n) => sum + n, 0);
+      indices.forEach((senseIndex, position) => {
+        routedIds[senseIndex] = routed.bySense[position] ?? [];
+        evidence[senseIndex] = {
+          sense: routed.matched[position] ?? 0,
+          term: termTotal,
+          senses: indices.length,
+        };
+      });
+    }
   }
-  const primaryKeys = new Set(
-    outcome.assignments.filter((_, i) => primaryIndices.has(i)).map((a) => a.key),
-  );
 
   outcome.assignments.forEach((assignment, index) => {
     const sense = flatSenses[index];
@@ -226,18 +251,13 @@ export async function build(options: BuildOptions): Promise<BuildResult> {
     const article = articleOverrideFor(language, sense.term, gender);
     const sequence = sequenceFor(language, sense.term);
     const tags = contextTagsFor(sense.topics);
-    const { core, translations } = assembleExamples(
-      sense.term,
-      sense.examples,
-      corpus,
-      primaryKeys.has(assignment.key),
-    );
+    const { core, translations } = assembleExamples(sense.examples, corpus, routedIds[index]!);
 
     coreEntries.push({
       key: assignment.key,
       term: sense.term,
       partOfSpeech: sense.partOfSpeech,
-      difficulty: tierFor(sense, ranks),
+      difficulty: tierFor(sense, ranks, evidence[index]),
       ...(tags.length > 0 ? { contextTags: tags } : {}),
       ...(sequence ? { sequence } : {}),
       ...(gender ? { gender } : {}),
@@ -302,9 +322,15 @@ export async function build(options: BuildOptions): Promise<BuildResult> {
     reports,
   });
 
+  const routedTotal = routedIds.reduce((sum, ids) => sum + ids.length, 0);
+  const routing =
+    `  sentences: ${routedTotal} routed to a sense · ${unroutedSentences} left out ` +
+    `(no sense matched, none dominant) · ${flatSenses.filter((s, i) => isDemotedForEvidence(s, evidence[i]!)).length} senses ` +
+    `unattested and banded one harder`;
+
   if (options.dryRun) {
     return {
-      summary: `${summarize(reports)}\n  (dry run — nothing written)`,
+      summary: `${summarize(reports)}\n${routing}\n  (dry run — nothing written)`,
       entryCount: coreEntries.length,
       wrote: false,
       problems: [],
@@ -324,7 +350,7 @@ export async function build(options: BuildOptions): Promise<BuildResult> {
   await saveRegistry(root, applyOutcome(registry, outcome));
 
   return {
-    summary: summarize(reports),
+    summary: `${summarize(reports)}\n${routing}`,
     entryCount: coreEntries.length,
     wrote: true,
     problems: [],

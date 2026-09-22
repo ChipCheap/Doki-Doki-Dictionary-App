@@ -13,7 +13,7 @@
   import { onMount } from 'svelte';
   import { computeDeckState, type DeckState } from '../../domain/deck-state';
   import { CATALOG } from '../../dictionary/catalog';
-  import { listInstalledPacks } from '../../dictionary/install';
+  import { availableUpdate, listInstalledPacks } from '../../dictionary/install';
   import type { InstalledPack } from '../../dictionary/schema';
   import {
     absentMembers,
@@ -44,6 +44,8 @@
   let pending = $state<Map<string, number>>(new Map());
   let absent = $state<Map<string, number>>(new Map());
   let backup = $state<BackupState>({ status: 'unsupported' });
+  /** Language → the newer published pack version, for packs that have one. */
+  let updates = $state<Map<string, string>>(new Map());
   let expanded = $state<string | undefined>();
   let creatingFor = $state<string | undefined>();
   let tiers = $state<DifficultyTier[]>([]);
@@ -59,6 +61,8 @@
 
   async function load(): Promise<void> {
     packs = await listInstalledPacks();
+    // Not awaited: a network check must never hold up the deck list.
+    void checkForUpdates(packs);
     byLanguage = await listDecksByLanguage();
 
     const next = new Map<string, DeckState>();
@@ -95,6 +99,15 @@
     // state either way, so a lapsed permission surfaces as the warning above.
     await backupIfStale();
     backup = await backupState();
+  }
+
+  async function checkForUpdates(installed: readonly InstalledPack[]): Promise<void> {
+    const found = new Map<string, string>();
+    for (const pack of installed) {
+      const version = await availableUpdate(pack);
+      if (version) found.set(pack.id, version);
+    }
+    updates = found;
   }
 
   async function addPending(deck: DeckRow): Promise<void> {
@@ -242,6 +255,24 @@
       </div>
     </div>
 
+    {#if updates.get(pack.id)}
+      <!-- Explicit, never automatic: an update replaces the language's whole
+           dictionary. Progress, decks and hidden words are untouched. -->
+      <div class="update">
+        <div>
+          <strong>A newer {pack.languageName} pack is available.</strong>
+          Your progress, decks and hidden words are kept.
+          <span class="hint">{pack.packVersion} → {updates.get(pack.id)}</span>
+        </div>
+        <button
+          class="primary"
+          onclick={() => router.go('installPack', { language: pack.id, update: '1' })}
+        >
+          Update
+        </button>
+      </div>
+    {/if}
+
     <div class="card">
       {#each byLanguage.get(pack.id) ?? [] as deck, j (deck.id)}
         {#if j > 0}<div class="sep"></div>{/if}
@@ -368,6 +399,19 @@
     border-radius: 10px;
     padding: 10px 12px;
     margin-bottom: 14px;
+    font-size: var(--size-small);
+  }
+
+  .update {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    border: 1px solid var(--brand);
+    border-radius: 10px;
+    padding: 10px 12px;
+    margin-bottom: 10px;
     font-size: var(--size-small);
   }
 

@@ -2,10 +2,10 @@
   "language": "vi",
   "languageName": "Vietnamese",
   "baseLanguage": "en",
-  "packVersion": "2026-08-24",
+  "packVersion": "2026-09-22",
   "schemaVersion": 1,
   "entryCount": 6000,
-  "builtAt": "2026-08-24T22:48:29.528Z",
+  "builtAt": "2026-09-22T09:45:06.979Z",
   "licence": "CC BY-SA 4.0",
   "licenceNote": "Derived from share-alike sources, so this pack is itself CC BY-SA. Attribution for every source is listed below and must travel with the data.",
   "sources": [
@@ -46,11 +46,11 @@
     }
   ],
   "reportSummary": {
-    "examplesWithTwo": 2851,
-    "examplesWithNone": 2286,
+    "examplesWithTwo": 2293,
+    "examplesWithNone": 2582,
     "contextTagPercent": 7.1,
-    "homographTerms": 1491,
+    "homographTerms": 1515,
     "keysMinted": 0,
-    "keysOrphaned": 0
+    "keysOrphaned": 239
   }
 }

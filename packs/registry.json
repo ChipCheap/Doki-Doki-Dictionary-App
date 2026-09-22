@@ -132,6 +132,36 @@
       ]
     },
     {
+      "key": "es:abarcar:verb:1",
+      "language": "es",
+      "term": "abarcar",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to embrace (to hold with the arms"
+      ]
+    },
+    {
+      "key": "es:abarcar:verb:2",
+      "language": "es",
+      "term": "abarcar",
+      "partOfSpeech": "verb",
+      "ordinal": 2,
+      "glosses": [
+        "to include, to encompass, to comprise, to contain, to make up; to range, to span"
+      ]
+    },
+    {
+      "key": "es:abarcar:verb:3",
+      "language": "es",
+      "term": "abarcar",
+      "partOfSpeech": "verb",
+      "ordinal": 3,
+      "glosses": [
+        "to take in (a sight"
+      ]
+    },
+    {
       "key": "es:abeja:noun:1",
       "language": "es",
       "term": "abeja",
@@ -1032,6 +1062,26 @@
       ]
     },
     {
+      "key": "es:acertar:verb:1",
+      "language": "es",
+      "term": "acertar",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to hit, to hit upon"
+      ]
+    },
+    {
+      "key": "es:acertar:verb:2",
+      "language": "es",
+      "term": "acertar",
+      "partOfSpeech": "verb",
+      "ordinal": 2,
+      "glosses": [
+        "to be right"
+      ]
+    },
+    {
       "key": "es:ácido:adj:1",
       "language": "es",
       "term": "ácido",
@@ -1792,6 +1842,36 @@
       ]
     },
     {
+      "key": "es:adaptación:noun:1",
+      "language": "es",
+      "term": "adaptación",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "adaptation (the process of adapting something to a situation"
+      ]
+    },
+    {
+      "key": "es:adaptación:noun:2",
+      "language": "es",
+      "term": "adaptación",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "adaptation (a change made to suit a condition"
+      ]
+    },
+    {
+      "key": "es:adaptación:noun:3",
+      "language": "es",
+      "term": "adaptación",
+      "partOfSpeech": "noun",
+      "ordinal": 3,
+      "glosses": [
+        "adaptation (the process of change that an organism undergoes"
+      ]
+    },
+    {
       "key": "es:adaptar:verb:1",
       "language": "es",
       "term": "adaptar",
@@ -2322,6 +2402,26 @@
       ]
     },
     {
+      "key": "es:adopción:noun:1",
+      "language": "es",
+      "term": "adopción",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "adoption (the act of adopting"
+      ]
+    },
+    {
+      "key": "es:adopción:noun:2",
+      "language": "es",
+      "term": "adopción",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "adoption (the state of being adopted"
+      ]
+    },
+    {
       "key": "es:adoptar:verb:1",
       "language": "es",
       "term": "adoptar",
@@ -2622,6 +2722,56 @@
       ]
     },
     {
+      "key": "es:aficionado:adj:1",
+      "language": "es",
+      "term": "aficionado",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "fond"
+      ]
+    },
+    {
+      "key": "es:aficionado:adj:2",
+      "language": "es",
+      "term": "aficionado",
+      "partOfSpeech": "adj",
+      "ordinal": 2,
+      "glosses": [
+        "amateur"
+      ]
+    },
+    {
+      "key": "es:aficionado:noun:1",
+      "language": "es",
+      "term": "aficionado",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "fan, supporter (person who likes and supports a sports team or an athlete very much"
+      ]
+    },
+    {
+      "key": "es:aficionado:noun:2",
+      "language": "es",
+      "term": "aficionado",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "fan, hobbyist (person who is interested in an activity or a subject as a hobby"
+      ]
+    },
+    {
+      "key": "es:aficionado:noun:3",
+      "language": "es",
+      "term": "aficionado",
+      "partOfSpeech": "noun",
+      "ordinal": 3,
+      "glosses": [
+        "amateur, aficionado"
+      ]
+    },
+    {
       "key": "es:afirmación:noun:1",
       "language": "es",
       "term": "afirmación",
@@ -2729,6 +2879,16 @@
       "ordinal": 3,
       "glosses": [
         "to afford, to bear (e.g. a cost, a loss"
+      ]
+    },
+    {
+      "key": "es:afueras:noun:1",
+      "language": "es",
+      "term": "afueras",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "outskirts, suburbs"
       ]
     },
     {
@@ -3479,6 +3639,36 @@
       "ordinal": 1,
       "glosses": [
         "isolated"
+      ]
+    },
+    {
+      "key": "es:aislamiento:noun:1",
+      "language": "es",
+      "term": "aislamiento",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "isolation"
+      ]
+    },
+    {
+      "key": "es:aislamiento:noun:2",
+      "language": "es",
+      "term": "aislamiento",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "insulation"
+      ]
+    },
+    {
+      "key": "es:aislamiento:noun:3",
+      "language": "es",
+      "term": "aislamiento",
+      "partOfSpeech": "noun",
+      "ordinal": 3,
+      "glosses": [
+        "solitary confinement"
       ]
     },
     {
@@ -4563,6 +4753,16 @@
       ]
     },
     {
+      "key": "es:almacenar:verb:1",
+      "language": "es",
+      "term": "almacenar",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to store, stock"
+      ]
+    },
+    {
       "key": "es:almirante:noun:1",
       "language": "es",
       "term": "almirante",
@@ -4993,6 +5193,16 @@
       ]
     },
     {
+      "key": "es:alza:noun:1",
+      "language": "es",
+      "term": "alza",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "rise"
+      ]
+    },
+    {
       "key": "es:alzar:verb:1",
       "language": "es",
       "term": "alzar",
@@ -5270,6 +5480,16 @@
       "ordinal": 1,
       "glosses": [
         "ambition"
+      ]
+    },
+    {
+      "key": "es:ambicioso:adj:1",
+      "language": "es",
+      "term": "ambicioso",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "ambitious (possessing, or controlled by, ambition"
       ]
     },
     {
@@ -5650,6 +5870,36 @@
       "ordinal": 3,
       "glosses": [
         "tender"
+      ]
+    },
+    {
+      "key": "es:ampliación:noun:1",
+      "language": "es",
+      "term": "ampliación",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "broadening, widening"
+      ]
+    },
+    {
+      "key": "es:ampliación:noun:2",
+      "language": "es",
+      "term": "ampliación",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "extension, expansion, expanding, extending"
+      ]
+    },
+    {
+      "key": "es:ampliación:noun:3",
+      "language": "es",
+      "term": "ampliación",
+      "partOfSpeech": "noun",
+      "ordinal": 3,
+      "glosses": [
+        "enlargement, increase, increasing"
       ]
     },
     {
@@ -6703,6 +6953,16 @@
       ]
     },
     {
+      "key": "es:aparcar:verb:1",
+      "language": "es",
+      "term": "aparcar",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to park (to bring a vehicle to a halt in a specified place"
+      ]
+    },
+    {
       "key": "es:aparecer:verb:1",
       "language": "es",
       "term": "aparecer",
@@ -7140,6 +7400,36 @@
       "ordinal": 3,
       "glosses": [
         "to apply (to submit oneself as a candidate"
+      ]
+    },
+    {
+      "key": "es:apoderar:verb:1",
+      "language": "es",
+      "term": "apoderar",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to empower"
+      ]
+    },
+    {
+      "key": "es:apoderar:verb:2",
+      "language": "es",
+      "term": "apoderar",
+      "partOfSpeech": "verb",
+      "ordinal": 2,
+      "glosses": [
+        "to seize, to gain, to get hold of, to get one's hands on"
+      ]
+    },
+    {
+      "key": "es:apoderar:verb:3",
+      "language": "es",
+      "term": "apoderar",
+      "partOfSpeech": "verb",
+      "ordinal": 3,
+      "glosses": [
+        "to take control, to take possession"
       ]
     },
     {
@@ -8423,6 +8713,16 @@
       ]
     },
     {
+      "key": "es:arroyo:noun:1",
+      "language": "es",
+      "term": "arroyo",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "stream, brook, creek (whether it flows year-round or only seasonally"
+      ]
+    },
+    {
       "key": "es:arroz:noun:1",
       "language": "es",
       "term": "arroz",
@@ -8953,6 +9253,36 @@
       ]
     },
     {
+      "key": "es:asignado:adj:1",
+      "language": "es",
+      "term": "asignado",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "assigned"
+      ]
+    },
+    {
+      "key": "es:asignado:adj:2",
+      "language": "es",
+      "term": "asignado",
+      "partOfSpeech": "adj",
+      "ordinal": 2,
+      "glosses": [
+        "allocated"
+      ]
+    },
+    {
+      "key": "es:asignado:noun:1",
+      "language": "es",
+      "term": "asignado",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "assignat (a banknote used during the french revolution"
+      ]
+    },
+    {
       "key": "es:asignar:verb:1",
       "language": "es",
       "term": "asignar",
@@ -9110,6 +9440,16 @@
       "ordinal": 1,
       "glosses": [
         "associate"
+      ]
+    },
+    {
+      "key": "es:asociar:verb:1",
+      "language": "es",
+      "term": "asociar",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to associate"
       ]
     },
     {
@@ -9703,6 +10043,16 @@
       ]
     },
     {
+      "key": "es:atormentar:verb:1",
+      "language": "es",
+      "term": "atormentar",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to torment"
+      ]
+    },
+    {
       "key": "es:atracción:noun:1",
       "language": "es",
       "term": "atracción",
@@ -9880,6 +10230,36 @@
       "ordinal": 2,
       "glosses": [
         "to dare"
+      ]
+    },
+    {
+      "key": "es:atrevido:adj:1",
+      "language": "es",
+      "term": "atrevido",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "daring, bold"
+      ]
+    },
+    {
+      "key": "es:atrevido:adj:2",
+      "language": "es",
+      "term": "atrevido",
+      "partOfSpeech": "adj",
+      "ordinal": 2,
+      "glosses": [
+        "risqué"
+      ]
+    },
+    {
+      "key": "es:atrevido:adj:3",
+      "language": "es",
+      "term": "atrevido",
+      "partOfSpeech": "adj",
+      "ordinal": 3,
+      "glosses": [
+        "edgy"
       ]
     },
     {
@@ -10161,6 +10541,26 @@
       "ordinal": 3,
       "glosses": [
         "battery life"
+      ]
+    },
+    {
+      "key": "es:autonómico:adj:1",
+      "language": "es",
+      "term": "autonómico",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "autonomous"
+      ]
+    },
+    {
+      "key": "es:autonómico:adj:2",
+      "language": "es",
+      "term": "autonómico",
+      "partOfSpeech": "adj",
+      "ordinal": 2,
+      "glosses": [
+        "regional (of, or relating to autonomous community"
       ]
     },
     {
@@ -13895,6 +14295,26 @@
       ]
     },
     {
+      "key": "es:burla:noun:1",
+      "language": "es",
+      "term": "burla",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "mockery, taunt, ridicule"
+      ]
+    },
+    {
+      "key": "es:burla:noun:2",
+      "language": "es",
+      "term": "burla",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "prank"
+      ]
+    },
+    {
       "key": "es:burlar:verb:1",
       "language": "es",
       "term": "burlar",
@@ -14835,6 +15255,16 @@
       ]
     },
     {
+      "key": "es:calibrar:verb:1",
+      "language": "es",
+      "term": "calibrar",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to calibrate"
+      ]
+    },
+    {
       "key": "es:calidad:noun:1",
       "language": "es",
       "term": "calidad",
@@ -15565,6 +15995,26 @@
       ]
     },
     {
+      "key": "es:canalla:noun:1",
+      "language": "es",
+      "term": "canalla",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "rabble, riff-raff, canaille"
+      ]
+    },
+    {
+      "key": "es:canalla:noun:2",
+      "language": "es",
+      "term": "canalla",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "swine, rascal"
+      ]
+    },
+    {
       "key": "es:cancelar:verb:1",
       "language": "es",
       "term": "cancelar",
@@ -16005,6 +16455,26 @@
       ]
     },
     {
+      "key": "es:capilla:noun:1",
+      "language": "es",
+      "term": "capilla",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "chapel"
+      ]
+    },
+    {
+      "key": "es:capilla:noun:2",
+      "language": "es",
+      "term": "capilla",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "a hood that attaches to the neck of a cape, overcoat, or religious habit"
+      ]
+    },
+    {
       "key": "es:capital:adj:1",
       "language": "es",
       "term": "capital",
@@ -16352,6 +16822,16 @@
       "ordinal": 2,
       "glosses": [
         "charcoal"
+      ]
+    },
+    {
+      "key": "es:carbono:noun:1",
+      "language": "es",
+      "term": "carbono",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "carbon"
       ]
     },
     {
@@ -17935,6 +18415,36 @@
       ]
     },
     {
+      "key": "es:cereal:noun:1",
+      "language": "es",
+      "term": "cereal",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "cereal (type of grass cultivated for edible grains"
+      ]
+    },
+    {
+      "key": "es:cereal:noun:2",
+      "language": "es",
+      "term": "cereal",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "cereal (the grains of such plants"
+      ]
+    },
+    {
+      "key": "es:cereal:noun:3",
+      "language": "es",
+      "term": "cereal",
+      "partOfSpeech": "noun",
+      "ordinal": 3,
+      "glosses": [
+        "breakfast cereal (food processed from grains and eaten with milk"
+      ]
+    },
+    {
       "key": "es:cerebral:adj:1",
       "language": "es",
       "term": "cerebral",
@@ -18152,6 +18662,36 @@
       "ordinal": 3,
       "glosses": [
         "to dismiss"
+      ]
+    },
+    {
+      "key": "es:césped:noun:1",
+      "language": "es",
+      "term": "césped",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "lawn"
+      ]
+    },
+    {
+      "key": "es:césped:noun:2",
+      "language": "es",
+      "term": "césped",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "grass"
+      ]
+    },
+    {
+      "key": "es:césped:noun:3",
+      "language": "es",
+      "term": "césped",
+      "partOfSpeech": "noun",
+      "ordinal": 3,
+      "glosses": [
+        "turf"
       ]
     },
     {
@@ -18382,6 +18922,26 @@
       "ordinal": 3,
       "glosses": [
         "guy, lad"
+      ]
+    },
+    {
+      "key": "es:chiflado:adj:1",
+      "language": "es",
+      "term": "chiflado",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "nuts, nutty, crazy, wacky, loony, screwy, batty, daft, cuckoo, barmy, dotty"
+      ]
+    },
+    {
+      "key": "es:chiflado:noun:1",
+      "language": "es",
+      "term": "chiflado",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "crackpot, kook, nutcase, nut, nutter, wacko, whack job"
       ]
     },
     {
@@ -19062,6 +19622,16 @@
       "ordinal": 2,
       "glosses": [
         "tape"
+      ]
+    },
+    {
+      "key": "es:cintura:noun:1",
+      "language": "es",
+      "term": "cintura",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "waist"
       ]
     },
     {
@@ -20105,6 +20675,46 @@
       ]
     },
     {
+      "key": "es:codo:adj:1",
+      "language": "es",
+      "term": "codo",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "selfish, avaricious, stingy"
+      ]
+    },
+    {
+      "key": "es:codo:noun:1",
+      "language": "es",
+      "term": "codo",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "elbow"
+      ]
+    },
+    {
+      "key": "es:codo:noun:2",
+      "language": "es",
+      "term": "codo",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "cubit (an informal unit of length based on the distance of a forearm and hand"
+      ]
+    },
+    {
+      "key": "es:codo:noun:3",
+      "language": "es",
+      "term": "codo",
+      "partOfSpeech": "noun",
+      "ordinal": 3,
+      "glosses": [
+        "codo, spanish cubit (a traditional unit of length equivalent to about 41.6 cm"
+      ]
+    },
+    {
       "key": "es:coger:verb:1",
       "language": "es",
       "term": "coger",
@@ -20212,6 +20822,36 @@
       "ordinal": 2,
       "glosses": [
         "to agree"
+      ]
+    },
+    {
+      "key": "es:cojo:adj:1",
+      "language": "es",
+      "term": "cojo",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "lame, crippled"
+      ]
+    },
+    {
+      "key": "es:cojo:adj:2",
+      "language": "es",
+      "term": "cojo",
+      "partOfSpeech": "adj",
+      "ordinal": 2,
+      "glosses": [
+        "lame, defective, shaky"
+      ]
+    },
+    {
+      "key": "es:cojo:noun:1",
+      "language": "es",
+      "term": "cojo",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "lame person, lame man"
       ]
     },
     {
@@ -23078,6 +23718,16 @@
       ]
     },
     {
+      "key": "es:confidencial:adj:1",
+      "language": "es",
+      "term": "confidencial",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "confidential (kept, or meant to be kept, in secret"
+      ]
+    },
+    {
       "key": "es:confirmar:verb:1",
       "language": "es",
       "term": "confirmar",
@@ -24028,6 +24678,16 @@
       ]
     },
     {
+      "key": "es:contaminación:noun:1",
+      "language": "es",
+      "term": "contaminación",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "pollution; contamination"
+      ]
+    },
+    {
       "key": "es:contar:verb:1",
       "language": "es",
       "term": "contar",
@@ -24778,6 +25438,36 @@
       ]
     },
     {
+      "key": "es:convocatoria:noun:1",
+      "language": "es",
+      "term": "convocatoria",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "call (beckoning or summoning"
+      ]
+    },
+    {
+      "key": "es:convocatoria:noun:2",
+      "language": "es",
+      "term": "convocatoria",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "announcement"
+      ]
+    },
+    {
+      "key": "es:convocatoria:noun:3",
+      "language": "es",
+      "term": "convocatoria",
+      "partOfSpeech": "noun",
+      "ordinal": 3,
+      "glosses": [
+        "round (of exams or voting"
+      ]
+    },
+    {
       "key": "es:cooperación:noun:1",
       "language": "es",
       "term": "cooperación",
@@ -24795,6 +25485,26 @@
       "ordinal": 1,
       "glosses": [
         "to cooperate"
+      ]
+    },
+    {
+      "key": "es:coordenada:noun:1",
+      "language": "es",
+      "term": "coordenada",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "coordinate"
+      ]
+    },
+    {
+      "key": "es:coordinación:noun:1",
+      "language": "es",
+      "term": "coordinación",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "coordination"
       ]
     },
     {
@@ -25296,6 +26006,16 @@
       "ordinal": 2,
       "glosses": [
         "corresponding"
+      ]
+    },
+    {
+      "key": "es:corresponsal:noun:1",
+      "language": "es",
+      "term": "corresponsal",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "correspondent (a journalist who sends reports from a distant location"
       ]
     },
     {
@@ -26072,6 +26792,86 @@
       ]
     },
     {
+      "key": "es:cretino:adj:1",
+      "language": "es",
+      "term": "cretino",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "affected by cretinism; cretinous"
+      ]
+    },
+    {
+      "key": "es:cretino:adj:2",
+      "language": "es",
+      "term": "cretino",
+      "partOfSpeech": "adj",
+      "ordinal": 2,
+      "glosses": [
+        "stupid"
+      ]
+    },
+    {
+      "key": "es:cretino:noun:1",
+      "language": "es",
+      "term": "cretino",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "a person affected by cretinism"
+      ]
+    },
+    {
+      "key": "es:cretino:noun:2",
+      "language": "es",
+      "term": "cretino",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "an idiot"
+      ]
+    },
+    {
+      "key": "es:cretino:noun:3",
+      "language": "es",
+      "term": "cretino",
+      "partOfSpeech": "noun",
+      "ordinal": 3,
+      "glosses": [
+        "a contemptible person, a jerk"
+      ]
+    },
+    {
+      "key": "es:cría:noun:1",
+      "language": "es",
+      "term": "cría",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "kid, pup, cria"
+      ]
+    },
+    {
+      "key": "es:cría:noun:2",
+      "language": "es",
+      "term": "cría",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "litter"
+      ]
+    },
+    {
+      "key": "es:cría:noun:3",
+      "language": "es",
+      "term": "cría",
+      "partOfSpeech": "noun",
+      "ordinal": 3,
+      "glosses": [
+        "childrearing"
+      ]
+    },
+    {
       "key": "es:criado:name:1",
       "language": "es",
       "term": "criado",
@@ -26520,6 +27320,16 @@
       "ordinal": 3,
       "glosses": [
         "to fold (arms"
+      ]
+    },
+    {
+      "key": "es:cuaderno:noun:1",
+      "language": "es",
+      "term": "cuaderno",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "notebook"
       ]
     },
     {
@@ -28506,6 +29316,16 @@
       ]
     },
     {
+      "key": "es:debilitar:verb:1",
+      "language": "es",
+      "term": "debilitar",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to weaken"
+      ]
+    },
+    {
       "key": "es:década:noun:1",
       "language": "es",
       "term": "década",
@@ -28943,6 +29763,26 @@
       "ordinal": 3,
       "glosses": [
         "retaining wall"
+      ]
+    },
+    {
+      "key": "es:defensivo:adj:1",
+      "language": "es",
+      "term": "defensivo",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "defensive"
+      ]
+    },
+    {
+      "key": "es:defensivo:noun:1",
+      "language": "es",
+      "term": "defensivo",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "dated"
       ]
     },
     {
@@ -29633,6 +30473,16 @@
       "ordinal": 1,
       "glosses": [
         "to name; to call; to designate"
+      ]
+    },
+    {
+      "key": "es:dentista:noun:1",
+      "language": "es",
+      "term": "dentista",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "dentist"
       ]
     },
     {
@@ -30466,6 +31316,36 @@
       ]
     },
     {
+      "key": "es:descarga:noun:1",
+      "language": "es",
+      "term": "descarga",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "unloading"
+      ]
+    },
+    {
+      "key": "es:descarga:noun:2",
+      "language": "es",
+      "term": "descarga",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "discharge"
+      ]
+    },
+    {
+      "key": "es:descarga:noun:3",
+      "language": "es",
+      "term": "descarga",
+      "partOfSpeech": "noun",
+      "ordinal": 3,
+      "glosses": [
+        "electrical shock"
+      ]
+    },
+    {
       "key": "es:descargar:verb:1",
       "language": "es",
       "term": "descargar",
@@ -30726,6 +31606,26 @@
       ]
     },
     {
+      "key": "es:descuento:noun:1",
+      "language": "es",
+      "term": "descuento",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "discount"
+      ]
+    },
+    {
+      "key": "es:descuento:noun:2",
+      "language": "es",
+      "term": "descuento",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "injury time, stoppage time (uk), additional time, added time"
+      ]
+    },
+    {
       "key": "es:descuidar:verb:1",
       "language": "es",
       "term": "descuidar",
@@ -30863,6 +31763,16 @@
       "ordinal": 1,
       "glosses": [
         "desire, wish"
+      ]
+    },
+    {
+      "key": "es:desesperación:noun:1",
+      "language": "es",
+      "term": "desesperación",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "desperation"
       ]
     },
     {
@@ -31643,6 +32553,26 @@
       "ordinal": 1,
       "glosses": [
         "to destroy"
+      ]
+    },
+    {
+      "key": "es:desvanecer:verb:1",
+      "language": "es",
+      "term": "desvanecer",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to vanish"
+      ]
+    },
+    {
+      "key": "es:desvanecer:verb:2",
+      "language": "es",
+      "term": "desvanecer",
+      "partOfSpeech": "verb",
+      "ordinal": 2,
+      "glosses": [
+        "to fade"
       ]
     },
     {
@@ -33366,6 +34296,36 @@
       ]
     },
     {
+      "key": "es:disputa:noun:1",
+      "language": "es",
+      "term": "disputa",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "dispute, argument, disputation, disagreement, altercation, contest"
+      ]
+    },
+    {
+      "key": "es:disputa:noun:2",
+      "language": "es",
+      "term": "disputa",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "feud, fight, quarrel, wrangle"
+      ]
+    },
+    {
+      "key": "es:disputa:noun:3",
+      "language": "es",
+      "term": "disputa",
+      "partOfSpeech": "noun",
+      "ordinal": 3,
+      "glosses": [
+        "contention"
+      ]
+    },
+    {
       "key": "es:disputar:verb:1",
       "language": "es",
       "term": "disputar",
@@ -33383,6 +34343,26 @@
       "ordinal": 1,
       "glosses": [
         "distance"
+      ]
+    },
+    {
+      "key": "es:distante:adj:1",
+      "language": "es",
+      "term": "distante",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "distant (space or time"
+      ]
+    },
+    {
+      "key": "es:distante:adj:2",
+      "language": "es",
+      "term": "distante",
+      "partOfSpeech": "adj",
+      "ordinal": 2,
+      "glosses": [
+        "detached, aloof, standoffish"
       ]
     },
     {
@@ -33433,6 +34413,16 @@
       "ordinal": 1,
       "glosses": [
         "distinctly"
+      ]
+    },
+    {
+      "key": "es:distracción:noun:1",
+      "language": "es",
+      "term": "distracción",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "distraction, diversion, amusement"
       ]
     },
     {
@@ -34103,6 +35093,16 @@
       "ordinal": 3,
       "glosses": [
         "a title of respect to a man, prefixed to first names"
+      ]
+    },
+    {
+      "key": "es:donación:noun:1",
+      "language": "es",
+      "term": "donación",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "donation"
       ]
     },
     {
@@ -35186,6 +36186,36 @@
       ]
     },
     {
+      "key": "es:egipcio:adj:1",
+      "language": "es",
+      "term": "egipcio",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "egyptian"
+      ]
+    },
+    {
+      "key": "es:egipcio:noun:1",
+      "language": "es",
+      "term": "egipcio",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "egyptian (person"
+      ]
+    },
+    {
+      "key": "es:egipcio:noun:2",
+      "language": "es",
+      "term": "egipcio",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "egyptian (language"
+      ]
+    },
+    {
       "key": "es:egoísta:adj:1",
       "language": "es",
       "term": "egoísta",
@@ -35273,6 +36303,16 @@
       "ordinal": 3,
       "glosses": [
         "execution (the act of putting to death"
+      ]
+    },
+    {
+      "key": "es:ejecutado:adj:1",
+      "language": "es",
+      "term": "ejecutado",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "executed"
       ]
     },
     {
@@ -36646,6 +37686,16 @@
       ]
     },
     {
+      "key": "es:encarcelar:verb:1",
+      "language": "es",
+      "term": "encarcelar",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to imprison, incarcerate"
+      ]
+    },
+    {
       "key": "es:encargado:adj:1",
       "language": "es",
       "term": "encargado",
@@ -37253,6 +38303,16 @@
       "ordinal": 2,
       "glosses": [
         "degenerate"
+      ]
+    },
+    {
+      "key": "es:enfocar:verb:1",
+      "language": "es",
+      "term": "enfocar",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to focus"
       ]
     },
     {
@@ -38146,6 +39206,66 @@
       ]
     },
     {
+      "key": "es:envejecer:verb:1",
+      "language": "es",
+      "term": "envejecer",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to get old"
+      ]
+    },
+    {
+      "key": "es:envejecer:verb:2",
+      "language": "es",
+      "term": "envejecer",
+      "partOfSpeech": "verb",
+      "ordinal": 2,
+      "glosses": [
+        "to age"
+      ]
+    },
+    {
+      "key": "es:envejecer:verb:3",
+      "language": "es",
+      "term": "envejecer",
+      "partOfSpeech": "verb",
+      "ordinal": 3,
+      "glosses": [
+        "to age, grow old"
+      ]
+    },
+    {
+      "key": "es:envenenar:verb:1",
+      "language": "es",
+      "term": "envenenar",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to poison"
+      ]
+    },
+    {
+      "key": "es:envenenar:verb:2",
+      "language": "es",
+      "term": "envenenar",
+      "partOfSpeech": "verb",
+      "ordinal": 2,
+      "glosses": [
+        "to interpret maliciously"
+      ]
+    },
+    {
+      "key": "es:envenenar:verb:3",
+      "language": "es",
+      "term": "envenenar",
+      "partOfSpeech": "verb",
+      "ordinal": 3,
+      "glosses": [
+        "to make bitter"
+      ]
+    },
+    {
       "key": "es:enviar:verb:1",
       "language": "es",
       "term": "enviar",
@@ -38403,6 +39523,26 @@
       "ordinal": 3,
       "glosses": [
         "scale (an ordered, usually numerical sequence used for measurement, means of assigning a magnitude"
+      ]
+    },
+    {
+      "key": "es:escalar:adj:1",
+      "language": "es",
+      "term": "escalar",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "scalar"
+      ]
+    },
+    {
+      "key": "es:escalar:verb:1",
+      "language": "es",
+      "term": "escalar",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to scale, to climb"
       ]
     },
     {
@@ -39416,6 +40556,16 @@
       ]
     },
     {
+      "key": "es:específicamente:adv:1",
+      "language": "es",
+      "term": "específicamente",
+      "partOfSpeech": "adv",
+      "ordinal": 1,
+      "glosses": [
+        "specifically"
+      ]
+    },
+    {
       "key": "es:específico:adj:1",
       "language": "es",
       "term": "específico",
@@ -39473,6 +40623,26 @@
       "ordinal": 2,
       "glosses": [
         "observer"
+      ]
+    },
+    {
+      "key": "es:espectro:noun:1",
+      "language": "es",
+      "term": "espectro",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "spectrum"
+      ]
+    },
+    {
+      "key": "es:espectro:noun:2",
+      "language": "es",
+      "term": "espectro",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "spectre, ghost"
       ]
     },
     {
@@ -39786,6 +40956,16 @@
       ]
     },
     {
+      "key": "es:estacionar:verb:1",
+      "language": "es",
+      "term": "estacionar",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to park (to bring a vehicle to a halt in a specified place"
+      ]
+    },
+    {
       "key": "es:estadio:noun:1",
       "language": "es",
       "term": "estadio",
@@ -40093,6 +41273,26 @@
       "ordinal": 2,
       "glosses": [
         "stellar, extraordinary, outstanding"
+      ]
+    },
+    {
+      "key": "es:estética:noun:1",
+      "language": "es",
+      "term": "estética",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "aesthetics"
+      ]
+    },
+    {
+      "key": "es:estética:noun:2",
+      "language": "es",
+      "term": "estética",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "hair salon, beauty parlor"
       ]
     },
     {
@@ -40776,6 +41976,16 @@
       ]
     },
     {
+      "key": "es:evacuar:verb:1",
+      "language": "es",
+      "term": "evacuar",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to evacuate"
+      ]
+    },
+    {
       "key": "es:evaluación:noun:1",
       "language": "es",
       "term": "evaluación",
@@ -41273,6 +42483,16 @@
       "ordinal": 3,
       "glosses": [
         "to hold (e.g., accountable"
+      ]
+    },
+    {
+      "key": "es:exilio:noun:1",
+      "language": "es",
+      "term": "exilio",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "exile"
       ]
     },
     {
@@ -41823,6 +43043,16 @@
       "ordinal": 3,
       "glosses": [
         "expanse (wide stretch of space"
+      ]
+    },
+    {
+      "key": "es:extenso:adj:1",
+      "language": "es",
+      "term": "extenso",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "extensive"
       ]
     },
     {
@@ -43668,6 +44898,16 @@
       ]
     },
     {
+      "key": "es:filósofo:noun:1",
+      "language": "es",
+      "term": "filósofo",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "philosopher"
+      ]
+    },
+    {
       "key": "es:final:adj:1",
       "language": "es",
       "term": "final",
@@ -43735,6 +44975,16 @@
       "ordinal": 1,
       "glosses": [
         "lastly, finally, in the end"
+      ]
+    },
+    {
+      "key": "es:financiación:noun:1",
+      "language": "es",
+      "term": "financiación",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "financing, funding, fundraising"
       ]
     },
     {
@@ -44145,6 +45395,57 @@
       "ordinal": 3,
       "glosses": [
         "discharge"
+      ]
+    },
+    {
+      "key": "es:foco:adj:1",
+      "language": "es",
+      "term": "foco",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "very flamboyant"
+      ]
+    },
+    {
+      "key": "es:foco:adj:2",
+      "language": "es",
+      "term": "foco",
+      "partOfSpeech": "adj",
+      "ordinal": 2,
+      "glosses": [
+        "having hair a little longer than a buzz cut"
+      ]
+    },
+    {
+      "key": "es:foco:noun:1",
+      "language": "es",
+      "term": "foco",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "spotlight"
+      ]
+    },
+    {
+      "key": "es:foco:noun:2",
+      "language": "es",
+      "term": "foco",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "spotlight",
+        "focus (place or spot where something is focused"
+      ]
+    },
+    {
+      "key": "es:foco:noun:3",
+      "language": "es",
+      "term": "foco",
+      "partOfSpeech": "noun",
+      "ordinal": 3,
+      "glosses": [
+        "light bulb"
       ]
     },
     {
@@ -45568,6 +46869,36 @@
       ]
     },
     {
+      "key": "es:fundamento:noun:1",
+      "language": "es",
+      "term": "fundamento",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "foundation (lowest and supporting part or member of a wall"
+      ]
+    },
+    {
+      "key": "es:fundamento:noun:2",
+      "language": "es",
+      "term": "fundamento",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "cornerstone"
+      ]
+    },
+    {
+      "key": "es:fundamento:noun:3",
+      "language": "es",
+      "term": "fundamento",
+      "partOfSpeech": "noun",
+      "ordinal": 3,
+      "glosses": [
+        "reason, motive"
+      ]
+    },
+    {
       "key": "es:fundar:verb:1",
       "language": "es",
       "term": "fundar",
@@ -46298,6 +47629,16 @@
       ]
     },
     {
+      "key": "es:generalizar:verb:1",
+      "language": "es",
+      "term": "generalizar",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to generalize"
+      ]
+    },
+    {
       "key": "es:generalmente:adv:1",
       "language": "es",
       "term": "generalmente",
@@ -46785,6 +48126,16 @@
       "ordinal": 1,
       "glosses": [
         "glory"
+      ]
+    },
+    {
+      "key": "es:glorioso:adj:1",
+      "language": "es",
+      "term": "glorioso",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "glorious, proud"
       ]
     },
     {
@@ -48068,6 +49419,26 @@
       "ordinal": 2,
       "glosses": [
         "a type of particularly sweet mango"
+      ]
+    },
+    {
+      "key": "es:guerrilla:noun:1",
+      "language": "es",
+      "term": "guerrilla",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "guerrilla (small official or unofficial military troop"
+      ]
+    },
+    {
+      "key": "es:guerrilla:noun:2",
+      "language": "es",
+      "term": "guerrilla",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "guerrilla war"
       ]
     },
     {
@@ -50196,6 +51567,16 @@
       ]
     },
     {
+      "key": "es:humillar:verb:1",
+      "language": "es",
+      "term": "humillar",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to humiliate"
+      ]
+    },
+    {
       "key": "es:humo:noun:1",
       "language": "es",
       "term": "humo",
@@ -50706,6 +52087,16 @@
       ]
     },
     {
+      "key": "es:imaginario:adj:1",
+      "language": "es",
+      "term": "imaginario",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "imaginary"
+      ]
+    },
+    {
       "key": "es:imbécil:adj:1",
       "language": "es",
       "term": "imbécil",
@@ -50773,6 +52164,16 @@
       "ordinal": 1,
       "glosses": [
         "to impede, hinder"
+      ]
+    },
+    {
+      "key": "es:imperial:adj:1",
+      "language": "es",
+      "term": "imperial",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "imperial"
       ]
     },
     {
@@ -51396,6 +52797,16 @@
       ]
     },
     {
+      "key": "es:incorrecto:adj:1",
+      "language": "es",
+      "term": "incorrecto",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "wrong, incorrect"
+      ]
+    },
+    {
       "key": "es:increíble:adj:1",
       "language": "es",
       "term": "increíble",
@@ -51646,6 +53057,16 @@
       ]
     },
     {
+      "key": "es:indispensable:adj:1",
+      "language": "es",
+      "term": "indispensable",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "indispensable"
+      ]
+    },
+    {
       "key": "es:individual:adj:1",
       "language": "es",
       "term": "individual",
@@ -51713,6 +53134,26 @@
       "ordinal": 1,
       "glosses": [
         "individual"
+      ]
+    },
+    {
+      "key": "es:inducir:verb:1",
+      "language": "es",
+      "term": "inducir",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to induce"
+      ]
+    },
+    {
+      "key": "es:inducir:verb:2",
+      "language": "es",
+      "term": "inducir",
+      "partOfSpeech": "verb",
+      "ordinal": 2,
+      "glosses": [
+        "to lead"
       ]
     },
     {
@@ -51913,6 +53354,56 @@
       "ordinal": 1,
       "glosses": [
         "hell"
+      ]
+    },
+    {
+      "key": "es:infinito:adj:1",
+      "language": "es",
+      "term": "infinito",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "infinite"
+      ]
+    },
+    {
+      "key": "es:infinito:adj:2",
+      "language": "es",
+      "term": "infinito",
+      "partOfSpeech": "adj",
+      "ordinal": 2,
+      "glosses": [
+        "unlimited, boundless, unbounded"
+      ]
+    },
+    {
+      "key": "es:infinito:adj:3",
+      "language": "es",
+      "term": "infinito",
+      "partOfSpeech": "adj",
+      "ordinal": 3,
+      "glosses": [
+        "endless, countless"
+      ]
+    },
+    {
+      "key": "es:infinito:adv:1",
+      "language": "es",
+      "term": "infinito",
+      "partOfSpeech": "adv",
+      "ordinal": 1,
+      "glosses": [
+        "immensely; hugely; infinitely; big-time"
+      ]
+    },
+    {
+      "key": "es:infinito:noun:1",
+      "language": "es",
+      "term": "infinito",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "infinity"
       ]
     },
     {
@@ -52393,6 +53884,26 @@
       "ordinal": 1,
       "glosses": [
         "innocent person"
+      ]
+    },
+    {
+      "key": "es:inquietud:noun:1",
+      "language": "es",
+      "term": "inquietud",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "inquietude, restlessness"
+      ]
+    },
+    {
+      "key": "es:inquietud:noun:2",
+      "language": "es",
+      "term": "inquietud",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "curiosity, interest; hobbies"
       ]
     },
     {
@@ -53196,6 +54707,26 @@
       ]
     },
     {
+      "key": "es:intérprete:noun:1",
+      "language": "es",
+      "term": "intérprete",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "interpreter (one who interprets speech in another language"
+      ]
+    },
+    {
+      "key": "es:intérprete:noun:2",
+      "language": "es",
+      "term": "intérprete",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "performer"
+      ]
+    },
+    {
       "key": "es:interrogar:verb:1",
       "language": "es",
       "term": "interrogar",
@@ -53756,6 +55287,16 @@
       ]
     },
     {
+      "key": "es:irrumpir:verb:1",
+      "language": "es",
+      "term": "irrumpir",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to burst into"
+      ]
+    },
+    {
       "key": "es:isla:name:1",
       "language": "es",
       "term": "isla",
@@ -53936,6 +55477,16 @@
       ]
     },
     {
+      "key": "es:jabón:noun:1",
+      "language": "es",
+      "term": "jabón",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "soap; a bar of soap"
+      ]
+    },
+    {
       "key": "es:jamás:adv:1",
       "language": "es",
       "term": "jamás",
@@ -53953,6 +55504,26 @@
       "ordinal": 2,
       "glosses": [
         "ever"
+      ]
+    },
+    {
+      "key": "es:jamón:noun:1",
+      "language": "es",
+      "term": "jamón",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "ham (the thigh and buttock of an animal slaughtered for meat"
+      ]
+    },
+    {
+      "key": "es:jamón:noun:2",
+      "language": "es",
+      "term": "jamón",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "ham, gammon (meat from the thigh of a hog cured for food"
       ]
     },
     {
@@ -55326,6 +56897,16 @@
       ]
     },
     {
+      "key": "es:lamentable:adj:1",
+      "language": "es",
+      "term": "lamentable",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "lamentable, regrettable"
+      ]
+    },
+    {
       "key": "es:lamentar:verb:1",
       "language": "es",
       "term": "lamentar",
@@ -56306,6 +57887,16 @@
       ]
     },
     {
+      "key": "es:lentes:noun:1",
+      "language": "es",
+      "term": "lentes",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "eyeglasses"
+      ]
+    },
+    {
       "key": "es:lento:adj:1",
       "language": "es",
       "term": "lento",
@@ -56313,6 +57904,36 @@
       "ordinal": 1,
       "glosses": [
         "slow"
+      ]
+    },
+    {
+      "key": "es:león:noun:1",
+      "language": "es",
+      "term": "león",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "lion"
+      ]
+    },
+    {
+      "key": "es:león:noun:2",
+      "language": "es",
+      "term": "león",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "antlion"
+      ]
+    },
+    {
+      "key": "es:león:noun:3",
+      "language": "es",
+      "term": "león",
+      "partOfSpeech": "noun",
+      "ordinal": 3,
+      "glosses": [
+        "a brave person"
       ]
     },
     {
@@ -57136,6 +58757,26 @@
       ]
     },
     {
+      "key": "es:linterna:noun:1",
+      "language": "es",
+      "term": "linterna",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "lantern"
+      ]
+    },
+    {
+      "key": "es:linterna:noun:2",
+      "language": "es",
+      "term": "linterna",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "flashlight, torch"
+      ]
+    },
+    {
       "key": "es:lío:noun:1",
       "language": "es",
       "term": "lío",
@@ -57666,6 +59307,16 @@
       "ordinal": 3,
       "glosses": [
         "seat (in theatre, show"
+      ]
+    },
+    {
+      "key": "es:localizado:adj:1",
+      "language": "es",
+      "term": "localizado",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "located"
       ]
     },
     {
@@ -58209,6 +59860,46 @@
       ]
     },
     {
+      "key": "es:lunar:adj:1",
+      "language": "es",
+      "term": "lunar",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "lunar"
+      ]
+    },
+    {
+      "key": "es:lunar:noun:1",
+      "language": "es",
+      "term": "lunar",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "birthmark, beauty mark"
+      ]
+    },
+    {
+      "key": "es:lunar:noun:2",
+      "language": "es",
+      "term": "lunar",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "mole"
+      ]
+    },
+    {
+      "key": "es:lunar:noun:3",
+      "language": "es",
+      "term": "lunar",
+      "partOfSpeech": "noun",
+      "ordinal": 3,
+      "glosses": [
+        "polka dot"
+      ]
+    },
+    {
       "key": "es:lunes:noun:1",
       "language": "es",
       "term": "lunes",
@@ -58599,6 +60290,16 @@
       ]
     },
     {
+      "key": "es:magnético:adj:1",
+      "language": "es",
+      "term": "magnético",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "magnetic"
+      ]
+    },
+    {
       "key": "es:magnífico:adj:1",
       "language": "es",
       "term": "magnífico",
@@ -58816,6 +60517,16 @@
       "ordinal": 1,
       "glosses": [
         "bastard, son of a bitch"
+      ]
+    },
+    {
+      "key": "es:malentendido:noun:1",
+      "language": "es",
+      "term": "malentendido",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "misunderstanding"
       ]
     },
     {
@@ -59730,6 +61441,46 @@
       ]
     },
     {
+      "key": "es:marcador:adj:1",
+      "language": "es",
+      "term": "marcador",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "marking"
+      ]
+    },
+    {
+      "key": "es:marcador:noun:1",
+      "language": "es",
+      "term": "marcador",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "scoreboard"
+      ]
+    },
+    {
+      "key": "es:marcador:noun:2",
+      "language": "es",
+      "term": "marcador",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "bookmark"
+      ]
+    },
+    {
+      "key": "es:marcador:noun:3",
+      "language": "es",
+      "term": "marcador",
+      "partOfSpeech": "noun",
+      "ordinal": 3,
+      "glosses": [
+        "marker (a gene or dna sequence with a known location on a chromosome"
+      ]
+    },
+    {
       "key": "es:marcar:verb:1",
       "language": "es",
       "term": "marcar",
@@ -59857,6 +61608,16 @@
       "ordinal": 3,
       "glosses": [
         "marco, spanish mark (a traditional unit of weight, equivalent to about 230 g"
+      ]
+    },
+    {
+      "key": "es:marea:noun:1",
+      "language": "es",
+      "term": "marea",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "tide"
       ]
     },
     {
@@ -61152,6 +62913,16 @@
       ]
     },
     {
+      "key": "es:melodía:noun:1",
+      "language": "es",
+      "term": "melodía",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "melody, tune"
+      ]
+    },
+    {
       "key": "es:memoria:noun:1",
       "language": "es",
       "term": "memoria",
@@ -61179,6 +62950,16 @@
       "ordinal": 3,
       "glosses": [
         "report, document"
+      ]
+    },
+    {
+      "key": "es:mención:noun:1",
+      "language": "es",
+      "term": "mención",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "mention"
       ]
     },
     {
@@ -62762,6 +64543,16 @@
       ]
     },
     {
+      "key": "es:modales:noun:1",
+      "language": "es",
+      "term": "modales",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "manners (etiquette"
+      ]
+    },
+    {
       "key": "es:modelo:noun:1",
       "language": "es",
       "term": "modelo",
@@ -64304,6 +66095,36 @@
       ]
     },
     {
+      "key": "es:muñeco:noun:1",
+      "language": "es",
+      "term": "muñeco",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "doll"
+      ]
+    },
+    {
+      "key": "es:muñeco:noun:2",
+      "language": "es",
+      "term": "muñeco",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "puppet"
+      ]
+    },
+    {
+      "key": "es:muñeco:noun:3",
+      "language": "es",
+      "term": "muñeco",
+      "partOfSpeech": "noun",
+      "ordinal": 3,
+      "glosses": [
+        "attractive male"
+      ]
+    },
+    {
       "key": "es:munición:noun:1",
       "language": "es",
       "term": "munición",
@@ -64441,6 +66262,16 @@
       "ordinal": 1,
       "glosses": [
         "musician"
+      ]
+    },
+    {
+      "key": "es:muslo:noun:1",
+      "language": "es",
+      "term": "muslo",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "thigh (upper leg of a human, between the hip and the knee"
       ]
     },
     {
@@ -64941,6 +66772,26 @@
       "ordinal": 2,
       "glosses": [
         "to surf, navigate"
+      ]
+    },
+    {
+      "key": "es:nazi:adj:1",
+      "language": "es",
+      "term": "nazi",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "nazi"
+      ]
+    },
+    {
+      "key": "es:nazi:noun:1",
+      "language": "es",
+      "term": "nazi",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "nazi"
       ]
     },
     {
@@ -66294,6 +68145,26 @@
       ]
     },
     {
+      "key": "es:numerar:verb:1",
+      "language": "es",
+      "term": "numerar",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to number"
+      ]
+    },
+    {
+      "key": "es:numerar:verb:2",
+      "language": "es",
+      "term": "numerar",
+      "partOfSpeech": "verb",
+      "ordinal": 2,
+      "glosses": [
+        "to calculate"
+      ]
+    },
+    {
       "key": "es:número:noun:1",
       "language": "es",
       "term": "número",
@@ -66594,6 +68465,26 @@
       ]
     },
     {
+      "key": "es:obligatorio:adj:1",
+      "language": "es",
+      "term": "obligatorio",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "mandatory"
+      ]
+    },
+    {
+      "key": "es:obligatorio:adj:2",
+      "language": "es",
+      "term": "obligatorio",
+      "partOfSpeech": "adj",
+      "ordinal": 2,
+      "glosses": [
+        "obligatory"
+      ]
+    },
+    {
       "key": "es:obra:noun:1",
       "language": "es",
       "term": "obra",
@@ -66824,6 +68715,16 @@
       ]
     },
     {
+      "key": "es:ocasionar:verb:1",
+      "language": "es",
+      "term": "ocasionar",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to cause"
+      ]
+    },
+    {
       "key": "es:occidental:adj:1",
       "language": "es",
       "term": "occidental",
@@ -66841,6 +68742,16 @@
       "ordinal": 1,
       "glosses": [
         "westerner"
+      ]
+    },
+    {
+      "key": "es:occidente:noun:1",
+      "language": "es",
+      "term": "occidente",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "west, occident"
       ]
     },
     {
@@ -67904,6 +69815,36 @@
       ]
     },
     {
+      "key": "es:optimista:adj:1",
+      "language": "es",
+      "term": "optimista",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "optimistic, upbeat"
+      ]
+    },
+    {
+      "key": "es:optimista:adj:2",
+      "language": "es",
+      "term": "optimista",
+      "partOfSpeech": "adj",
+      "ordinal": 2,
+      "glosses": [
+        "optimistic, bullish"
+      ]
+    },
+    {
+      "key": "es:optimista:noun:1",
+      "language": "es",
+      "term": "optimista",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "optimist"
+      ]
+    },
+    {
       "key": "es:opuesto:adj:1",
       "language": "es",
       "term": "opuesto",
@@ -67961,6 +69902,16 @@
       "ordinal": 3,
       "glosses": [
         "clause"
+      ]
+    },
+    {
+      "key": "es:oral:adj:1",
+      "language": "es",
+      "term": "oral",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "oral"
       ]
     },
     {
@@ -69252,6 +71203,26 @@
       "ordinal": 1,
       "glosses": [
         "gang"
+      ]
+    },
+    {
+      "key": "es:panel:noun:1",
+      "language": "es",
+      "term": "panel",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "panel (“material object”"
+      ]
+    },
+    {
+      "key": "es:panel:noun:2",
+      "language": "es",
+      "term": "panel",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "panel (“group of people”"
       ]
     },
     {
@@ -71556,6 +73527,46 @@
       ]
     },
     {
+      "key": "es:pendejo:adj:1",
+      "language": "es",
+      "term": "pendejo",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "stupid, idiot, asshole"
+      ]
+    },
+    {
+      "key": "es:pendejo:noun:1",
+      "language": "es",
+      "term": "pendejo",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "arsehole, asshole, stupid, idiot, dirtbag, scumbag (a contemptible person"
+      ]
+    },
+    {
+      "key": "es:pendejo:noun:2",
+      "language": "es",
+      "term": "pendejo",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "dumbass (stupid person"
+      ]
+    },
+    {
+      "key": "es:pendejo:noun:3",
+      "language": "es",
+      "term": "pendejo",
+      "partOfSpeech": "noun",
+      "ordinal": 3,
+      "glosses": [
+        "young boy"
+      ]
+    },
+    {
       "key": "es:pendiente:adj:1",
       "language": "es",
       "term": "pendiente",
@@ -73179,6 +75190,46 @@
       ]
     },
     {
+      "key": "es:pillo:adj:1",
+      "language": "es",
+      "term": "pillo",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "clever"
+      ]
+    },
+    {
+      "key": "es:pillo:adj:2",
+      "language": "es",
+      "term": "pillo",
+      "partOfSpeech": "adj",
+      "ordinal": 2,
+      "glosses": [
+        "cheeky, impudent"
+      ]
+    },
+    {
+      "key": "es:pillo:adj:3",
+      "language": "es",
+      "term": "pillo",
+      "partOfSpeech": "adj",
+      "ordinal": 3,
+      "glosses": [
+        "mean, nasty"
+      ]
+    },
+    {
+      "key": "es:pillo:noun:1",
+      "language": "es",
+      "term": "pillo",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "cheeky or naughty person, crook or thief; scoundrel"
+      ]
+    },
+    {
       "key": "es:piloto:noun:1",
       "language": "es",
       "term": "piloto",
@@ -73206,6 +75257,16 @@
       "ordinal": 3,
       "glosses": [
         "flashing light"
+      ]
+    },
+    {
+      "key": "es:pimienta:noun:1",
+      "language": "es",
+      "term": "pimienta",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "pepper (herb, peppercorns"
       ]
     },
     {
@@ -73636,6 +75697,16 @@
       "ordinal": 1,
       "glosses": [
         "planet"
+      ]
+    },
+    {
+      "key": "es:planificación:noun:1",
+      "language": "es",
+      "term": "planificación",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "planning"
       ]
     },
     {
@@ -74810,6 +76881,26 @@
       ]
     },
     {
+      "key": "es:porción:noun:1",
+      "language": "es",
+      "term": "porción",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "portion"
+      ]
+    },
+    {
+      "key": "es:porción:noun:2",
+      "language": "es",
+      "term": "porción",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "part (fraction of a whole"
+      ]
+    },
+    {
       "key": "es:porno:noun:1",
       "language": "es",
       "term": "porno",
@@ -75777,6 +77868,16 @@
       "ordinal": 2,
       "glosses": [
         "appearance, look"
+      ]
+    },
+    {
+      "key": "es:presenciar:verb:1",
+      "language": "es",
+      "term": "presenciar",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to witness"
       ]
     },
     {
@@ -77582,6 +79683,16 @@
       ]
     },
     {
+      "key": "es:propina:noun:1",
+      "language": "es",
+      "term": "propina",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "tip, gratuity"
+      ]
+    },
+    {
       "key": "es:propio:adj:1",
       "language": "es",
       "term": "propio",
@@ -77689,6 +79800,16 @@
       "ordinal": 3,
       "glosses": [
         "to proportion, set or render in proportion"
+      ]
+    },
+    {
+      "key": "es:proposición:noun:1",
+      "language": "es",
+      "term": "proposición",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "proposition"
       ]
     },
     {
@@ -78152,6 +80273,16 @@
       ]
     },
     {
+      "key": "es:psicólogo:noun:1",
+      "language": "es",
+      "term": "psicólogo",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "psychologist"
+      ]
+    },
+    {
       "key": "es:psicópata:noun:1",
       "language": "es",
       "term": "psicópata",
@@ -78179,6 +80310,26 @@
       "ordinal": 1,
       "glosses": [
         "psychiatrist"
+      ]
+    },
+    {
+      "key": "es:psiquiátrico:adj:1",
+      "language": "es",
+      "term": "psiquiátrico",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "psychiatric"
+      ]
+    },
+    {
+      "key": "es:psiquiátrico:noun:1",
+      "language": "es",
+      "term": "psiquiátrico",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "psychiatric hospital"
       ]
     },
     {
@@ -79700,6 +81851,16 @@
       "ordinal": 1,
       "glosses": [
         "rapidly, quickly"
+      ]
+    },
+    {
+      "key": "es:rapidez:noun:1",
+      "language": "es",
+      "term": "rapidez",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "speed"
       ]
     },
     {
@@ -82123,6 +84284,16 @@
       ]
     },
     {
+      "key": "es:rencor:noun:1",
+      "language": "es",
+      "term": "rencor",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "grudge, rancor/rancour, spite"
+      ]
+    },
+    {
       "key": "es:rendimiento:noun:1",
       "language": "es",
       "term": "rendimiento",
@@ -82260,6 +84431,36 @@
       "ordinal": 3,
       "glosses": [
         "to quit, to resign"
+      ]
+    },
+    {
+      "key": "es:reparación:noun:1",
+      "language": "es",
+      "term": "reparación",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "reparation"
+      ]
+    },
+    {
+      "key": "es:reparación:noun:2",
+      "language": "es",
+      "term": "reparación",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "the act or result of repairing; repair, repairs"
+      ]
+    },
+    {
+      "key": "es:reparación:noun:3",
+      "language": "es",
+      "term": "reparación",
+      "partOfSpeech": "noun",
+      "ordinal": 3,
+      "glosses": [
+        "comeback"
       ]
     },
     {
@@ -82630,6 +84831,36 @@
       "ordinal": 2,
       "glosses": [
         "requisite"
+      ]
+    },
+    {
+      "key": "es:resaltar:verb:1",
+      "language": "es",
+      "term": "resaltar",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to emphasize, to highlight"
+      ]
+    },
+    {
+      "key": "es:resaltar:verb:2",
+      "language": "es",
+      "term": "resaltar",
+      "partOfSpeech": "verb",
+      "ordinal": 2,
+      "glosses": [
+        "to bounce"
+      ]
+    },
+    {
+      "key": "es:resaltar:verb:3",
+      "language": "es",
+      "term": "resaltar",
+      "partOfSpeech": "verb",
+      "ordinal": 3,
+      "glosses": [
+        "to chip off, to break off"
       ]
     },
     {
@@ -83093,6 +85324,36 @@
       ]
     },
     {
+      "key": "es:respiro:noun:1",
+      "language": "es",
+      "term": "respiro",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "breath"
+      ]
+    },
+    {
+      "key": "es:respiro:noun:2",
+      "language": "es",
+      "term": "respiro",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "break, respite, breather, relief, reprieve, rest"
+      ]
+    },
+    {
+      "key": "es:respiro:noun:3",
+      "language": "es",
+      "term": "respiro",
+      "partOfSpeech": "noun",
+      "ordinal": 3,
+      "glosses": [
+        "breathing room, breathing space, slack"
+      ]
+    },
+    {
       "key": "es:responder:verb:1",
       "language": "es",
       "term": "responder",
@@ -83230,6 +85491,26 @@
       "ordinal": 2,
       "glosses": [
         "remainder"
+      ]
+    },
+    {
+      "key": "es:restricción:noun:1",
+      "language": "es",
+      "term": "restricción",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "restriction"
+      ]
+    },
+    {
+      "key": "es:restricción:noun:2",
+      "language": "es",
+      "term": "restricción",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "constraint"
       ]
     },
     {
@@ -86093,6 +88374,16 @@
       ]
     },
     {
+      "key": "es:sangriento:adj:1",
+      "language": "es",
+      "term": "sangriento",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "bloody, blood"
+      ]
+    },
+    {
       "key": "es:sanguíneo:adj:1",
       "language": "es",
       "term": "sanguíneo",
@@ -86990,6 +89281,26 @@
       "ordinal": 1,
       "glosses": [
         "week (7 days"
+      ]
+    },
+    {
+      "key": "es:sembrar:verb:1",
+      "language": "es",
+      "term": "sembrar",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to plant (place a seed or plant in soil or other substrate in order that it may live and grow"
+      ]
+    },
+    {
+      "key": "es:sembrar:verb:2",
+      "language": "es",
+      "term": "sembrar",
+      "partOfSpeech": "verb",
+      "ordinal": 2,
+      "glosses": [
+        "to sow, to seed"
       ]
     },
     {
@@ -88665,6 +90976,86 @@
       ]
     },
     {
+      "key": "es:singular:adj:1",
+      "language": "es",
+      "term": "singular",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "singular"
+      ]
+    },
+    {
+      "key": "es:singular:adj:2",
+      "language": "es",
+      "term": "singular",
+      "partOfSpeech": "adj",
+      "ordinal": 2,
+      "glosses": [
+        "odd, peculiar"
+      ]
+    },
+    {
+      "key": "es:singular:noun:1",
+      "language": "es",
+      "term": "singular",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "singular"
+      ]
+    },
+    {
+      "key": "es:siniestro:adj:1",
+      "language": "es",
+      "term": "siniestro",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "sinister"
+      ]
+    },
+    {
+      "key": "es:siniestro:adj:2",
+      "language": "es",
+      "term": "siniestro",
+      "partOfSpeech": "adj",
+      "ordinal": 2,
+      "glosses": [
+        "unhappy"
+      ]
+    },
+    {
+      "key": "es:siniestro:adj:3",
+      "language": "es",
+      "term": "siniestro",
+      "partOfSpeech": "adj",
+      "ordinal": 3,
+      "glosses": [
+        "malicious, evil"
+      ]
+    },
+    {
+      "key": "es:siniestro:noun:1",
+      "language": "es",
+      "term": "siniestro",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "accident"
+      ]
+    },
+    {
+      "key": "es:siniestro:noun:2",
+      "language": "es",
+      "term": "siniestro",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "catastrophe, disaster"
+      ]
+    },
+    {
       "key": "es:sino:conj:1",
       "language": "es",
       "term": "sino",
@@ -88992,6 +91383,16 @@
       "ordinal": 2,
       "glosses": [
         "about"
+      ]
+    },
+    {
+      "key": "es:sobrepasar:verb:1",
+      "language": "es",
+      "term": "sobrepasar",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to surpass"
       ]
     },
     {
@@ -90485,6 +92886,46 @@
       ]
     },
     {
+      "key": "es:sueco:adj:1",
+      "language": "es",
+      "term": "sueco",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "swedish (from or native to sweden"
+      ]
+    },
+    {
+      "key": "es:sueco:adj:2",
+      "language": "es",
+      "term": "sueco",
+      "partOfSpeech": "adj",
+      "ordinal": 2,
+      "glosses": [
+        "swedish (pertaining to sweden"
+      ]
+    },
+    {
+      "key": "es:sueco:noun:1",
+      "language": "es",
+      "term": "sueco",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "a swede"
+      ]
+    },
+    {
+      "key": "es:sueco:noun:2",
+      "language": "es",
+      "term": "sueco",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "swedish (language"
+      ]
+    },
+    {
       "key": "es:suegro:noun:1",
       "language": "es",
       "term": "suegro",
@@ -90862,6 +93303,36 @@
       "ordinal": 2,
       "glosses": [
         "addition"
+      ]
+    },
+    {
+      "key": "es:sumamente:adv:1",
+      "language": "es",
+      "term": "sumamente",
+      "partOfSpeech": "adv",
+      "ordinal": 1,
+      "glosses": [
+        "most"
+      ]
+    },
+    {
+      "key": "es:sumamente:adv:2",
+      "language": "es",
+      "term": "sumamente",
+      "partOfSpeech": "adv",
+      "ordinal": 2,
+      "glosses": [
+        "highly"
+      ]
+    },
+    {
+      "key": "es:sumamente:adv:3",
+      "language": "es",
+      "term": "sumamente",
+      "partOfSpeech": "adv",
+      "ordinal": 3,
+      "glosses": [
+        "extremely"
       ]
     },
     {
@@ -91285,6 +93756,16 @@
       ]
     },
     {
+      "key": "es:sutil:adj:1",
+      "language": "es",
+      "term": "sutil",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "subtle"
+      ]
+    },
+    {
       "key": "es:suyo:det:1",
       "language": "es",
       "term": "suyo",
@@ -91392,6 +93873,38 @@
       "ordinal": 3,
       "glosses": [
         "table (grid or matrix, in a book, data base, file, document, etc"
+      ]
+    },
+    {
+      "key": "es:taco:noun:1",
+      "language": "es",
+      "term": "taco",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "peg (a short, thick piece of wood, metal, or other material"
+      ]
+    },
+    {
+      "key": "es:taco:noun:2",
+      "language": "es",
+      "term": "taco",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "taco"
+      ]
+    },
+    {
+      "key": "es:taco:noun:3",
+      "language": "es",
+      "term": "taco",
+      "partOfSpeech": "noun",
+      "ordinal": 3,
+      "glosses": [
+        "dowel (a longer piece of wood, plastic, or other material",
+        "cue (a stick used to play billiards, snooker, pool, etc",
+        "billiards"
       ]
     },
     {
@@ -92002,6 +94515,16 @@
       "ordinal": 1,
       "glosses": [
         "tea"
+      ]
+    },
+    {
+      "key": "es:teatral:adj:1",
+      "language": "es",
+      "term": "teatral",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "theatrical"
       ]
     },
     {
@@ -93567,6 +96090,16 @@
       ]
     },
     {
+      "key": "es:tinta:noun:1",
+      "language": "es",
+      "term": "tinta",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "ink"
+      ]
+    },
+    {
       "key": "es:tío:noun:1",
       "language": "es",
       "term": "tío",
@@ -94508,6 +97041,36 @@
       ]
     },
     {
+      "key": "es:torta:noun:1",
+      "language": "es",
+      "term": "torta",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "cake"
+      ]
+    },
+    {
+      "key": "es:torta:noun:2",
+      "language": "es",
+      "term": "torta",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "tart, pie"
+      ]
+    },
+    {
+      "key": "es:torta:noun:3",
+      "language": "es",
+      "term": "torta",
+      "partOfSpeech": "noun",
+      "ordinal": 3,
+      "glosses": [
+        "submarine sandwich"
+      ]
+    },
+    {
       "key": "es:tortuga:noun:1",
       "language": "es",
       "term": "tortuga",
@@ -95065,6 +97628,36 @@
       "ordinal": 3,
       "glosses": [
         "gown, dress (e.g. bridal gown, evening gown"
+      ]
+    },
+    {
+      "key": "es:trama:noun:1",
+      "language": "es",
+      "term": "trama",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "weave, weft"
+      ]
+    },
+    {
+      "key": "es:trama:noun:2",
+      "language": "es",
+      "term": "trama",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "plot (the course of a story"
+      ]
+    },
+    {
+      "key": "es:trama:noun:3",
+      "language": "es",
+      "term": "trama",
+      "partOfSpeech": "noun",
+      "ordinal": 3,
+      "glosses": [
+        "grid (as in an urban grid"
       ]
     },
     {
@@ -96923,6 +99516,16 @@
       ]
     },
     {
+      "key": "es:uva:noun:1",
+      "language": "es",
+      "term": "uva",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "grape"
+      ]
+    },
+    {
       "key": "es:v:character:1",
       "language": "es",
       "term": "v",
@@ -97220,6 +99823,16 @@
       "ordinal": 1,
       "glosses": [
         "valuable"
+      ]
+    },
+    {
+      "key": "es:valle:noun:1",
+      "language": "es",
+      "term": "valle",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "valley"
       ]
     },
     {
@@ -98357,6 +100970,16 @@
       ]
     },
     {
+      "key": "es:verter:verb:1",
+      "language": "es",
+      "term": "verter",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to pour, spill, shed"
+      ]
+    },
+    {
       "key": "es:vestido:adj:1",
       "language": "es",
       "term": "vestido",
@@ -98887,6 +101510,36 @@
       ]
     },
     {
+      "key": "es:vigente:adj:1",
+      "language": "es",
+      "term": "vigente",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "in force, in effect"
+      ]
+    },
+    {
+      "key": "es:vigente:adj:2",
+      "language": "es",
+      "term": "vigente",
+      "partOfSpeech": "adj",
+      "ordinal": 2,
+      "glosses": [
+        "current, in use"
+      ]
+    },
+    {
+      "key": "es:vigente:adj:3",
+      "language": "es",
+      "term": "vigente",
+      "partOfSpeech": "adj",
+      "ordinal": 3,
+      "glosses": [
+        "within shelf life, unexpired"
+      ]
+    },
+    {
       "key": "es:vigilancia:noun:1",
       "language": "es",
       "term": "vigilancia",
@@ -98904,6 +101557,36 @@
       "ordinal": 2,
       "glosses": [
         "surveillance, security (close observation of an individual or group; person or persons under suspicion"
+      ]
+    },
+    {
+      "key": "es:vigilante:adj:1",
+      "language": "es",
+      "term": "vigilante",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "watchful, alert, wakeful"
+      ]
+    },
+    {
+      "key": "es:vigilante:noun:1",
+      "language": "es",
+      "term": "vigilante",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "guard, watchman"
+      ]
+    },
+    {
+      "key": "es:vigilante:noun:2",
+      "language": "es",
+      "term": "vigilante",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "a roll made from puff pastry, similar to a croissant, often topped with quince cheese or pastry cream"
       ]
     },
     {
@@ -99397,6 +102080,26 @@
       ]
     },
     {
+      "key": "es:vocación:noun:1",
+      "language": "es",
+      "term": "vocación",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "vocation (inclination to undertake a certain kind of work"
+      ]
+    },
+    {
+      "key": "es:vocación:noun:2",
+      "language": "es",
+      "term": "vocación",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "calling"
+      ]
+    },
+    {
       "key": "es:vodka:noun:1",
       "language": "es",
       "term": "vodka",
@@ -99484,6 +102187,26 @@
       "ordinal": 3,
       "glosses": [
         "to blow up"
+      ]
+    },
+    {
+      "key": "es:voltear:verb:1",
+      "language": "es",
+      "term": "voltear",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to turn"
+      ]
+    },
+    {
+      "key": "es:voltear:verb:2",
+      "language": "es",
+      "term": "voltear",
+      "partOfSpeech": "verb",
+      "ordinal": 2,
+      "glosses": [
+        "to toss and turn; to move about"
       ]
     },
     {
@@ -99975,6 +102698,16 @@
       "ordinal": 3,
       "glosses": [
         "enough! no more! stop!"
+      ]
+    },
+    {
+      "key": "es:yacer:verb:1",
+      "language": "es",
+      "term": "yacer",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to lie; to recline"
       ]
     },
     {
@@ -101205,6 +103938,16 @@
       "ordinal": 3,
       "glosses": [
         "great britain (a large island (sometimes also including some of the surrounding smaller islands) off the north-west coast of western europe, made up of england, scotland, and wales"
+      ]
+    },
+    {
+      "key": "vi:anh:name:4",
+      "language": "vi",
+      "term": "anh",
+      "partOfSpeech": "name",
+      "ordinal": 4,
+      "glosses": [
+        "england (a constituent country of the united kingdom"
       ]
     },
     {
@@ -125949,6 +128692,26 @@
       ]
     },
     {
+      "key": "vi:hoàng hôn:noun:1",
+      "language": "vi",
+      "term": "hoàng hôn",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "dusk; sunset; nightfall; evening twilight"
+      ]
+    },
+    {
+      "key": "vi:hoàng tử:noun:1",
+      "language": "vi",
+      "term": "hoàng tử",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "prince (son or male-line grandson of a reigning monarch"
+      ]
+    },
+    {
       "key": "vi:hoạt động:adj:1",
       "language": "vi",
       "term": "hoạt động",
@@ -126059,6 +128822,16 @@
       ]
     },
     {
+      "key": "vi:hơi bị:adv:1",
+      "language": "vi",
+      "term": "hơi bị",
+      "partOfSpeech": "adv",
+      "ordinal": 1,
+      "glosses": [
+        "mighty; damn; freaking; frigging; compare english quite which means both \"fairly\" and \"very"
+      ]
+    },
+    {
       "key": "vi:hồi giáo:noun:1",
       "language": "vi",
       "term": "hồi giáo",
@@ -126076,6 +128849,16 @@
       "ordinal": 1,
       "glosses": [
         "to regret; to feel remorse; to be remorseful"
+      ]
+    },
+    {
+      "key": "vi:hội nghị:noun:1",
+      "language": "vi",
+      "term": "hội nghị",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "conference; meeting"
       ]
     },
     {
@@ -126106,6 +128889,16 @@
       "ordinal": 1,
       "glosses": [
         "to recover; to recuperate; to bounce back"
+      ]
+    },
+    {
+      "key": "vi:hối tiếc:verb:1",
+      "language": "vi",
+      "term": "hối tiếc",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to regret"
       ]
     },
     {
@@ -126169,6 +128962,16 @@
       ]
     },
     {
+      "key": "vi:hội:noun:1",
+      "language": "vi",
+      "term": "hội",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "a festival"
+      ]
+    },
+    {
       "key": "vi:hồi:noun:2",
       "language": "vi",
       "term": "hồi",
@@ -126189,6 +128992,16 @@
       ]
     },
     {
+      "key": "vi:hội:noun:2",
+      "language": "vi",
+      "term": "hội",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "an assembly, union or confederation"
+      ]
+    },
+    {
       "key": "vi:hồi:noun:3",
       "language": "vi",
       "term": "hồi",
@@ -126206,6 +129019,16 @@
       "ordinal": 3,
       "glosses": [
         "gas (state of matter"
+      ]
+    },
+    {
+      "key": "vi:hội:noun:3",
+      "language": "vi",
+      "term": "hội",
+      "partOfSpeech": "noun",
+      "ordinal": 3,
+      "glosses": [
+        "cycle of sixty years"
       ]
     },
     {
@@ -126286,6 +129109,36 @@
       "ordinal": 3,
       "glosses": [
         "afternoon"
+      ]
+    },
+    {
+      "key": "vi:hơn cả:adj:1",
+      "language": "vi",
+      "term": "hơn cả",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "the most"
+      ]
+    },
+    {
+      "key": "vi:hơn cả:adv:1",
+      "language": "vi",
+      "term": "hơn cả",
+      "partOfSpeech": "adv",
+      "ordinal": 1,
+      "glosses": [
+        "most, -est (used to form superlatives of adjectives and adverbs"
+      ]
+    },
+    {
+      "key": "vi:hơn cả:adv:2",
+      "language": "vi",
+      "term": "hơn cả",
+      "partOfSpeech": "adv",
+      "ordinal": 2,
+      "glosses": [
+        "more than"
       ]
     },
     {
@@ -126651,6 +129504,26 @@
       ]
     },
     {
+      "key": "vi:hùng:adj:1",
+      "language": "vi",
+      "term": "hùng",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "male"
+      ]
+    },
+    {
+      "key": "vi:hùng:adj:2",
+      "language": "vi",
+      "term": "hùng",
+      "partOfSpeech": "adj",
+      "ordinal": 2,
+      "glosses": [
+        "grand, powerful"
+      ]
+    },
+    {
       "key": "vi:hứng:noun:1",
       "language": "vi",
       "term": "hứng",
@@ -126781,6 +129654,16 @@
       ]
     },
     {
+      "key": "vi:hủy hoại:verb:1",
+      "language": "vi",
+      "term": "hủy hoại",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "traditional tone placement spelling of huỷ hoại"
+      ]
+    },
+    {
       "key": "vi:huỷ:verb:1",
       "language": "vi",
       "term": "huỷ",
@@ -126788,6 +129671,16 @@
       "ordinal": 1,
       "glosses": [
         "to terminate; to cancel"
+      ]
+    },
+    {
+      "key": "vi:hủy:verb:1",
+      "language": "vi",
+      "term": "hủy",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "traditional tone placement spelling of huỷ"
       ]
     },
     {
@@ -127011,6 +129904,16 @@
       ]
     },
     {
+      "key": "vi:kê:noun:1",
+      "language": "vi",
+      "term": "kê",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "millet"
+      ]
+    },
+    {
       "key": "vi:kế:noun:1",
       "language": "vi",
       "term": "kế",
@@ -127061,6 +129964,16 @@
       ]
     },
     {
+      "key": "vi:kê:verb:1",
+      "language": "vi",
+      "term": "kê",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to rest (a part of one's body) on something"
+      ]
+    },
+    {
       "key": "vi:kể:verb:1",
       "language": "vi",
       "term": "kể",
@@ -127088,6 +130001,26 @@
       "ordinal": 1,
       "glosses": [
         "to leave alone; to let be"
+      ]
+    },
+    {
+      "key": "vi:kê:verb:2",
+      "language": "vi",
+      "term": "kê",
+      "partOfSpeech": "verb",
+      "ordinal": 2,
+      "glosses": [
+        "to prescribe"
+      ]
+    },
+    {
+      "key": "vi:kê:verb:3",
+      "language": "vi",
+      "term": "kê",
+      "partOfSpeech": "verb",
+      "ordinal": 3,
+      "glosses": [
+        "to place; to arrange; to put"
       ]
     },
     {
@@ -127151,6 +130084,46 @@
       ]
     },
     {
+      "key": "vi:kèm:verb:1",
+      "language": "vi",
+      "term": "kèm",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to accompany; to go with"
+      ]
+    },
+    {
+      "key": "vi:kèm:verb:2",
+      "language": "vi",
+      "term": "kèm",
+      "partOfSpeech": "verb",
+      "ordinal": 2,
+      "glosses": [
+        "to tutor (with one's study"
+      ]
+    },
+    {
+      "key": "vi:kèm:verb:3",
+      "language": "vi",
+      "term": "kèm",
+      "partOfSpeech": "verb",
+      "ordinal": 3,
+      "glosses": [
+        "to mark (man-to-man"
+      ]
+    },
+    {
+      "key": "vi:kẹo cao su:noun:1",
+      "language": "vi",
+      "term": "kẹo cao su",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "chewing gum"
+      ]
+    },
+    {
       "key": "vi:kéo dài:verb:1",
       "language": "vi",
       "term": "kéo dài",
@@ -127208,6 +130181,16 @@
       "ordinal": 1,
       "glosses": [
         "to pull"
+      ]
+    },
+    {
+      "key": "vi:kết bạn:verb:1",
+      "language": "vi",
+      "term": "kết bạn",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to make friends"
       ]
     },
     {
@@ -127601,6 +130584,16 @@
       ]
     },
     {
+      "key": "vi:khái niệm:noun:1",
+      "language": "vi",
+      "term": "khái niệm",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "concept, notion"
+      ]
+    },
+    {
       "key": "vi:khám phá:verb:1",
       "language": "vi",
       "term": "khám phá",
@@ -127628,6 +130621,16 @@
       "ordinal": 1,
       "glosses": [
         "a viewer or spectator of a tv show, movie, performance or event"
+      ]
+    },
+    {
+      "key": "vi:khăn tắm:noun:1",
+      "language": "vi",
+      "term": "khăn tắm",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "towel"
       ]
     },
     {
@@ -127761,6 +130764,16 @@
       ]
     },
     {
+      "key": "vi:khẩu trang:noun:1",
+      "language": "vi",
+      "term": "khẩu trang",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "a surgical mask; a procedure mask"
+      ]
+    },
+    {
       "key": "vi:khẩu:classifier:1",
       "language": "vi",
       "term": "khẩu",
@@ -127788,6 +130801,16 @@
       "ordinal": 1,
       "glosses": [
         "mouth; opening"
+      ]
+    },
+    {
+      "key": "vi:khen ngợi:verb:1",
+      "language": "vi",
+      "term": "khen ngợi",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to praise, to laud"
       ]
     },
     {
@@ -127841,6 +130864,16 @@
       ]
     },
     {
+      "key": "vi:khí:noun:1",
+      "language": "vi",
+      "term": "khí",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "gas"
+      ]
+    },
+    {
       "key": "vi:khỉ:noun:1",
       "language": "vi",
       "term": "khỉ",
@@ -127848,6 +130881,16 @@
       "ordinal": 1,
       "glosses": [
         "monkey (primate"
+      ]
+    },
+    {
+      "key": "vi:khí:noun:2",
+      "language": "vi",
+      "term": "khí",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "chi"
       ]
     },
     {
@@ -127878,6 +130921,36 @@
       "ordinal": 1,
       "glosses": [
         "to slight, to despise"
+      ]
+    },
+    {
+      "key": "vi:khía cạnh:noun:1",
+      "language": "vi",
+      "term": "khía cạnh",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "aspect; angle; regard"
+      ]
+    },
+    {
+      "key": "vi:khiêm tốn:adj:1",
+      "language": "vi",
+      "term": "khiêm tốn",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "modest; humble"
+      ]
+    },
+    {
+      "key": "vi:khiêm tốn:adj:2",
+      "language": "vi",
+      "term": "khiêm tốn",
+      "partOfSpeech": "adj",
+      "ordinal": 2,
+      "glosses": [
+        "below average"
       ]
     },
     {
@@ -127918,6 +130991,16 @@
       "ordinal": 1,
       "glosses": [
         "talent; a knack; a gift"
+      ]
+    },
+    {
+      "key": "vi:kho báu:noun:1",
+      "language": "vi",
+      "term": "kho báu",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "treasure"
       ]
     },
     {
@@ -127971,6 +131054,16 @@
       ]
     },
     {
+      "key": "vi:khổ:adj:1",
+      "language": "vi",
+      "term": "khổ",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "miserable; painful"
+      ]
+    },
+    {
       "key": "vi:khó:adj:2",
       "language": "vi",
       "term": "khó",
@@ -128001,6 +131094,16 @@
       ]
     },
     {
+      "key": "vi:khổ:intj:1",
+      "language": "vi",
+      "term": "khổ",
+      "partOfSpeech": "intj",
+      "ordinal": 1,
+      "glosses": [
+        "good grief (an expression of exasperation, annoyance, irritation"
+      ]
+    },
+    {
       "key": "vi:kho:noun:1",
       "language": "vi",
       "term": "kho",
@@ -128021,6 +131124,16 @@
       ]
     },
     {
+      "key": "vi:khổ:noun:1",
+      "language": "vi",
+      "term": "khổ",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "a width of a roll of cloth"
+      ]
+    },
+    {
       "key": "vi:kho:noun:2",
       "language": "vi",
       "term": "kho",
@@ -128038,6 +131151,16 @@
       "ordinal": 2,
       "glosses": [
         "meal, press cake, pomace"
+      ]
+    },
+    {
+      "key": "vi:khổ:noun:2",
+      "language": "vi",
+      "term": "khổ",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "a size"
       ]
     },
     {
@@ -128288,6 +131411,36 @@
       "ordinal": 2,
       "glosses": [
         "healthy"
+      ]
+    },
+    {
+      "key": "vi:khoe:verb:1",
+      "language": "vi",
+      "term": "khoe",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to flaunt, to show off, to boast"
+      ]
+    },
+    {
+      "key": "vi:khởi đầu:noun:1",
+      "language": "vi",
+      "term": "khởi đầu",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "beginning"
+      ]
+    },
+    {
+      "key": "vi:khởi đầu:verb:1",
+      "language": "vi",
+      "term": "khởi đầu",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to begin; to start, to commence"
       ]
     },
     {
@@ -128611,6 +131764,26 @@
       ]
     },
     {
+      "key": "vi:không ngờ:adj:1",
+      "language": "vi",
+      "term": "không ngờ",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "unexpected"
+      ]
+    },
+    {
+      "key": "vi:không ngờ:adv:1",
+      "language": "vi",
+      "term": "không ngờ",
+      "partOfSpeech": "adv",
+      "ordinal": 1,
+      "glosses": [
+        "unexpectedly; surprisingly"
+      ]
+    },
+    {
       "key": "vi:không sao:intj:1",
       "language": "vi",
       "term": "không sao",
@@ -128771,6 +131944,56 @@
       ]
     },
     {
+      "key": "vi:khớp:noun:1",
+      "language": "vi",
+      "term": "khớp",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "joint (between two bones"
+      ]
+    },
+    {
+      "key": "vi:khớp:noun:2",
+      "language": "vi",
+      "term": "khớp",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "joint; articulation"
+      ]
+    },
+    {
+      "key": "vi:khớp:verb:1",
+      "language": "vi",
+      "term": "khớp",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to fit together nicely; to fit like a glove; to mesh; to engage"
+      ]
+    },
+    {
+      "key": "vi:khớp:verb:2",
+      "language": "vi",
+      "term": "khớp",
+      "partOfSpeech": "verb",
+      "ordinal": 2,
+      "glosses": [
+        "to put together (parts of something) to form a whole object; to match together"
+      ]
+    },
+    {
+      "key": "vi:khớp:verb:3",
+      "language": "vi",
+      "term": "khớp",
+      "partOfSpeech": "verb",
+      "ordinal": 3,
+      "glosses": [
+        "to match to compare (whether two things are compatible"
+      ]
+    },
+    {
       "key": "vi:khu vực:noun:1",
       "language": "vi",
       "term": "khu vực",
@@ -128828,6 +132051,36 @@
       "ordinal": 1,
       "glosses": [
         "to be terrible; to be dreadful"
+      ]
+    },
+    {
+      "key": "vi:khung:noun:1",
+      "language": "vi",
+      "term": "khung",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "frame"
+      ]
+    },
+    {
+      "key": "vi:khung:noun:2",
+      "language": "vi",
+      "term": "khung",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "chassis; (bicycle) frame"
+      ]
+    },
+    {
+      "key": "vi:khung:noun:3",
+      "language": "vi",
+      "term": "khung",
+      "partOfSpeech": "noun",
+      "ordinal": 3,
+      "glosses": [
+        "framework; skeleton"
       ]
     },
     {
@@ -128908,6 +132161,26 @@
       "ordinal": 1,
       "glosses": [
         "to advise or recommend"
+      ]
+    },
+    {
+      "key": "vi:khuyết điểm:noun:1",
+      "language": "vi",
+      "term": "khuyết điểm",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "shortcoming; defect; weakness"
+      ]
+    },
+    {
+      "key": "vi:khuynh hướng:noun:1",
+      "language": "vi",
+      "term": "khuynh hướng",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "tendency; inclination"
       ]
     },
     {
@@ -129101,6 +132374,16 @@
       ]
     },
     {
+      "key": "vi:kiềm chế:verb:1",
+      "language": "vi",
+      "term": "kiềm chế",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to restrain; to control"
+      ]
+    },
+    {
       "key": "vi:kiểm soát:verb:1",
       "language": "vi",
       "term": "kiểm soát",
@@ -129178,6 +132461,36 @@
       "ordinal": 1,
       "glosses": [
         "knowledge, science"
+      ]
+    },
+    {
+      "key": "vi:kiến trúc sư:noun:1",
+      "language": "vi",
+      "term": "kiến trúc sư",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "an architect"
+      ]
+    },
+    {
+      "key": "vi:kiến trúc:noun:1",
+      "language": "vi",
+      "term": "kiến trúc",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "architecture"
+      ]
+    },
+    {
+      "key": "vi:kiến trúc:noun:2",
+      "language": "vi",
+      "term": "kiến trúc",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "structure"
       ]
     },
     {
@@ -129311,6 +132624,16 @@
       ]
     },
     {
+      "key": "vi:kính râm:noun:1",
+      "language": "vi",
+      "term": "kính râm",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "sunglasses"
+      ]
+    },
+    {
       "key": "vi:kinh tế:adj:1",
       "language": "vi",
       "term": "kinh tế",
@@ -129328,6 +132651,16 @@
       "ordinal": 1,
       "glosses": [
         "economy"
+      ]
+    },
+    {
+      "key": "vi:kinh thánh:noun:1",
+      "language": "vi",
+      "term": "kinh thánh",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "the holy bible"
       ]
     },
     {
@@ -129408,6 +132741,26 @@
       "ordinal": 1,
       "glosses": [
         "a male given name from chinese"
+      ]
+    },
+    {
+      "key": "vi:la mã:name:1",
+      "language": "vi",
+      "term": "la mã",
+      "partOfSpeech": "name",
+      "ordinal": 1,
+      "glosses": [
+        "rome, ancient rome (an ancient empire based out of the city of rome, covering vast territories in europe, asia and africa; in full, roman empire"
+      ]
+    },
+    {
+      "key": "vi:lạ thường:adj:1",
+      "language": "vi",
+      "term": "lạ thường",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "strange; unusual; odd; extraordinary"
       ]
     },
     {
@@ -129681,6 +133034,16 @@
       ]
     },
     {
+      "key": "vi:lai:adj:1",
+      "language": "vi",
+      "term": "lai",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "of mixed blood; crossbred"
+      ]
+    },
+    {
       "key": "vi:lại:adv:1",
       "language": "vi",
       "term": "lại",
@@ -129721,6 +133084,16 @@
       ]
     },
     {
+      "key": "vi:lai:noun:1",
+      "language": "vi",
+      "term": "lai",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "hemline; turn-up"
+      ]
+    },
+    {
       "key": "vi:lái:noun:1",
       "language": "vi",
       "term": "lái",
@@ -129732,6 +133105,16 @@
       ]
     },
     {
+      "key": "vi:lai:noun:2",
+      "language": "vi",
+      "term": "lai",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "hundredth part of a tael (equal to 0.378 g"
+      ]
+    },
+    {
       "key": "vi:lái:noun:2",
       "language": "vi",
       "term": "lái",
@@ -129740,6 +133123,16 @@
       "glosses": [
         "steering wheel; steering control",
         "aft; the stern portion of a boat"
+      ]
+    },
+    {
+      "key": "vi:lai:noun:3",
+      "language": "vi",
+      "term": "lai",
+      "partOfSpeech": "noun",
+      "ordinal": 3,
+      "glosses": [
+        "candlenut; candleberry (aleurites moluccanus"
       ]
     },
     {
@@ -129763,6 +133156,16 @@
       ]
     },
     {
+      "key": "vi:lai:verb:1",
+      "language": "vi",
+      "term": "lai",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to carry (someone) on one's bicycle or motorbike pillion; to give someone a lift on the bicycle or motorbike"
+      ]
+    },
+    {
       "key": "vi:lái:verb:1",
       "language": "vi",
       "term": "lái",
@@ -129780,6 +133183,16 @@
       "ordinal": 1,
       "glosses": [
         "to come"
+      ]
+    },
+    {
+      "key": "vi:lai:verb:2",
+      "language": "vi",
+      "term": "lai",
+      "partOfSpeech": "verb",
+      "ordinal": 2,
+      "glosses": [
+        "to tow"
       ]
     },
     {
@@ -129850,6 +133263,26 @@
       "ordinal": 2,
       "glosses": [
         "to seize control of; to take command of"
+      ]
+    },
+    {
+      "key": "vi:lạm dụng:verb:1",
+      "language": "vi",
+      "term": "lạm dụng",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to overuse or to abuse (to use improperly"
+      ]
+    },
+    {
+      "key": "vi:lạm dụng:verb:2",
+      "language": "vi",
+      "term": "lạm dụng",
+      "partOfSpeech": "verb",
+      "ordinal": 2,
+      "glosses": [
+        "to abuse (to hurt"
       ]
     },
     {
@@ -130363,6 +133796,36 @@
       ]
     },
     {
+      "key": "vi:lao:noun:1",
+      "language": "vi",
+      "term": "lao",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "pathology) tuberculosis"
+      ]
+    },
+    {
+      "key": "vi:lao:noun:2",
+      "language": "vi",
+      "term": "lao",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "harpoon; javelin; dart"
+      ]
+    },
+    {
+      "key": "vi:lao:noun:3",
+      "language": "vi",
+      "term": "lao",
+      "partOfSpeech": "noun",
+      "ordinal": 3,
+      "glosses": [
+        "jail; prison"
+      ]
+    },
+    {
       "key": "vi:lão:pron:1",
       "language": "vi",
       "term": "lão",
@@ -130380,6 +133843,56 @@
       "ordinal": 2,
       "glosses": [
         "he/him (an old man"
+      ]
+    },
+    {
+      "key": "vi:lao:verb:1",
+      "language": "vi",
+      "term": "lao",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to plunge; to dart (a long object"
+      ]
+    },
+    {
+      "key": "vi:lao:verb:2",
+      "language": "vi",
+      "term": "lao",
+      "partOfSpeech": "verb",
+      "ordinal": 2,
+      "glosses": [
+        "to lower the bridge girder onto the pier and abutment"
+      ]
+    },
+    {
+      "key": "vi:lao:verb:3",
+      "language": "vi",
+      "term": "lao",
+      "partOfSpeech": "verb",
+      "ordinal": 3,
+      "glosses": [
+        "to dash; to charge, to rush"
+      ]
+    },
+    {
+      "key": "vi:lặp lại:verb:1",
+      "language": "vi",
+      "term": "lặp lại",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "repeat; redo; reiterate"
+      ]
+    },
+    {
+      "key": "vi:lặp lại:verb:2",
+      "language": "vi",
+      "term": "lặp lại",
+      "partOfSpeech": "verb",
+      "ordinal": 2,
+      "glosses": [
+        "restore; remake"
       ]
     },
     {
@@ -130953,6 +134466,26 @@
       ]
     },
     {
+      "key": "vi:liếc:verb:1",
+      "language": "vi",
+      "term": "liếc",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to avert one's eyes towards any direction other than forward"
+      ]
+    },
+    {
+      "key": "vi:liếc:verb:2",
+      "language": "vi",
+      "term": "liếc",
+      "partOfSpeech": "verb",
+      "ordinal": 2,
+      "glosses": [
+        "to whet a blade"
+      ]
+    },
+    {
       "key": "vi:liên hệ:noun:1",
       "language": "vi",
       "term": "liên hệ",
@@ -130970,6 +134503,66 @@
       "ordinal": 1,
       "glosses": [
         "to contact, especially by phone"
+      ]
+    },
+    {
+      "key": "vi:liên kết:noun:1",
+      "language": "vi",
+      "term": "liên kết",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "link (connection between buses or systems"
+      ]
+    },
+    {
+      "key": "vi:liên kết:noun:2",
+      "language": "vi",
+      "term": "liên kết",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "hyperlink"
+      ]
+    },
+    {
+      "key": "vi:liên kết:noun:3",
+      "language": "vi",
+      "term": "liên kết",
+      "partOfSpeech": "noun",
+      "ordinal": 3,
+      "glosses": [
+        "chemical bond"
+      ]
+    },
+    {
+      "key": "vi:liên kết:verb:1",
+      "language": "vi",
+      "term": "liên kết",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to associate (with"
+      ]
+    },
+    {
+      "key": "vi:liên kết:verb:2",
+      "language": "vi",
+      "term": "liên kết",
+      "partOfSpeech": "verb",
+      "ordinal": 2,
+      "glosses": [
+        "to ally (with); to join, to unite"
+      ]
+    },
+    {
+      "key": "vi:liên kết:verb:3",
+      "language": "vi",
+      "term": "liên kết",
+      "partOfSpeech": "verb",
+      "ordinal": 3,
+      "glosses": [
+        "to link (to); to connect"
       ]
     },
     {
@@ -131103,6 +134696,16 @@
       ]
     },
     {
+      "key": "vi:lít:noun:1",
+      "language": "vi",
+      "term": "lít",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "liter/litre"
+      ]
+    },
+    {
       "key": "vi:lo lắng:verb:1",
       "language": "vi",
       "term": "lo lắng",
@@ -131163,6 +134766,26 @@
       ]
     },
     {
+      "key": "vi:lò:noun:1",
+      "language": "vi",
+      "term": "lò",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "kiln, furnace, oven, heater"
+      ]
+    },
+    {
+      "key": "vi:lô:noun:1",
+      "language": "vi",
+      "term": "lô",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "batch"
+      ]
+    },
+    {
       "key": "vi:lỗ:noun:1",
       "language": "vi",
       "term": "lỗ",
@@ -131170,6 +134793,16 @@
       "ordinal": 1,
       "glosses": [
         "hole made through a layer of material, by piercing, punching, poking, tearing, etc.; compare hố (“pit”, dug hole"
+      ]
+    },
+    {
+      "key": "vi:lô:noun:2",
+      "language": "vi",
+      "term": "lô",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "a gambling game where players win if any lottery draw ends in the two digits they bet on"
       ]
     },
     {
@@ -131190,6 +134823,16 @@
       "ordinal": 1,
       "glosses": [
         "to bother; to worry"
+      ]
+    },
+    {
+      "key": "vi:lò:verb:1",
+      "language": "vi",
+      "term": "lò",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to stick out"
       ]
     },
     {
@@ -131263,6 +134906,16 @@
       ]
     },
     {
+      "key": "vi:lời chào:noun:1",
+      "language": "vi",
+      "term": "lời chào",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "greeting; regards"
+      ]
+    },
+    {
       "key": "vi:lợi dụng:verb:1",
       "language": "vi",
       "term": "lợi dụng",
@@ -131293,6 +134946,16 @@
       ]
     },
     {
+      "key": "vi:lợi ích:noun:1",
+      "language": "vi",
+      "term": "lợi ích",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "benefit; interest"
+      ]
+    },
+    {
       "key": "vi:lời khuyên:noun:1",
       "language": "vi",
       "term": "lời khuyên",
@@ -131320,6 +134983,16 @@
       "ordinal": 1,
       "glosses": [
         "word; speech"
+      ]
+    },
+    {
+      "key": "vi:lỗi thời:adj:1",
+      "language": "vi",
+      "term": "lỗi thời",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "out-of-date; outdated; obsolete; obsolescent"
       ]
     },
     {
@@ -132128,6 +135801,36 @@
       ]
     },
     {
+      "key": "vi:lược:noun:1",
+      "language": "vi",
+      "term": "lược",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "comb (toothed implement for grooming the hair"
+      ]
+    },
+    {
+      "key": "vi:lược:verb:1",
+      "language": "vi",
+      "term": "lược",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to prune; to abridge"
+      ]
+    },
+    {
+      "key": "vi:lược:verb:2",
+      "language": "vi",
+      "term": "lược",
+      "partOfSpeech": "verb",
+      "ordinal": 2,
+      "glosses": [
+        "to omit"
+      ]
+    },
+    {
       "key": "vi:lười biếng:adj:1",
       "language": "vi",
       "term": "lười biếng",
@@ -132145,6 +135848,16 @@
       "ordinal": 1,
       "glosses": [
         "lazy; slothful"
+      ]
+    },
+    {
+      "key": "vi:lưới:noun:1",
+      "language": "vi",
+      "term": "lưới",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "net"
       ]
     },
     {
@@ -132215,6 +135928,16 @@
       "ordinal": 3,
       "glosses": [
         "at once; straight away"
+      ]
+    },
+    {
+      "key": "vi:lương tâm:noun:1",
+      "language": "vi",
+      "term": "lương tâm",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "conscience (moral sense"
       ]
     },
     {
@@ -132418,6 +136141,16 @@
       ]
     },
     {
+      "key": "vi:mã nguồn:noun:1",
+      "language": "vi",
+      "term": "mã nguồn",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "source code"
+      ]
+    },
+    {
       "key": "vi:mà thôi:adv:1",
       "language": "vi",
       "term": "mà thôi",
@@ -132575,6 +136308,26 @@
       "ordinal": 1,
       "glosses": [
         "although; though"
+      ]
+    },
+    {
+      "key": "vi:mặc kệ:verb:1",
+      "language": "vi",
+      "term": "mặc kệ",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to leave alone; to let alone"
+      ]
+    },
+    {
+      "key": "vi:mặc kệ:verb:2",
+      "language": "vi",
+      "term": "mặc kệ",
+      "partOfSpeech": "verb",
+      "ordinal": 2,
+      "glosses": [
+        "to not pay attention to; to ignore"
       ]
     },
     {
@@ -133088,6 +136841,16 @@
       ]
     },
     {
+      "key": "vi:mập:adj:1",
+      "language": "vi",
+      "term": "mập",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "fat, obese, stout, plump"
+      ]
+    },
+    {
       "key": "vi:mặt đất:noun:1",
       "language": "vi",
       "term": "mặt đất",
@@ -133098,6 +136861,16 @@
       ]
     },
     {
+      "key": "vi:mặt hàng:noun:1",
+      "language": "vi",
+      "term": "mặt hàng",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "commodities of commerce; product; item"
+      ]
+    },
+    {
       "key": "vi:mật khẩu:noun:1",
       "language": "vi",
       "term": "mật khẩu",
@@ -133105,6 +136878,16 @@
       "ordinal": 1,
       "glosses": [
         "password"
+      ]
+    },
+    {
+      "key": "vi:mất ngủ:verb:1",
+      "language": "vi",
+      "term": "mất ngủ",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to be unable to sleep; to have insomnia"
       ]
     },
     {
@@ -133145,6 +136928,16 @@
       "ordinal": 1,
       "glosses": [
         "sun"
+      ]
+    },
+    {
+      "key": "vi:mắt xanh:noun:1",
+      "language": "vi",
+      "term": "mắt xanh",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "appreciation; attraction or interest"
       ]
     },
     {
@@ -133295,6 +137088,16 @@
       "ordinal": 1,
       "glosses": [
         "colours"
+      ]
+    },
+    {
+      "key": "vi:mâu thuẫn:noun:1",
+      "language": "vi",
+      "term": "mâu thuẫn",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "contradiction; conflict"
       ]
     },
     {
@@ -133748,6 +137551,16 @@
       ]
     },
     {
+      "key": "vi:meo:intj:1",
+      "language": "vi",
+      "term": "meo",
+      "partOfSpeech": "intj",
+      "ordinal": 1,
+      "glosses": [
+        "meow; miaow"
+      ]
+    },
+    {
       "key": "vi:mèo:name:1",
       "language": "vi",
       "term": "mèo",
@@ -133765,6 +137578,16 @@
       "ordinal": 2,
       "glosses": [
         "felidae"
+      ]
+    },
+    {
+      "key": "vi:meo:noun:1",
+      "language": "vi",
+      "term": "meo",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "mold; mildew"
       ]
     },
     {
@@ -133978,6 +137801,16 @@
       ]
     },
     {
+      "key": "vi:miêu tả:verb:1",
+      "language": "vi",
+      "term": "miêu tả",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to describe; to outline"
+      ]
+    },
+    {
       "key": "vi:mỉm cười:verb:1",
       "language": "vi",
       "term": "mỉm cười",
@@ -134058,6 +137891,16 @@
       ]
     },
     {
+      "key": "vi:mô hình:noun:1",
+      "language": "vi",
+      "term": "mô hình",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "model"
+      ]
+    },
+    {
       "key": "vi:mồ hôi:noun:1",
       "language": "vi",
       "term": "mồ hôi",
@@ -134068,6 +137911,16 @@
       ]
     },
     {
+      "key": "vi:mở rộng:verb:1",
+      "language": "vi",
+      "term": "mở rộng",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to extend; to expand; to enlarge"
+      ]
+    },
+    {
       "key": "vi:mô tả:verb:1",
       "language": "vi",
       "term": "mô tả",
@@ -134075,6 +137928,36 @@
       "ordinal": 1,
       "glosses": [
         "to describe"
+      ]
+    },
+    {
+      "key": "vi:mơ ước:noun:1",
+      "language": "vi",
+      "term": "mơ ước",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "dream; yearning"
+      ]
+    },
+    {
+      "key": "vi:mơ ước:verb:1",
+      "language": "vi",
+      "term": "mơ ước",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to dream (of); to crave (for); to long (for"
+      ]
+    },
+    {
+      "key": "vi:mờ:adj:1",
+      "language": "vi",
+      "term": "mờ",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "dim, vague, unclear, blurred"
       ]
     },
     {
@@ -134188,6 +138071,26 @@
       ]
     },
     {
+      "key": "vi:móc túi:verb:1",
+      "language": "vi",
+      "term": "móc túi",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to pickpocket"
+      ]
+    },
+    {
+      "key": "vi:móc:noun:1",
+      "language": "vi",
+      "term": "móc",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "hook, crotchet, clasp"
+      ]
+    },
+    {
       "key": "vi:mọc:noun:1",
       "language": "vi",
       "term": "mọc",
@@ -134195,6 +138098,36 @@
       "ordinal": 1,
       "glosses": [
         "pork ball"
+      ]
+    },
+    {
+      "key": "vi:móc:noun:2",
+      "language": "vi",
+      "term": "móc",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "clustering fishtail palm"
+      ]
+    },
+    {
+      "key": "vi:móc:noun:3",
+      "language": "vi",
+      "term": "móc",
+      "partOfSpeech": "noun",
+      "ordinal": 3,
+      "glosses": [
+        "stroke that is a hook"
+      ]
+    },
+    {
+      "key": "vi:móc:verb:1",
+      "language": "vi",
+      "term": "móc",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to hook"
       ]
     },
     {
@@ -134208,6 +138141,16 @@
       ]
     },
     {
+      "key": "vi:móc:verb:2",
+      "language": "vi",
+      "term": "móc",
+      "partOfSpeech": "verb",
+      "ordinal": 2,
+      "glosses": [
+        "to draw out (with the fingers"
+      ]
+    },
+    {
       "key": "vi:mọc:verb:2",
       "language": "vi",
       "term": "mọc",
@@ -134215,6 +138158,16 @@
       "ordinal": 2,
       "glosses": [
         "to start to grow, extend or expand"
+      ]
+    },
+    {
+      "key": "vi:móc:verb:3",
+      "language": "vi",
+      "term": "móc",
+      "partOfSpeech": "verb",
+      "ordinal": 3,
+      "glosses": [
+        "to pick (pocket"
       ]
     },
     {
@@ -134455,6 +138408,16 @@
       "ordinal": 1,
       "glosses": [
         "dish; (prepared) food"
+      ]
+    },
+    {
+      "key": "vi:môn học:noun:1",
+      "language": "vi",
+      "term": "môn học",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "subject; focus; field of study"
       ]
     },
     {
@@ -134788,6 +138751,16 @@
       ]
     },
     {
+      "key": "vi:mù quáng:adj:1",
+      "language": "vi",
+      "term": "mù quáng",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "blind (failing to perceive; unable to distinguish between right and wrong"
+      ]
+    },
+    {
       "key": "vi:mù:adj:1",
       "language": "vi",
       "term": "mù",
@@ -134855,6 +138828,16 @@
       "ordinal": 1,
       "glosses": [
         "summer"
+      ]
+    },
+    {
+      "key": "vi:mưa rào:noun:1",
+      "language": "vi",
+      "term": "mưa rào",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "heavy shower; downpour; cloudburst"
       ]
     },
     {
@@ -135171,6 +139154,16 @@
       ]
     },
     {
+      "key": "vi:mười lăm:num:1",
+      "language": "vi",
+      "term": "mười lăm",
+      "partOfSpeech": "num",
+      "ordinal": 1,
+      "glosses": [
+        "fifteen"
+      ]
+    },
+    {
       "key": "vi:mười một:num:1",
       "language": "vi",
       "term": "mười một",
@@ -135361,6 +139354,16 @@
       ]
     },
     {
+      "key": "vi:nam giới:noun:1",
+      "language": "vi",
+      "term": "nam giới",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "human males; boys and men"
+      ]
+    },
+    {
       "key": "vi:năm ngoái:noun:1",
       "language": "vi",
       "term": "năm ngoái",
@@ -135368,6 +139371,16 @@
       "ordinal": 1,
       "glosses": [
         "last year"
+      ]
+    },
+    {
+      "key": "vi:năm nhuận:noun:1",
+      "language": "vi",
+      "term": "năm nhuận",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "a leap year"
       ]
     },
     {
@@ -135711,6 +139724,16 @@
       ]
     },
     {
+      "key": "vi:nấu nướng:verb:1",
+      "language": "vi",
+      "term": "nấu nướng",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to cook; to do the cooking (generally speaking"
+      ]
+    },
+    {
       "key": "vi:nâu:adj:1",
       "language": "vi",
       "term": "nâu",
@@ -135961,6 +139984,36 @@
       ]
     },
     {
+      "key": "vi:nếp:noun:1",
+      "language": "vi",
+      "term": "nếp",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "glutinous rice"
+      ]
+    },
+    {
+      "key": "vi:nếp:noun:2",
+      "language": "vi",
+      "term": "nếp",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "fold; crease; plait"
+      ]
+    },
+    {
+      "key": "vi:nếp:noun:3",
+      "language": "vi",
+      "term": "nếp",
+      "partOfSpeech": "noun",
+      "ordinal": 3,
+      "glosses": [
+        "habit"
+      ]
+    },
+    {
       "key": "vi:nếu:conj:1",
       "language": "vi",
       "term": "nếu",
@@ -135988,6 +140041,16 @@
       "ordinal": 2,
       "glosses": [
         "new york (a state of the united states"
+      ]
+    },
+    {
+      "key": "vi:ngã tư:noun:1",
+      "language": "vi",
+      "term": "ngã tư",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "four-way intersection; crossroads"
       ]
     },
     {
@@ -136118,6 +140181,16 @@
       "ordinal": 1,
       "glosses": [
         "to be surprised; to be astonished"
+      ]
+    },
+    {
+      "key": "vi:ngại ngùng:verb:1",
+      "language": "vi",
+      "term": "ngại ngùng",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to be shy; to be afraid; to be hesitant (generally speaking"
       ]
     },
     {
@@ -136491,6 +140564,16 @@
       ]
     },
     {
+      "key": "vi:ngày kia:noun:1",
+      "language": "vi",
+      "term": "ngày kia",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "day after tomorrow"
+      ]
+    },
+    {
       "key": "vi:ngay lập tức:adv:1",
       "language": "vi",
       "term": "ngay lập tức",
@@ -136548,6 +140631,16 @@
       "ordinal": 1,
       "glosses": [
         "naive; innocent; unsophisticated; inexperienced"
+      ]
+    },
+    {
+      "key": "vi:ngày xửa ngày xưa:phrase:1",
+      "language": "vi",
+      "term": "ngày xửa ngày xưa",
+      "partOfSpeech": "phrase",
+      "ordinal": 1,
+      "glosses": [
+        "once upon a time"
       ]
     },
     {
@@ -136661,6 +140754,16 @@
       ]
     },
     {
+      "key": "vi:nghệ:adj:1",
+      "language": "vi",
+      "term": "nghệ",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "skillful or smooth, rizzful"
+      ]
+    },
+    {
       "key": "vi:nghề:noun:1",
       "language": "vi",
       "term": "nghề",
@@ -136668,6 +140771,26 @@
       "ordinal": 1,
       "glosses": [
         "profession, occupation"
+      ]
+    },
+    {
+      "key": "vi:nghệ:noun:1",
+      "language": "vi",
+      "term": "nghệ",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "occupation, employment, trade, profession"
+      ]
+    },
+    {
+      "key": "vi:nghệ:noun:2",
+      "language": "vi",
+      "term": "nghệ",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "turmeric"
       ]
     },
     {
@@ -136808,6 +140931,16 @@
       "ordinal": 2,
       "glosses": [
         "how the hell; how in the world; what were you thinking?"
+      ]
+    },
+    {
+      "key": "vi:nghĩ tới:verb:1",
+      "language": "vi",
+      "term": "nghĩ tới",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to think about; to think of; to consider"
       ]
     },
     {
@@ -137391,6 +141524,26 @@
       ]
     },
     {
+      "key": "vi:ngũ cốc:noun:1",
+      "language": "vi",
+      "term": "ngũ cốc",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "the five grains"
+      ]
+    },
+    {
+      "key": "vi:ngũ cốc:noun:2",
+      "language": "vi",
+      "term": "ngũ cốc",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "cereal"
+      ]
+    },
+    {
       "key": "vi:ngu ngốc:adj:1",
       "language": "vi",
       "term": "ngu ngốc",
@@ -137491,6 +141644,16 @@
       ]
     },
     {
+      "key": "vi:ngửa:adv:1",
+      "language": "vi",
+      "term": "ngửa",
+      "partOfSpeech": "adv",
+      "ordinal": 1,
+      "glosses": [
+        "face-up"
+      ]
+    },
+    {
       "key": "vi:ngựa:name:1",
       "language": "vi",
       "term": "ngựa",
@@ -137518,6 +141681,36 @@
       "ordinal": 3,
       "glosses": [
         "trestle"
+      ]
+    },
+    {
+      "key": "vi:ngửa:verb:1",
+      "language": "vi",
+      "term": "ngửa",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to turn upwards"
+      ]
+    },
+    {
+      "key": "vi:ngực:noun:1",
+      "language": "vi",
+      "term": "ngực",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "chest"
+      ]
+    },
+    {
+      "key": "vi:ngực:noun:2",
+      "language": "vi",
+      "term": "ngực",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "breasts"
       ]
     },
     {
@@ -137821,6 +142014,26 @@
       ]
     },
     {
+      "key": "vi:ngượng:adj:1",
+      "language": "vi",
+      "term": "ngượng",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "embarrassed"
+      ]
+    },
+    {
+      "key": "vi:ngượng:adj:2",
+      "language": "vi",
+      "term": "ngượng",
+      "partOfSpeech": "adj",
+      "ordinal": 2,
+      "glosses": [
+        "clumsy; awkward; lumbering"
+      ]
+    },
+    {
       "key": "vi:nguy cơ:noun:1",
       "language": "vi",
       "term": "nguy cơ",
@@ -137868,6 +142081,26 @@
       "ordinal": 1,
       "glosses": [
         "cause, reason"
+      ]
+    },
+    {
+      "key": "vi:nguyên tố:noun:1",
+      "language": "vi",
+      "term": "nguyên tố",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "a chemical element"
+      ]
+    },
+    {
+      "key": "vi:nguyên tố:noun:2",
+      "language": "vi",
+      "term": "nguyên tố",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "element; aspect; factor"
       ]
     },
     {
@@ -137951,6 +142184,16 @@
       ]
     },
     {
+      "key": "vi:nhà bếp:noun:1",
+      "language": "vi",
+      "term": "nhà bếp",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "kitchen"
+      ]
+    },
+    {
       "key": "vi:nhà ga:noun:1",
       "language": "vi",
       "term": "nhà ga",
@@ -137991,6 +142234,16 @@
       ]
     },
     {
+      "key": "vi:nhà ở:noun:1",
+      "language": "vi",
+      "term": "nhà ở",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "a house; a home"
+      ]
+    },
+    {
       "key": "vi:nhà thơ:noun:1",
       "language": "vi",
       "term": "nhà thơ",
@@ -138011,6 +142264,26 @@
       ]
     },
     {
+      "key": "vi:nhà trường:noun:1",
+      "language": "vi",
+      "term": "nhà trường",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "school (generally speaking"
+      ]
+    },
+    {
+      "key": "vi:nhà trường:noun:2",
+      "language": "vi",
+      "term": "nhà trường",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "school authority; school administration"
+      ]
+    },
+    {
       "key": "vi:nhà văn:noun:1",
       "language": "vi",
       "term": "nhà văn",
@@ -138018,6 +142291,16 @@
       "ordinal": 1,
       "glosses": [
         "writer"
+      ]
+    },
+    {
+      "key": "vi:nhà vệ sinh:noun:1",
+      "language": "vi",
+      "term": "nhà vệ sinh",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "bathroom; lavatory"
       ]
     },
     {
@@ -138191,6 +142474,16 @@
       ]
     },
     {
+      "key": "vi:nhân dân:noun:1",
+      "language": "vi",
+      "term": "nhân dân",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "people, population"
+      ]
+    },
+    {
       "key": "vi:nhân dịp:conj:1",
       "language": "vi",
       "term": "nhân dịp",
@@ -138208,6 +142501,16 @@
       "ordinal": 1,
       "glosses": [
         "mankind; humanity; human beings"
+      ]
+    },
+    {
+      "key": "vi:nhấn mạnh:verb:1",
+      "language": "vi",
+      "term": "nhấn mạnh",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to stress; to emphasise"
       ]
     },
     {
@@ -138521,6 +142824,16 @@
       ]
     },
     {
+      "key": "vi:nhập khẩu:verb:1",
+      "language": "vi",
+      "term": "nhập khẩu",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to import"
+      ]
+    },
+    {
       "key": "vi:nhập viện:verb:1",
       "language": "vi",
       "term": "nhập viện",
@@ -138671,6 +142984,16 @@
       ]
     },
     {
+      "key": "vi:nhát:adj:1",
+      "language": "vi",
+      "term": "nhát",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "shy; timid"
+      ]
+    },
+    {
       "key": "vi:nhật:adj:1",
       "language": "vi",
       "term": "nhật",
@@ -138678,6 +143001,16 @@
       "ordinal": 1,
       "glosses": [
         "japanese"
+      ]
+    },
+    {
+      "key": "vi:nhát:adj:2",
+      "language": "vi",
+      "term": "nhát",
+      "partOfSpeech": "adj",
+      "ordinal": 2,
+      "glosses": [
+        "easily scared; timorous; cowardly; chicken"
       ]
     },
     {
@@ -138741,6 +143074,16 @@
       ]
     },
     {
+      "key": "vi:nhát:noun:1",
+      "language": "vi",
+      "term": "nhát",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "slash, slit or stab (with a sharp weapon"
+      ]
+    },
+    {
       "key": "vi:nhất:num:1",
       "language": "vi",
       "term": "nhất",
@@ -138748,6 +143091,16 @@
       "ordinal": 1,
       "glosses": [
         "first"
+      ]
+    },
+    {
+      "key": "vi:nhát:verb:1",
+      "language": "vi",
+      "term": "nhát",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to scare someone"
       ]
     },
     {
@@ -138788,6 +143141,16 @@
       "ordinal": 1,
       "glosses": [
         "to jump a turning rope(s); to skip, to jump rope, to do double dutch, etc"
+      ]
+    },
+    {
+      "key": "vi:nhảy múa:verb:1",
+      "language": "vi",
+      "term": "nhảy múa",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to dance (generally speaking"
       ]
     },
     {
@@ -138921,6 +143284,26 @@
       ]
     },
     {
+      "key": "vi:nhiệt tình:adj:1",
+      "language": "vi",
+      "term": "nhiệt tình",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "enthusiastic; eager; zealous"
+      ]
+    },
+    {
+      "key": "vi:nhiệt tình:adv:1",
+      "language": "vi",
+      "term": "nhiệt tình",
+      "partOfSpeech": "adv",
+      "ordinal": 1,
+      "glosses": [
+        "enthusiastically; eagerly; zealously"
+      ]
+    },
+    {
       "key": "vi:nhiệt:adj:1",
       "language": "vi",
       "term": "nhiệt",
@@ -139018,6 +143401,36 @@
       "ordinal": 2,
       "glosses": [
         "to refrain oneself from fighting back"
+      ]
+    },
+    {
+      "key": "vi:nhịp điệu:noun:1",
+      "language": "vi",
+      "term": "nhịp điệu",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "rhythm"
+      ]
+    },
+    {
+      "key": "vi:nhỏ nhặt:adj:1",
+      "language": "vi",
+      "term": "nhỏ nhặt",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "little; trifling; trivial; unimportant"
+      ]
+    },
+    {
+      "key": "vi:nhớ ra:verb:1",
+      "language": "vi",
+      "term": "nhớ ra",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to remember (suddenly); to recall (all of a sudden"
       ]
     },
     {
@@ -139241,6 +143654,16 @@
       ]
     },
     {
+      "key": "vi:nhóm máu:noun:1",
+      "language": "vi",
+      "term": "nhóm máu",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "blood type; blood group"
+      ]
+    },
+    {
       "key": "vi:nhóm:noun:1",
       "language": "vi",
       "term": "nhóm",
@@ -139338,6 +143761,16 @@
       "ordinal": 1,
       "glosses": [
         "like; as; comparable to; as though; as if"
+      ]
+    },
+    {
+      "key": "vi:nhức:verb:1",
+      "language": "vi",
+      "term": "nhức",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to ache"
       ]
     },
     {
@@ -139501,6 +143934,26 @@
       ]
     },
     {
+      "key": "vi:no:adj:1",
+      "language": "vi",
+      "term": "no",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "full (of the stomach"
+      ]
+    },
+    {
+      "key": "vi:no:adj:2",
+      "language": "vi",
+      "term": "no",
+      "partOfSpeech": "adj",
+      "ordinal": 2,
+      "glosses": [
+        "saturated"
+      ]
+    },
+    {
       "key": "vi:nọ:det:1",
       "language": "vi",
       "term": "nọ",
@@ -139621,6 +144074,16 @@
       ]
     },
     {
+      "key": "vi:nổi bật:adj:1",
+      "language": "vi",
+      "term": "nổi bật",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "distinguished; notable; salient; prominent"
+      ]
+    },
+    {
       "key": "vi:nói chung:adv:1",
       "language": "vi",
       "term": "nói chung",
@@ -139668,6 +144131,16 @@
       "ordinal": 1,
       "glosses": [
         "content"
+      ]
+    },
+    {
+      "key": "vi:nổi giận:verb:1",
+      "language": "vi",
+      "term": "nổi giận",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to grow angry; to fly into a rage; to get furious"
       ]
     },
     {
@@ -139891,6 +144364,16 @@
       ]
     },
     {
+      "key": "vi:nụ:classifier:1",
+      "language": "vi",
+      "term": "nụ",
+      "partOfSpeech": "classifier",
+      "ordinal": 1,
+      "glosses": [
+        "used for smiles and kisses"
+      ]
+    },
+    {
       "key": "vi:nữ:noun:1",
       "language": "vi",
       "term": "nữ",
@@ -139898,6 +144381,26 @@
       "ordinal": 1,
       "glosses": [
         "females"
+      ]
+    },
+    {
+      "key": "vi:nụ:noun:1",
+      "language": "vi",
+      "term": "nụ",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "flower bud"
+      ]
+    },
+    {
+      "key": "vi:nụ:noun:2",
+      "language": "vi",
+      "term": "nụ",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "any of species garcinia gummi-gutta (syn. garcinia cambogia"
       ]
     },
     {
@@ -140178,6 +144681,26 @@
       "ordinal": 1,
       "glosses": [
         "to remain, to stay"
+      ]
+    },
+    {
+      "key": "vi:ô nhiễm:adj:1",
+      "language": "vi",
+      "term": "ô nhiễm",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "polluted"
+      ]
+    },
+    {
+      "key": "vi:ô nhiễm:noun:1",
+      "language": "vi",
+      "term": "ô nhiễm",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "pollution"
       ]
     },
     {
@@ -140614,6 +145137,26 @@
       ]
     },
     {
+      "key": "vi:ồn ào:adj:1",
+      "language": "vi",
+      "term": "ồn ào",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "noisy, rowdy"
+      ]
+    },
+    {
+      "key": "vi:ồn:adj:1",
+      "language": "vi",
+      "term": "ồn",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "loud, noisy"
+      ]
+    },
+    {
       "key": "vi:ổn:adj:1",
       "language": "vi",
       "term": "ổn",
@@ -140661,6 +145204,36 @@
       "ordinal": 1,
       "glosses": [
         "he (older or respected man"
+      ]
+    },
+    {
+      "key": "vi:ông bà:noun:1",
+      "language": "vi",
+      "term": "ông bà",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "grandparents"
+      ]
+    },
+    {
+      "key": "vi:ông bà:noun:2",
+      "language": "vi",
+      "term": "ông bà",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "ancestor"
+      ]
+    },
+    {
+      "key": "vi:ông bà:noun:3",
+      "language": "vi",
+      "term": "ông bà",
+      "partOfSpeech": "noun",
+      "ordinal": 3,
+      "glosses": [
+        "ladies and gentlemen"
       ]
     },
     {
@@ -140994,6 +145567,16 @@
       ]
     },
     {
+      "key": "vi:phẩm:noun:1",
+      "language": "vi",
+      "term": "phẩm",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "dye, colorant or coloring"
+      ]
+    },
+    {
       "key": "vi:phạm:verb:1",
       "language": "vi",
       "term": "phạm",
@@ -141041,6 +145624,36 @@
       "ordinal": 1,
       "glosses": [
         "to oppose; to object"
+      ]
+    },
+    {
+      "key": "vi:phấn khích:verb:1",
+      "language": "vi",
+      "term": "phấn khích",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to be excited; to be thrilled"
+      ]
+    },
+    {
+      "key": "vi:phần lan:adj:1",
+      "language": "vi",
+      "term": "phần lan",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "finnish"
+      ]
+    },
+    {
+      "key": "vi:phần lan:name:1",
+      "language": "vi",
+      "term": "phần lan",
+      "partOfSpeech": "name",
+      "ordinal": 1,
+      "glosses": [
+        "finland (a country in northern europe"
       ]
     },
     {
@@ -141214,6 +145827,36 @@
       ]
     },
     {
+      "key": "vi:phanh:noun:1",
+      "language": "vi",
+      "term": "phanh",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "brake (of a vehicle, etc"
+      ]
+    },
+    {
+      "key": "vi:phanh:verb:1",
+      "language": "vi",
+      "term": "phanh",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to slaughter, butcher"
+      ]
+    },
+    {
+      "key": "vi:phanh:verb:2",
+      "language": "vi",
+      "term": "phanh",
+      "partOfSpeech": "verb",
+      "ordinal": 2,
+      "glosses": [
+        "to dismember"
+      ]
+    },
+    {
       "key": "vi:pháo hoa:noun:1",
       "language": "vi",
       "term": "pháo hoa",
@@ -141221,6 +145864,16 @@
       "ordinal": 1,
       "glosses": [
         "fireworks"
+      ]
+    },
+    {
+      "key": "vi:pháp luật:noun:1",
+      "language": "vi",
+      "term": "pháp luật",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "law"
       ]
     },
     {
@@ -141284,6 +145937,16 @@
       ]
     },
     {
+      "key": "vi:phát hành:verb:1",
+      "language": "vi",
+      "term": "phát hành",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to release (to make available to the public), to publish"
+      ]
+    },
+    {
       "key": "vi:phát hiện:verb:1",
       "language": "vi",
       "term": "phát hiện",
@@ -141311,6 +145974,16 @@
       "ordinal": 1,
       "glosses": [
         "to invent"
+      ]
+    },
+    {
+      "key": "vi:phát sóng:verb:1",
+      "language": "vi",
+      "term": "phát sóng",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to broadcast"
       ]
     },
     {
@@ -141494,6 +146167,16 @@
       ]
     },
     {
+      "key": "vi:phi công:noun:1",
+      "language": "vi",
+      "term": "phi công",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "pilot"
+      ]
+    },
+    {
       "key": "vi:phí:name:1",
       "language": "vi",
       "term": "phí",
@@ -141531,6 +146214,16 @@
       "ordinal": 1,
       "glosses": [
         "side, way, direction"
+      ]
+    },
+    {
+      "key": "vi:phiên bản:noun:1",
+      "language": "vi",
+      "term": "phiên bản",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "version; edition; reproduction"
       ]
     },
     {
@@ -141581,6 +146274,26 @@
       "ordinal": 1,
       "glosses": [
         "to bother; to annoy; to cause unnecessary concern"
+      ]
+    },
+    {
+      "key": "vi:phiêu lưu:adj:1",
+      "language": "vi",
+      "term": "phiêu lưu",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "adventurous"
+      ]
+    },
+    {
+      "key": "vi:phiêu lưu:noun:1",
+      "language": "vi",
+      "term": "phiêu lưu",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "adventure"
       ]
     },
     {
@@ -141744,6 +146457,16 @@
       ]
     },
     {
+      "key": "vi:phóng:verb:1",
+      "language": "vi",
+      "term": "phóng",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to throw; to launch; to let out"
+      ]
+    },
+    {
       "key": "vi:phòng:verb:1",
       "language": "vi",
       "term": "phòng",
@@ -141751,6 +146474,26 @@
       "ordinal": 1,
       "glosses": [
         "to prevent, ward off"
+      ]
+    },
+    {
+      "key": "vi:phóng:verb:2",
+      "language": "vi",
+      "term": "phóng",
+      "partOfSpeech": "verb",
+      "ordinal": 2,
+      "glosses": [
+        "to write after a model; to draw after a model; to copy; to enlarge; to blow up"
+      ]
+    },
+    {
+      "key": "vi:phóng:verb:3",
+      "language": "vi",
+      "term": "phóng",
+      "partOfSpeech": "verb",
+      "ordinal": 3,
+      "glosses": [
+        "to interview; to visit"
       ]
     },
     {
@@ -141924,6 +146667,26 @@
       ]
     },
     {
+      "key": "vi:phúc lợi:noun:1",
+      "language": "vi",
+      "term": "phúc lợi",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "welfare"
+      ]
+    },
+    {
+      "key": "vi:phúc lợi:noun:2",
+      "language": "vi",
+      "term": "phúc lợi",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "benefits"
+      ]
+    },
+    {
       "key": "vi:phức tạp:adj:1",
       "language": "vi",
       "term": "phức tạp",
@@ -141991,6 +146754,36 @@
       "ordinal": 1,
       "glosses": [
         "method, way, system"
+      ]
+    },
+    {
+      "key": "vi:phương tiện:noun:1",
+      "language": "vi",
+      "term": "phương tiện",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "a thing that aids people to do something; an instrument, means, vehicle or medium"
+      ]
+    },
+    {
+      "key": "vi:phương:noun:1",
+      "language": "vi",
+      "term": "phương",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "direction (theoretical line"
+      ]
+    },
+    {
+      "key": "vi:phương:noun:2",
+      "language": "vi",
+      "term": "phương",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "direction (guidance, instruction"
       ]
     },
     {
@@ -142264,6 +147057,66 @@
       ]
     },
     {
+      "key": "vi:quái vật:noun:1",
+      "language": "vi",
+      "term": "quái vật",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "monster"
+      ]
+    },
+    {
+      "key": "vi:quái:adj:1",
+      "language": "vi",
+      "term": "quái",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "strange; odd; weird; bizarre, freakish"
+      ]
+    },
+    {
+      "key": "vi:quái:adj:2",
+      "language": "vi",
+      "term": "quái",
+      "partOfSpeech": "adj",
+      "ordinal": 2,
+      "glosses": [
+        "mischievous, sly"
+      ]
+    },
+    {
+      "key": "vi:quái:adv:1",
+      "language": "vi",
+      "term": "quái",
+      "partOfSpeech": "adv",
+      "ordinal": 1,
+      "glosses": [
+        "not) at all"
+      ]
+    },
+    {
+      "key": "vi:quái:intj:1",
+      "language": "vi",
+      "term": "quái",
+      "partOfSpeech": "intj",
+      "ordinal": 1,
+      "glosses": [
+        "used to express surprise"
+      ]
+    },
+    {
+      "key": "vi:quái:noun:1",
+      "language": "vi",
+      "term": "quái",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "freak; monster"
+      ]
+    },
+    {
       "key": "vi:quần áo:noun:1",
       "language": "vi",
       "term": "quần áo",
@@ -142384,6 +147237,16 @@
       ]
     },
     {
+      "key": "vi:quan:noun:1",
+      "language": "vi",
+      "term": "quan",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "mandarin"
+      ]
+    },
+    {
       "key": "vi:quán:noun:1",
       "language": "vi",
       "term": "quán",
@@ -142414,6 +147277,16 @@
       ]
     },
     {
+      "key": "vi:quan:noun:2",
+      "language": "vi",
+      "term": "quan",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "string of six hundred coins"
+      ]
+    },
+    {
       "key": "vi:quán:noun:2",
       "language": "vi",
       "term": "quán",
@@ -142422,6 +147295,16 @@
       "glosses": [
         "an eating establishment with place to sit",
         "an internet cafe"
+      ]
+    },
+    {
+      "key": "vi:quan:noun:3",
+      "language": "vi",
+      "term": "quan",
+      "partOfSpeech": "noun",
+      "ordinal": 3,
+      "glosses": [
+        "official"
       ]
     },
     {
@@ -142485,6 +147368,16 @@
       ]
     },
     {
+      "key": "vi:quãng:noun:1",
+      "language": "vi",
+      "term": "quãng",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "interval; section; space; distance"
+      ]
+    },
+    {
       "key": "vi:quanh:adj:1",
       "language": "vi",
       "term": "quanh",
@@ -142512,6 +147405,36 @@
       "ordinal": 1,
       "glosses": [
         "around; round"
+      ]
+    },
+    {
+      "key": "vi:quạt:noun:1",
+      "language": "vi",
+      "term": "quạt",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "a fan (hand-held or electrical device"
+      ]
+    },
+    {
+      "key": "vi:quạt:noun:2",
+      "language": "vi",
+      "term": "quạt",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "fan (admirer, aficionado"
+      ]
+    },
+    {
+      "key": "vi:quạt:verb:1",
+      "language": "vi",
+      "term": "quạt",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to fan (to blow air on by means of a fan"
       ]
     },
     {
@@ -142595,6 +147518,26 @@
       ]
     },
     {
+      "key": "vi:quê hương:noun:1",
+      "language": "vi",
+      "term": "quê hương",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "hometown; birthplace"
+      ]
+    },
+    {
+      "key": "vi:quê hương:noun:2",
+      "language": "vi",
+      "term": "quê hương",
+      "partOfSpeech": "noun",
+      "ordinal": 2,
+      "glosses": [
+        "homeland; motherland"
+      ]
+    },
+    {
       "key": "vi:quê:adj:1",
       "language": "vi",
       "term": "quê",
@@ -142602,6 +147545,26 @@
       "ordinal": 1,
       "glosses": [
         "very embarrassing; mortifying"
+      ]
+    },
+    {
+      "key": "vi:que:classifier:1",
+      "language": "vi",
+      "term": "que",
+      "partOfSpeech": "classifier",
+      "ordinal": 1,
+      "glosses": [
+        "indicates a thinly elongated stuff"
+      ]
+    },
+    {
+      "key": "vi:que:noun:1",
+      "language": "vi",
+      "term": "que",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "small stick"
       ]
     },
     {
@@ -142642,6 +147605,16 @@
       "ordinal": 1,
       "glosses": [
         "to be acquainted (with each other"
+      ]
+    },
+    {
+      "key": "vi:quen thuộc:adj:1",
+      "language": "vi",
+      "term": "quen thuộc",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "familiar; acquainted (for long"
       ]
     },
     {
@@ -142692,6 +147665,16 @@
       "ordinal": 1,
       "glosses": [
         "to sweep (with a broom); to sweep up"
+      ]
+    },
+    {
+      "key": "vi:quẹt:verb:1",
+      "language": "vi",
+      "term": "quẹt",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to rub (to move (one object) while maintaining contact with another object over some area, with pressure and friction"
       ]
     },
     {
@@ -142755,6 +147738,16 @@
       ]
     },
     {
+      "key": "vi:quốc hội:noun:1",
+      "language": "vi",
+      "term": "quốc hội",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "a national legislature"
+      ]
+    },
+    {
       "key": "vi:quốc tế ngữ:name:1",
       "language": "vi",
       "term": "quốc tế ngữ",
@@ -142812,6 +147805,16 @@
       "ordinal": 1,
       "glosses": [
         "honoured guest; guest of honour"
+      ]
+    },
+    {
+      "key": "vi:quý nhân:noun:1",
+      "language": "vi",
+      "term": "quý nhân",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "person of importance, distinguished person"
       ]
     },
     {
@@ -142955,6 +147958,16 @@
       ]
     },
     {
+      "key": "vi:quyên góp:verb:1",
+      "language": "vi",
+      "term": "quyên góp",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to make a donation"
+      ]
+    },
+    {
       "key": "vi:quyền lợi:noun:1",
       "language": "vi",
       "term": "quyền lợi",
@@ -142962,6 +147975,36 @@
       "ordinal": 1,
       "glosses": [
         "interests (of someone); rights"
+      ]
+    },
+    {
+      "key": "vi:quyến rũ:adj:1",
+      "language": "vi",
+      "term": "quyến rũ",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "charming; captivating"
+      ]
+    },
+    {
+      "key": "vi:quyến rũ:adj:2",
+      "language": "vi",
+      "term": "quyến rũ",
+      "partOfSpeech": "adj",
+      "ordinal": 2,
+      "glosses": [
+        "attractive"
+      ]
+    },
+    {
+      "key": "vi:quyến rũ:verb:1",
+      "language": "vi",
+      "term": "quyến rũ",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to seduce; to charm; to captivate"
       ]
     },
     {
@@ -143172,6 +148215,16 @@
       "ordinal": 1,
       "glosses": [
         "trash, garbage, rubbish"
+      ]
+    },
+    {
+      "key": "vi:rắc:verb:1",
+      "language": "vi",
+      "term": "rắc",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to sprinkle (small grains, etc"
       ]
     },
     {
@@ -143402,6 +148455,16 @@
       "ordinal": 1,
       "glosses": [
         "curtain; blind"
+      ]
+    },
+    {
+      "key": "vi:rèn luyện:verb:1",
+      "language": "vi",
+      "term": "rèn luyện",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to exercise; to train; to practise"
       ]
     },
     {
@@ -143715,6 +148778,16 @@
       ]
     },
     {
+      "key": "vi:rửa tiền:verb:1",
+      "language": "vi",
+      "term": "rửa tiền",
+      "partOfSpeech": "verb",
+      "ordinal": 1,
+      "glosses": [
+        "to launder money"
+      ]
+    },
+    {
       "key": "vi:rùa:noun:1",
       "language": "vi",
       "term": "rùa",
@@ -143782,6 +148855,16 @@
       "ordinal": 1,
       "glosses": [
         "and a half, half past"
+      ]
+    },
+    {
+      "key": "vi:ruồi:noun:1",
+      "language": "vi",
+      "term": "ruồi",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "fly (insect of the order diptera"
       ]
     },
     {
@@ -143895,6 +148978,16 @@
       ]
     },
     {
+      "key": "vi:sạch sẽ:adj:1",
+      "language": "vi",
+      "term": "sạch sẽ",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "clean, tidy"
+      ]
+    },
+    {
       "key": "vi:sạch:adj:1",
       "language": "vi",
       "term": "sạch",
@@ -143972,6 +149065,26 @@
       "ordinal": 1,
       "glosses": [
         "to give an order; to order"
+      ]
+    },
+    {
+      "key": "vi:sấm sét:adj:1",
+      "language": "vi",
+      "term": "sấm sét",
+      "partOfSpeech": "adj",
+      "ordinal": 1,
+      "glosses": [
+        "terrible; crushing; dreadful"
+      ]
+    },
+    {
+      "key": "vi:sấm sét:noun:1",
+      "language": "vi",
+      "term": "sấm sét",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "thunder and lightning (generally speaking"
       ]
     },
     {
@@ -144142,6 +149255,16 @@
       "ordinal": 3,
       "glosses": [
         "to watch out (for discount"
+      ]
+    },
+    {
+      "key": "vi:sáng sớm:noun:1",
+      "language": "vi",
+      "term": "sáng sớm",
+      "partOfSpeech": "noun",
+      "ordinal": 1,
+      "glosses": [
+        "early morning"
       ]
     },
     {

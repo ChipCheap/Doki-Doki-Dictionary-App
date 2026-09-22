@@ -141,6 +141,205 @@ export function tokenize(text: string): Set<string> {
   return out;
 }
 
+/**
+ * English words that cannot say which sense a sentence uses: function words,
+ * and the placeholders glosses are written with ("to do SOMETHING to SOMEONE").
+ * Pronouns are here too, which means pronoun senses never win a sentence —
+ * correctly, since "I" and "you" occur in nearly every translation and the
+ * Vietnamese pronoun senses differ in who is speaking, which English cannot show.
+ */
+const GLOSS_STOPWORDS = new Set(
+  (
+    'a an the to of in on at for with by from into onto about as and or but nor ' +
+    'be is are was were been being am have has had do does did done ' +
+    'not no yes so than then that this these those which who whom whose what ' +
+    'it its i me my you your he him his she her we us our they them their ' +
+    'one ones someone somebody something anything anyone thing things person people ' +
+    'up out off over very more most much many some any all also especially ' +
+    'usually often etc used use such other another own same way kind sort'
+  ).split(' '),
+);
+
+/**
+ * A crude English stem: enough to meet "bored" with "to bore", "guns" with
+ * "gun", "voting" with "to vote". Deliberately suffix-only — a wrong merge here
+ * would route a sentence to the wrong sense, the very defect being fixed, so it
+ * errs towards leaving words apart.
+ */
+function stem(word: string): string {
+  let w = word;
+  for (const suffix of ['ing', 'ied', 'ies', 'ed', 'es', 's', 'ly']) {
+    if (w.endsWith(suffix) && w.length - suffix.length >= 3 && !w.endsWith('ss')) {
+      w = w.slice(0, -suffix.length);
+      break;
+    }
+  }
+  return w.endsWith('e') && w.length > 3 ? w.slice(0, -1) : w;
+}
+
+/** The bare minimum, for a gloss made entirely of stopwords. */
+const MINIMAL_STOPWORDS = new Set(['a', 'an', 'the', 'to', 'of']);
+
+/** Content stems of an English text. */
+export function englishStems(text: string, stopwords: ReadonlySet<string> = GLOSS_STOPWORDS): Set<string> {
+  const out = new Set<string>();
+  for (const raw of text.toLowerCase().split(/[^a-z]+/)) {
+    if (raw.length < 2 || stopwords.has(raw)) continue;
+    out.add(stem(raw));
+  }
+  return out;
+}
+
+/**
+ * The stems a gloss is matched on. Parenthesised qualifiers are dropped first —
+ * "India (a country in South Asia)" should not claim every sentence that
+ * mentions a country — unless the whole gloss is a qualifier. A gloss that is
+ * nothing BUT stopwords — `làm` "to do", `là` "to be" — keeps them: otherwise it
+ * could never match a sentence, and would be banded down as if nobody used it.
+ */
+function glossStems(glosses: readonly string[]): Set<string> {
+  const joined = glosses.join(' ');
+  const bare = englishStems(joined.replace(/\([^)]*\)/g, ' '));
+  if (bare.size > 0) return bare;
+  const full = englishStems(joined);
+  return full.size > 0 ? full : englishStems(joined, MINIMAL_STOPWORDS);
+}
+
+/**
+ * Light verbs: in a longer gloss they carry almost none of the meaning. "He
+ * stopped to make speeches" shares only "make" with `lại` "to make up for one's
+ * disadvantage", and must not be routed there on that alone. They count half —
+ * unless they are ALL the gloss has, as in `lại` "to come", where they are the
+ * meaning.
+ */
+const LIGHT_VERBS = new Set(
+  'make get take give put go come let keep set turn become bring hold run move cause'
+    .split(' ')
+    .map(stem),
+);
+
+/** A sentence must reach this score for a sense to win it. */
+const MATCH_THRESHOLD = 1;
+
+function matchScore(gloss: ReadonlySet<string>, sentence: ReadonlySet<string>): number {
+  const onlyLight = [...gloss].every((s) => LIGHT_VERBS.has(s));
+  let score = 0;
+  for (const s of gloss) {
+    if (sentence.has(s)) score += LIGHT_VERBS.has(s) && !onlyLight ? 0.5 : 1;
+  }
+  return score;
+}
+
+export interface RoutedSentences {
+  /** Per sense, in input order: the corpus sentence ids given to that sense. */
+  bySense: string[][];
+  /**
+   * Per sense: how many sentences its GLOSS actually matched. The usage
+   * evidence for difficulty — unlike `bySense`, never inflated by the
+   * dominant-sense fallback, which would otherwise count its own guesses.
+   */
+  matched: number[];
+  /**
+   * Sentences no sense could claim — none matched, and no sense dominated. A
+   * missing example is permitted (Never-6); a wrong one is the silent defect
+   * the framework rules out.
+   */
+  unrouted: number;
+}
+
+/**
+ * The dominant-sense fallback applies when one sense won more than this share
+ * of the matched sentences, and at least `DOMINANT_MIN` of them.
+ */
+const DOMINANT_SHARE = 0.5;
+const DOMINANT_MIN = 2;
+
+const translationStems = new WeakMap<TatoebaCorpus, Map<string, Set<string>>>();
+
+/**
+ * Decide which sense of a term each corpus sentence illustrates.
+ *
+ * Tatoeba is searched by term, but entries are per sense, so a sentence found
+ * for `súng` is about EITHER the water lily or the gun — never both. This used
+ * to be settled by giving every corpus sentence to the first sense, trusting
+ * Wiktionary's sense order to put the common sense first. It does not: `súng`
+ * is two etymologies and the water lily is listed first, so "He leveled his gun
+ * at me" illustrated "water lily". Hundreds of entries had the same defect.
+ *
+ * Instead the sentence's ENGLISH TRANSLATION is compared with each sense's
+ * gloss, and the sense sharing the most content words wins; a tie goes to the
+ * earlier sense.
+ *
+ * A sentence matching NO gloss is the common case, not the rare one —
+ * translations paraphrase: `lại` "to come" is found in "Mang lại đây!", "Bring
+ * it here!". Leaving all of those out cost Vietnamese a fifth of its examples.
+ * So when one sense clearly dominates the sentences that DID match, the
+ * unmatched ones go to it: they are overwhelmingly likely to use the same
+ * sense. With no dominant sense they stay out, since that is exactly the
+ * situation in which the first-sense rule got `súng` wrong.
+ *
+ * `senses` must hold EVERY sense of the term, across parts of speech — `lại`
+ * the adverb and `lại` the verb are found by the same sentences.
+ */
+export function routeSentences(
+  senses: readonly (readonly string[])[],
+  sentenceIds: readonly string[],
+  corpus: TatoebaCorpus,
+): RoutedSentences {
+  const bySense = senses.map((): string[] => []);
+  if (senses.length === 1) {
+    bySense[0]!.push(...sentenceIds);
+    return { bySense, matched: [sentenceIds.length], unrouted: 0 };
+  }
+
+  let cache = translationStems.get(corpus);
+  if (!cache) {
+    cache = new Map();
+    translationStems.set(corpus, cache);
+  }
+
+  const glossSets = senses.map(glossStems);
+  const unmatched: string[] = [];
+
+  for (const id of sentenceIds) {
+    let stems = cache.get(id);
+    if (!stems) {
+      // The sentence keeps its function words; only the GLOSS side filters.
+      // Stripping "do" here would leave `làm` "to do" nothing to ever match.
+      stems = englishStems(corpus.byId.get(id)?.translation ?? '', MINIMAL_STOPWORDS);
+      cache.set(id, stems);
+    }
+
+    // A tie goes to the EARLIER sense. Leaving ties out was tried: `ăn` "to eat"
+    // and "to eat with (a utensil)" both reduce to "eat", so every eating
+    // sentence tied, "to eat" matched almost nothing, and was banded as if
+    // unused. Wiktionary lists the plain sense before its refinements.
+    let best = 0;
+    let winner = -1;
+    glossSets.forEach((gloss, index) => {
+      const score = matchScore(gloss, stems!);
+      if (score >= MATCH_THRESHOLD && score > best) {
+        best = score;
+        winner = index;
+      }
+    });
+
+    if (winner < 0) unmatched.push(id);
+    else bySense[winner]!.push(id);
+  }
+
+  const matched = bySense.map((won) => won.length);
+  const total = matched.reduce((sum, n) => sum + n, 0);
+  const top = Math.max(...matched);
+  const dominant = matched.indexOf(top);
+  if (top >= DOMINANT_MIN && top > total * DOMINANT_SHARE) {
+    bySense[dominant]!.push(...unmatched);
+    return { bySense, matched, unrouted: 0 };
+  }
+
+  return { bySense, matched, unrouted: unmatched.length };
+}
+
 /** A stable id for a Wiktionary example, which carries none of its own. */
 function wiktionaryExampleId(text: string): string {
   return `wikt:${createHash('sha256').update(text).digest('hex').slice(0, 12)}`;
@@ -161,26 +360,17 @@ export interface AssembledExamples {
  * for a polysemous word that may well be a different sense entirely.
  */
 export function assembleExamples(
-  term: string,
   wiktionary: readonly { text: string; translation?: string; ref?: string }[],
   corpus: TatoebaCorpus | undefined,
   /**
-   * Whether this is the FIRST sense of its (term, POS).
+   * The corpus sentences `routeSentences` gave THIS sense.
    *
-   * Tatoeba is searched by term, but entries are per sense, so a polysemous
-   * word would otherwise give every sense the same sentences and at most one of
-   * them would be right. Observed in a real build: `bàn` sense 2, "game; match",
-   * was illustrated with "Place the deck of cards on the oaken table" — a
-   * sentence about sense 1. A learner cannot diagnose that, which is exactly the
-   * class of defect the framework rules out.
-   *
-   * Restricting corpus matches to the first sense leans on a decision the
-   * framework already made: Wiktionary's editorial sense order stands in for the
-   * sense frequency nobody has data for. Later senses keep whatever examples
-   * Wiktionary attached to them directly, which are sense-specific by
-   * construction.
+   * Never the term's whole match list: a polysemous word would give every
+   * sense the same sentences, and at most one of them would be right. Observed
+   * in real builds: `bàn` "game; match" illustrated with a sentence about a
+   * table, `súng` "water lily" with two about guns.
    */
-  isPrimarySense: boolean,
+  corpusIds: readonly string[],
   limit = PREFERRED_EXAMPLES,
 ): AssembledExamples {
   const core: CoreExample[] = [];
@@ -193,8 +383,8 @@ export function assembleExamples(
     if (example.translation) translations[id] = example.translation;
   }
 
-  if (core.length < limit && corpus && isPrimarySense) {
-    for (const id of corpus.byToken.get(normalizeTerm(term)) ?? []) {
+  if (core.length < limit && corpus) {
+    for (const id of corpusIds) {
       if (core.length >= limit) break;
       const sentence = corpus.byId.get(id);
       if (!sentence) continue;

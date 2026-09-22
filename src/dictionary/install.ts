@@ -10,6 +10,7 @@ import { db } from '../database';
 import type { InstalledPack } from './schema';
 import { mergePack, type MergeReport } from './pack-loader';
 import { SUPPORTED_SCHEMA_VERSION, type CorePack, type MeaningPack } from './pack-format';
+import { catalogEntry } from './catalog';
 
 /** Rows per write. Large enough to be fast, small enough to report progress. */
 const CHUNK = 500;
@@ -95,4 +96,33 @@ export async function listInstalledPacks(): Promise<InstalledPack[]> {
 export async function removePack(language: string): Promise<void> {
   await db.entries.where('language').equals(language).delete();
   await db.packs.delete(language);
+}
+
+/**
+ * The published pack version, when it is newer than the installed one.
+ *
+ * Packs ship with the app, so a rebuilt pack arrives with an app update — but
+ * installing it is a separate, explicit step: it replaces a language's whole
+ * dictionary, and that is not something to do behind the user's back. This is
+ * what lets Home offer it at all; without it an installed language could never
+ * receive a pack update.
+ *
+ * Quiet on any failure — offline, a missing manifest, a schema this build
+ * cannot read. Not knowing about an update loses nothing, and the check runs
+ * again on the next visit to Home.
+ */
+export async function availableUpdate(pack: InstalledPack): Promise<string | undefined> {
+  const entry = catalogEntry(pack.id);
+  if (!entry) return undefined;
+  try {
+    const response = await fetch(entry.manifestPath, { cache: 'no-store' });
+    if (!response.ok) return undefined;
+    const manifest = (await response.json()) as { packVersion?: unknown; schemaVersion?: unknown };
+    if (typeof manifest.packVersion !== 'string') return undefined;
+    if (manifest.schemaVersion !== SUPPORTED_SCHEMA_VERSION) return undefined;
+    // ISO dates, so string order is date order.
+    return manifest.packVersion > pack.packVersion ? manifest.packVersion : undefined;
+  } catch {
+    return undefined;
+  }
 }

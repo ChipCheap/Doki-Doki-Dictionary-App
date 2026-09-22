@@ -157,6 +157,19 @@ and Vietnamese word segmentation is genuinely hard — compounds mean whitespace
 doesn't split words. A wrong sentence-to-word link is a silent quality defect the
 user cannot diagnose; duplication costs 2–3 MB. Bytes are the cheaper problem.
 
+**A corpus sentence is routed to ONE sense by its translation.** Tatoeba is
+searched by term, but a sentence illustrates one meaning. Its English
+translation is compared with each sense's gloss, across every part of speech of
+the term; the sense sharing the most content words wins, a tie going to the
+earlier sense. When one sense clearly dominates the matched sentences, unmatched
+ones (translations paraphrase) go to it; otherwise they are left out.
+
+*Superseded 2026-09-22.* Corpus sentences used to go to the first sense of each
+`(term, POS)`, trusting Wiktionary's sense order to put the common sense first.
+It does not: `súng` lists "water lily" before "gun", so gun sentences
+illustrated the water lily, and a sample of the old assignments was wrong more
+often than right.
+
 ### Difficulty tagging
 
 Frequency rank from an OpenSubtitles-derived list splits `Basic` / `Common` /
@@ -164,11 +177,34 @@ Frequency rank from an OpenSubtitles-derived list splits `Basic` / `Common` /
 
 The label data is real: senses carry structured `tags` (`archaic`, `rare`,
 `colloquial`, `poetic`) and `topics` (`medicine`, `law`). What does **not** exist
-is per-sense frequency — which meaning of a word is most common. Wiktionary's
-editorial sense order stands in for it.
+is per-sense frequency — which meaning of a word is most common.
+
+**The routed sentences stand in for it.** A sense of a polysemous term holding
+under 5% of the term's matched sentences — given at least 3 — is banded one
+harder (`Basic` → `Common` → `Advanced`). Parts of speech whose glosses describe
+rather than translate (particles, pronouns, prepositions, classifiers…) are
+exempt, since no translation can ever match them. Difficulty is not part of the
+key, so re-banding moves no progress.
+
+*Superseded 2026-09-22.* Wiktionary's editorial sense order used to stand in for
+sense frequency, and every sense inherited its spelling's rank: all six senses
+of `lại` were `Basic`, including "to recover".
+
+The app introduces a word's easiest unseen sense before its harder ones, so a
+learner meets `lại` "again" before `lại` "to recover".
 
 `Niche` may be legitimately empty in a frequency-selected pack; rare words are
 excluded by the selection itself. It fills as packs extend past the core.
+
+### Proper names
+
+Proper names are kept only when they are vocabulary: countries, continents,
+languages, capitals, the sun, moon and earth — `Đức` Germany, `tiếng Đức`
+German, `Mặt Trời`. People, spellings, scientific names, acronyms and places
+below a country are dropped, and so is any name spelled like an ordinary word in
+the same extract unless it is one of the above: those only entered on the
+ordinary word's frequency (`Sociedad`, a town, rode in on `sociedad`). Single
+letters are dropped entirely.
 
 ### Sense cap
 

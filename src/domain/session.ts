@@ -105,19 +105,20 @@ function pickNewWords(
   const chosen: Card[] = [];
 
   while (chosen.length < budget && pool.length > 0) {
-    const total = pool.reduce((sum, m) => sum + TIER_WEIGHT[m.difficulty], 0);
+    const eligible = mainSensesFirst(pool);
+    const total = eligible.reduce((sum, m) => sum + TIER_WEIGHT[m.difficulty], 0);
     let roll = rng() * total;
-    let index = pool.length - 1;
+    let member = eligible[eligible.length - 1]!;
 
-    for (let i = 0; i < pool.length; i += 1) {
-      roll -= TIER_WEIGHT[pool[i]!.difficulty];
+    for (const candidate of eligible) {
+      roll -= TIER_WEIGHT[candidate.difficulty];
       if (roll <= 0) {
-        index = i;
+        member = candidate;
         break;
       }
     }
 
-    const member = pool.splice(index, 1)[0]!;
+    pool.splice(pool.indexOf(member), 1);
     // Every vector of a new word sits at level 0, so all are equally due and
     // the tie-break is the only thing choosing.
     const vectorId = randomOf(settings.enabledVectors, rng);
@@ -125,6 +126,39 @@ function pickNewWords(
   }
 
   return chosen;
+}
+
+/** Easiest first; the order `TIER_WEIGHT` already expresses. */
+const TIER_ORDER: Readonly<Record<DeckMember['difficulty'], number>> = Object.freeze({
+  basic: 0,
+  common: 1,
+  advanced: 2,
+  niche: 3,
+});
+
+/** `es:banco:noun:2` → `es:banco`. Keys never contain a colon inside a part. */
+function termOf(key: WordKey): string {
+  const [language, term] = key.split(':');
+  return `${language}:${term}`;
+}
+
+/**
+ * A sense is held back while an EASIER sense of the same word is still
+ * unseen: `lại` "to recover" waits until "again" and "to come" have been met.
+ *
+ * Tier weighting alone was too mild for this — at 4:3 a harder sense was only a
+ * quarter less likely, so a learner could meet a word's rare meaning first and
+ * reasonably conclude that was what the word meant. Tiers carry sense-level
+ * usage since packs band unattested senses down, so the easiest unseen sense of
+ * a word is the one most worth meeting first.
+ */
+function mainSensesFirst(pool: readonly DeckMember[]): DeckMember[] {
+  const easiest = new Map<string, number>();
+  for (const m of pool) {
+    const term = termOf(m.key);
+    easiest.set(term, Math.min(easiest.get(term) ?? Infinity, TIER_ORDER[m.difficulty]));
+  }
+  return pool.filter((m) => TIER_ORDER[m.difficulty] === easiest.get(termOf(m.key)));
 }
 
 interface ReviewCandidate {

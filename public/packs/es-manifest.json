@@ -2,10 +2,10 @@
   "language": "es",
   "languageName": "Spanish",
   "baseLanguage": "en",
-  "packVersion": "2026-08-24",
+  "packVersion": "2026-09-22",
   "schemaVersion": 1,
-  "entryCount": 10000,
-  "builtAt": "2026-08-24T22:49:33.239Z",
+  "entryCount": 10002,
+  "builtAt": "2026-09-22T09:45:34.398Z",
   "licence": "CC BY-SA 4.0",
   "licenceNote": "Derived from share-alike sources, so this pack is itself CC BY-SA. Attribution for every source is listed below and must travel with the data.",
   "sources": [
@@ -46,11 +46,11 @@
     }
   ],
   "reportSummary": {
-    "examplesWithTwo": 5415,
-    "examplesWithNone": 3844,
+    "examplesWithTwo": 5968,
+    "examplesWithNone": 2962,
     "contextTagPercent": 6.1,
-    "homographTerms": 3024,
-    "keysMinted": 0,
-    "keysOrphaned": 0
+    "homographTerms": 3057,
+    "keysMinted": 273,
+    "keysOrphaned": 271
   }
 }

@@ -281,3 +281,63 @@ describe('mastery and hiding', () => {
     expect(r.queue).toHaveLength(0);
   });
 });
+
+describe('main senses first', () => {
+  const sense = (key: WordKey, difficulty: DeckMember['difficulty']): DeckMember => ({ key, difficulty });
+  /** Always picks the LAST candidate — the one a plain weighted draw could land on. */
+  const lastRng: Rng = () => 0.999;
+
+  it('holds a harder sense back while an easier sense of the same word is unseen', () => {
+    const members = [sense('vi:lại:adv:2', 'basic'), sense('vi:lại:verb:2', 'common')];
+    const r = composeSession({
+      members,
+      progress: new Map(),
+      settings: settings({ newWordsPerDay: 1 }),
+      today: TODAY,
+      rng: lastRng,
+    });
+    expect(r.queue.map((c) => c.wordKey)).toEqual(['vi:lại:adv:2']);
+  });
+
+  it('releases the harder sense once the easier one has been introduced', () => {
+    const members = [sense('vi:lại:adv:2', 'basic'), sense('vi:lại:verb:2', 'common')];
+    const progress = new Map([
+      seen('vi:lại:adv:2', {
+        recognition: { level: 1, dueDay: TODAY + 1 },
+        production: { level: 1, dueDay: TODAY + 1 },
+      }),
+    ]);
+    const r = composeSession({
+      members,
+      progress,
+      settings: settings({ newWordsPerDay: 1 }),
+      today: TODAY,
+      rng: lastRng,
+    });
+    expect(r.queue.map((c) => c.wordKey)).toEqual(['vi:lại:verb:2']);
+  });
+
+  it('lets both senses in when the budget reaches the harder one', () => {
+    const members = [sense('vi:lại:verb:2', 'common'), sense('vi:lại:adv:2', 'basic')];
+    const r = composeSession({
+      members,
+      progress: new Map(),
+      settings: settings({ newWordsPerDay: 2 }),
+      today: TODAY,
+      rng: lastRng,
+    });
+    expect(new Set(r.queue.map((c) => c.wordKey))).toEqual(new Set(['vi:lại:adv:2', 'vi:lại:verb:2']));
+  });
+
+  it('never holds back a different word', () => {
+    const members = [sense('vi:nhà:noun:1', 'basic'), sense('vi:súng:noun:1', 'common')];
+    const r = composeSession({
+      members,
+      progress: new Map(),
+      settings: settings({ newWordsPerDay: 1 }),
+      today: TODAY,
+      rng: lastRng,
+    });
+    expect(r.queue.map((c) => c.wordKey)).toEqual(['vi:súng:noun:1']);
+  });
+});

@@ -106,7 +106,9 @@ export function mergePack(core: CorePack, meaning: MeaningPack): MergeReport {
 
 /** Fetch and parse a pack layer. Network failure and bad JSON both surface. */
 export async function fetchJson<T>(url: string): Promise<T> {
-  const response = await fetch(url);
+  // Revalidated, never served blind from the HTTP cache: right after a deploy
+  // a cached copy would reinstall the OLD pack under an update's banner.
+  const response = await fetch(url, { cache: 'no-cache' });
   if (!response.ok) {
     throw new PackShapeError(`Could not load ${url} (${response.status}).`);
   }

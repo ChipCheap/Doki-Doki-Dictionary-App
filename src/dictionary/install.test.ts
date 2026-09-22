@@ -3,9 +3,10 @@
  * the screen renders but that no pack can be presented without its sources.
  */
 
-import { beforeEach, describe, expect, it } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { db } from '../database';
-import { installPack, listInstalledPacks } from './install';
+import { availableUpdate, installPack, listInstalledPacks } from './install';
+import type { InstalledPack } from './schema';
 import { listAttributions, PACK_LICENCE } from './queries';
 import type { CorePack, MeaningPack } from './pack-format';
 
@@ -110,5 +111,55 @@ describe('a pack with no recorded sources is never presented as attributed', () 
     const attributions = await listAttributions();
     expect(attributions).toHaveLength(1);
     expect(attributions[0]!.sources.length).toBeGreaterThan(0);
+  });
+});
+
+describe('noticing a pack update', () => {
+  const installed = (packVersion: string): InstalledPack => ({
+    id: 'es',
+    languageName: 'Spanish',
+    baseLanguage: 'en',
+    packVersion,
+    schemaVersion: 1,
+    entryCount: 1,
+    installedOn: 0,
+    sources: SOURCES,
+    ready: true,
+  });
+
+  const serve = (body: unknown, ok = true): void => {
+    vi.stubGlobal('fetch', vi.fn(async () => ({ ok, json: async () => body })));
+  };
+
+  afterEach(() => vi.unstubAllGlobals());
+
+  it('reports a newer published version', async () => {
+    serve({ packVersion: '2026-09-22', schemaVersion: 1 });
+    expect(await availableUpdate(installed('2026-08-24'))).toBe('2026-09-22');
+  });
+
+  it('stays quiet when the installed pack is current or newer', async () => {
+    serve({ packVersion: '2026-08-24', schemaVersion: 1 });
+    expect(await availableUpdate(installed('2026-08-24'))).toBeUndefined();
+    expect(await availableUpdate(installed('2026-10-01'))).toBeUndefined();
+  });
+
+  it('never offers a pack this build could not install', async () => {
+    serve({ packVersion: '2027-01-01', schemaVersion: 2 });
+    expect(await availableUpdate(installed('2026-08-24'))).toBeUndefined();
+  });
+
+  it('stays quiet offline, or when the manifest is missing', async () => {
+    vi.stubGlobal('fetch', vi.fn(async () => { throw new TypeError('offline'); }));
+    expect(await availableUpdate(installed('2026-08-24'))).toBeUndefined();
+    serve({}, false);
+    expect(await availableUpdate(installed('2026-08-24'))).toBeUndefined();
+  });
+
+  it('asks the network, not the HTTP cache', async () => {
+    serve({ packVersion: '2026-09-22', schemaVersion: 1 });
+    await availableUpdate(installed('2026-08-24'));
+    const init = (fetch as unknown as { mock: { calls: [string, RequestInit][] } }).mock.calls[0]![1];
+    expect(init.cache).toBe('no-store');
   });
 });

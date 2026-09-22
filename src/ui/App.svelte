@@ -51,7 +51,7 @@
 {:else if route.name === 'firstRun'}
   <FirstRun />
 {:else if route.name === 'installPack'}
-  <InstallPack language={route.params.language ?? ''} />
+  <InstallPack language={route.params.language ?? ''} update={route.params.update === '1'} />
 {:else if route.name === 'quiz'}
   <Quiz />
 {:else if route.name === 'newVocabulary'}
