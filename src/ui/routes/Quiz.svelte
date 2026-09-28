@@ -15,6 +15,7 @@
   import ResultPanel from '../components/ResultPanel.svelte';
   import { questionTypeFor } from '../questions/registry';
   import { resolveKey, fieldShouldBeFocused } from '../session/keyboard';
+  import { router } from '../router.svelte';
   import { session, termWithArticle } from '../session/session-store.svelte';
   import MultipleChoice from '../questions/MultipleChoice.svelte';
   import TypedAnswer from '../questions/TypedAnswer.svelte';
@@ -22,6 +23,15 @@
 
   let typed = $state('');
   let wide = $state(true);
+  /** The end-quiz confirmation is open. */
+  let ending = $state(false);
+  let cancelEnding = $state<HTMLButtonElement | undefined>();
+
+  // Cancel takes the focus, so the Enter the user may already be pressing —
+  // Enter is the answer key — lands on the harmless button, not on Confirm.
+  $effect(() => {
+    if (ending) cancelEnding?.focus();
+  });
 
   const card = $derived(session.current);
   const type = $derived(card ? questionTypeFor(card.method) : undefined);
@@ -60,6 +70,16 @@
   });
 
   async function handleKey(event: KeyboardEvent): Promise<void> {
+    // While the confirmation is open the quiz keys are inert: Enter must not
+    // answer a card the user cannot see behind the dialog.
+    if (ending) {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        ending = false;
+      }
+      return;
+    }
+
     if (!card) return;
 
     const action = resolveKey(event, {
@@ -129,9 +149,10 @@
   }
 </script>
 
-<!-- Once the queue is empty both of these are stale: the counter counts
-     nothing and "I don't know" answers nothing. They are hidden rather than
-     removed, so the summary below does not jump up the page as the last card
+<!-- Once the queue is empty all three are stale: the counter counts nothing,
+     "I don't know" answers nothing, and there is no longer a quiz to end — the
+     summary below carries its own way back. They are hidden rather than
+     removed, so the summary does not jump up the page as the last card
      resolves — `visibility` keeps the box, `display` would not. -->
 <div class="head" class:spent={!card && !session.loading}>
   <span class="hint">
@@ -141,6 +162,11 @@
       {session.graded} of {session.total}
     {/if}
   </span>
+  <!-- Leaving costs nothing — every grade is written the moment it is made —
+       but it still confirms: the button sits among the controls a user reaches
+       for mid-answer, and a mis-click would throw away the queue that was
+       drawn, including the words already re-queued for a second look. -->
+  <button class="quiet" onclick={() => (ending = true)}>End quiz</button>
   <button class="quiet" onclick={() => session.dontKnow()} disabled={!answering}>
     I don't know
   </button>
@@ -198,12 +224,61 @@
   </div>
 {/if}
 
+{#if ending}
+  <!-- The scrim is deliberately inert: a stray click on the page behind should
+       not end a session, and Cancel and Escape are both one action away. -->
+  <div class="scrim"></div>
+  <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="end-quiz">
+    <p id="end-quiz">Do you really want to end the quiz? All results so far were already saved.</p>
+    <div class="buttons">
+      <button class="primary" onclick={() => router.go('home')}>Confirm</button>
+      <button class="quiet" bind:this={cancelEnding} onclick={() => (ending = false)}>Cancel</button>
+    </div>
+  </div>
+{/if}
+
 <style>
+  /* Three columns rather than `space-between`: the outer two share the leftover
+     width evenly, so End quiz sits on the centre of the page and does not drift
+     as the counter's text changes width. */
   .head {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
-    justify-content: space-between;
+    gap: 8px;
     margin-bottom: 12px;
+  }
+
+  .head > :last-child {
+    justify-self: end;
+  }
+
+  .scrim {
+    position: fixed;
+    inset: 0;
+    background: rgb(0 0 0 / 0.5);
+    z-index: 20;
+  }
+
+  .dialog {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: min(420px, calc(100vw - 32px));
+    background: var(--panel);
+    border: 1px solid var(--border-strong);
+    border-radius: 12px;
+    padding: 16px 18px;
+    box-shadow: 0 8px 28px rgb(0 0 0 / 0.3);
+    z-index: 21;
+  }
+
+  .dialog .buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 16px;
   }
 
   .panes {

@@ -328,7 +328,7 @@ rejection note, and the keyboard-help affordance.
 | `routes/InstallPack.svelte` | Explicit install with a real progress bar; `update` mode replaces an installed pack |
 | `routes/Home.svelte` | All languages as stacked sections; deck list; quick-create with live count; add-a-language; pack-update banner |
 | `routes/NewVocabulary.svelte` | Preview of new words, already-known row, replacement pull-in |
-| `routes/Quiz.svelte` | Two-pane shell, keyboard wiring, auto-advance on correct, summary below when finished |
+| `routes/Quiz.svelte` | Two-pane shell, keyboard wiring, auto-advance on correct, summary below when finished, End quiz with its confirmation |
 | `routes/SessionSummary.svelte` | Promoted / held / demoted / mastered counts |
 | `routes/Settings.svelte` | Global visual settings with previews, per-deck cadence |
 | `routes/Transfer.svelte` | Export, and import with an explicit confirmation |

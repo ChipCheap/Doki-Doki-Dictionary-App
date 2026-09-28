@@ -88,7 +88,7 @@ noise on every correct card.
 | **Home** | **All installed languages at once**, as stacked sections in a stable order: a header at heading scale with the language name and its two-letter code, that language's deck list in its own bordered box, then a horizontal rule. Each deck row carries name, tags, and one state-appropriate value — `Start session · 14`, `next in 3 days`, or `complete`. Menu in the header. No flag icons — Windows ships no flag glyphs, so they degrade to letter pairs on the primary platform. |
 | **Deck** (expanded) | Reached by clicking the deck name. Ladder distribution bar bucketed new / learning / mature / mastered, with counts, plus the **overdue count**. Start session, browse words. |
 | **New vocabulary** | Opens any session containing new words. Flip through them with `← n of N →` before the quiz begins. Per card: term, part-of-speech, meanings, a *Sentences* action, and the already-known row. |
-| **Quiz — recognition** | Progress `n of N`, quiet *I don't know*, prompt word, part-of-speech, four numbered options. |
+| **Quiz — recognition** | Progress `n of N`, a centred *End quiz* that confirms before returning home, quiet *I don't know*, prompt word, part-of-speech, four numbered options. |
 | **Quiz — production** | Same chrome; autofocused answer field; keyboard-help affordance. |
 | **Result panel** | Outcome and level movement, full dictionary entry (term, part-of-speech, tags, meaning, examples), mastery level picker, and the two buttons when wrong. |
 | **Session summary** | Counts promoted / held / demoted, and how many words reached mastery. No streaks, timers, or accuracy percentages. |
