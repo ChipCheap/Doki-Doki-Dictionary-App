@@ -378,6 +378,17 @@ export class SessionStore {
     this.phase = 'primed';
   }
 
+  /**
+   * Back to answering, because the field is no longer empty.
+   *
+   * The primed state asks "submit nothing?", and that question stops making
+   * sense the moment anything is typed. Without this the phase outlived its
+   * own premise and the next Enter answered the old question.
+   */
+  unprime(): void {
+    if (this.phase === 'primed') this.phase = 'typing';
+  }
+
   /** Same landing place as a wrong answer with nothing pressed. */
   dontKnow(): void {
     const card = this.current;

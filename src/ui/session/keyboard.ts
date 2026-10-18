@@ -49,8 +49,27 @@ export function resolveKey(event: KeyboardEvent, ctx: KeyContext): KeyAction {
     }
 
     case 'primed': {
-      // A second Enter confirms; anything else goes back to typing.
-      if (event.key === 'Enter') return 'dontKnow';
+      /*
+       * A second Enter confirms — but ONLY while the field is still empty.
+       *
+       * Priming used to swallow whatever was typed afterwards: Enter on an
+       * empty field primed the card, typing changed the text without changing
+       * the phase, and the next Enter resolved as *I don't know*. The answer
+       * was discarded, the card was graded wrong, and the result panel showed
+       * no comparison because there was nothing typed to compare. Reported
+       * twice from real sessions, on answers that were correct.
+       *
+       * `Quiz.svelte` also leaves this phase as soon as the field is written
+       * to, so the "submit nothing?" hint cannot linger over a filled field.
+       * This stays as the guard of the rule itself: a non-empty answer is
+       * never thrown away as "I don't know".
+       */
+      if (event.key === 'Enter') return ctx.hasInput ? 'submit' : 'dontKnow';
+      // Multiple choice has no field to fill, so priming must not disarm its
+      // only keys — 1-4 stayed dead until the card was clicked.
+      if (ctx.numericSelect && /^[1-4]$/.test(event.key)) {
+        return { select: Number(event.key) - 1 };
+      }
       return 'ignore';
     }
 

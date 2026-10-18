@@ -64,8 +64,14 @@ Never a click, never a tab. All keys go to the field.
 |---|---|
 | `Enter` | submit |
 | `Enter` on an empty field | primes a confirmation; a second `Enter` is *I don't know* |
+| Typing while primed | cancels the confirmation — the next `Enter` submits what was typed |
 
 Whitespace-only input normalizes to empty and takes the same path.
+
+**A non-empty answer is never resolved as *I don't know*.** Priming used to
+outlive its own question: the phase stayed primed while the user typed, and the
+next `Enter` discarded the answer and graded the card wrong with nothing to
+show in the result panel.
 
 **Result phase** — submission ends typing, so the field blurs and single keys
 become unambiguous.
@@ -247,6 +253,7 @@ loading state at all**.
 | Session has no new words | The new vocabulary screen is skipped entirely. |
 | Every new word in the intro marked already-known | Replacements are pulled until the budget is met or the deck runs out of unlearned words. |
 | `Enter` on an empty field | Primes a confirmation rather than submitting. Second `Enter` is *I don't know*. |
+| Typing after priming | Cancels the prime; `Enter` submits the answer. Multiple choice stays answerable by number while primed. |
 | Whitespace-only answer | Normalizes to empty; same path. |
 | Correct answer, desktop | Advances instantly. Entry appears in the right pane. |
 | Correct answer, mobile | Result dwells; user advances explicitly. |

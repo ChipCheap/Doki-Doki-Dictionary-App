@@ -193,7 +193,11 @@
         value={typed}
         disabled={!answering}
         rejected={session.phase === 'rejected'}
-        oninput={(v) => (typed = v)}
+        oninput={(v) => {
+          typed = v;
+          // Typing answers the "submit nothing?" question by itself.
+          if (v.trim().length > 0) session.unprime();
+        }}
       />
     {/if}
 
