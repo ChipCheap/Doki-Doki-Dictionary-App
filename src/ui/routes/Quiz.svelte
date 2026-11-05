@@ -26,6 +26,8 @@
   /** The end-quiz confirmation is open. */
   let ending = $state(false);
   let cancelEnding = $state<HTMLButtonElement | undefined>();
+  /** Takes the focus back once a correction in the result panel is closed. */
+  let answerField = $state<TypedAnswer | undefined>();
 
   // Cancel takes the focus, so the Enter the user may already be pressing —
   // Enter is the answer key — lands on the harmless button, not on Confirm.
@@ -188,6 +190,7 @@
       />
     {:else}
       <TypedAnswer
+        bind:this={answerField}
         meaning={card.promptedMeaning ?? ''}
         partOfSpeech={card.entry.partOfSpeech}
         value={typed}
@@ -207,7 +210,10 @@
   </div>
 
   <ResultPanel
-    entry={session.lastResolved?.entry}
+    entry={session.lastResolved ? session.originalEntryFor(session.lastResolved.card.wordKey) : undefined}
+    edits={session.lastResolved ? session.editsFor(session.lastResolved.card.wordKey) : undefined}
+    onsaveedits={(edits) => void session.setEntryEdits(edits)}
+    oneditclosed={() => answerField?.focus()}
     result={session.lastResult}
     showChoices={session.phase === 'resultWrong' ||
       (session.phase === 'resultCorrect' && !wide)}

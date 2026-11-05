@@ -97,8 +97,9 @@
     <div class="confirm">
       <p>
         This file holds <strong>{counts.words}</strong> words,
-        <strong>{counts.vectorStates}</strong> saved levels and
-        <strong>{counts.decks}</strong> decks{pending.exportedAt
+        <strong>{counts.vectorStates}</strong> saved levels,
+        <strong>{counts.decks}</strong> decks and
+        <strong>{counts.corrections}</strong> corrected words{pending.exportedAt
           ? `, saved ${pending.exportedAt.slice(0, 10)}`
           : ''}.
       </p>
@@ -110,7 +111,8 @@
 
   {#if done}
     <p class="ok">
-      Restored {done.words} words, {done.vectorStates} levels and {done.decks} decks.
+      Restored {done.words} words, {done.vectorStates} levels, {done.decks} decks and
+      {done.corrections} corrected words.
     </p>
   {/if}
 </div>

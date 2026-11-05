@@ -2,7 +2,8 @@
 
 **Status:** established 2026-08-13 · amended 2026-08-22 (mass-edit preview is a
 count plus a sample, not the full list; a manual level set on an unstudied word
-marks it introduced)
+marks it introduced) · amended 2026-11-05 (personal corrections to meanings and
+examples, laid over the dictionary rather than written into it)
 **Inherits:** `framework.md`, `ui.framework.md`, `packs.framework.md` — every
 boundary in those binds this document.
 
@@ -28,14 +29,16 @@ here exists to make it survivable.
 ### In
 
 Deck creation and adjustment. Single-word mastery editing. Mass-edit. Hiding.
-Browse views over decks and the dictionary. Snapshots and restore.
+Browse views over decks and the dictionary. Snapshots and restore. Personal
+corrections to an entry's meanings and examples.
 
 ### Out
 
 Pack production (`packs.framework.md`). The study loop itself. Any operation
-that edits *dictionary* content — meanings, examples, part of speech. The
-dictionary is source data, not user data; a wrong entry is fixed in the pack
-build, never in the app.
+that **writes** *dictionary* content. The dictionary is source data, replaced
+wholesale by every pack update; a wrong entry is fixed for everyone in the pack
+build. What one learner finds useless or too long is theirs to correct, and that
+correction is user data laid over the entry — see *Personal corrections*.
 
 ---
 
@@ -92,6 +95,38 @@ count — the same treatment already given to vectors that get switched off.
 real word with a real meaning; excluding it would shrink the distractor pool for
 no benefit. Hiding means "stop testing me on this", not "pretend it doesn't
 exist".
+
+### Personal corrections
+
+Some sourced lines are useless to a learner: a thousand-character Wiktionary
+example, or a pronoun gloss that explains a whole kinship system. Double-clicking
+a meaning or an example on the result panel opens an inline editor with three
+actions:
+
+| | Effect | Reversible |
+|---|---|---|
+| **Reword** | the line shows the user's text instead; "restore original" is offered | yes |
+| **Hide** | the line is left out, but one click on the entry shows it again | yes |
+| **Delete** | the line is left out and never offered back in the app | no — by the user's choice, behind a second press |
+
+A correction applies **everywhere** the line appears: the result panel, quiz
+prompts, multiple-choice options and distractors, Browse and the new-vocabulary
+screen. Two exceptions, both deliberate: the card already on screen keeps the
+wording it was asked with, and synonym rejection and Browse search still run on
+the pack's wording, because both go through the dictionary's own indexes.
+
+**Corrections are keyed by what survives a pack rebuild, never by position**: an
+example by its id — a Tatoeba sentence number, or a hash of a Wiktionary
+example's text — and a meaning by its original text. An update that brings in
+new examples simply shows them; one that rewords a line shows the new wording,
+and the old correction stops applying rather than landing on the wrong line.
+
+A word **always keeps at least one shown meaning** — with none there is nothing
+to ask or accept — so the editor will not hide or delete the last one.
+
+Corrections live in `progress`, are exported with the profile, and are replaced
+by an import like everything else there. They are **not** part of a snapshot: a
+mass-edit never touches them, so its undo must not revert them.
 
 ### Editing one word's mastery
 
@@ -267,11 +302,14 @@ single-word edits, and the place hidden words remain visible.
 6. A deck stores the recipe that created it, not only its members.
 7. Setting a level writes **every vector** of the word, and any control that does
    so declares it.
+8. A correction is keyed by example id or original meaning text, never by
+   position, and a word keeps at least one shown meaning.
 
 **Never:**
 
-1. No maintenance operation edits dictionary content. Wrong entries are fixed in
-   the pack build.
+1. No maintenance operation writes dictionary content. Wrong entries are fixed
+   in the pack build; a learner's own corrections are stored apart and laid over
+   the entry.
 2. Changing a level never moves an existing due day.
 3. Decks never change their own membership. Growth is always a user action.
 4. Hidden words are never excluded from the distractor pool.

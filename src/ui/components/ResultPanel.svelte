@@ -7,12 +7,18 @@
    * The pane runs one card behind, deliberately.
    */
   import type { DictionaryEntry } from '../../dictionary/pack-format';
+  import type { EntryEdits } from '../../domain/entry-edits';
   import { termWithArticle, type ResolvedResult } from '../session/session-store.svelte';
   import DiacriticDiff from './DiacriticDiff.svelte';
+  import EntryLines from './EntryLines.svelte';
   import MasteryPicker from './MasteryPicker.svelte';
 
   interface Props {
+    /** As the pack has it — the corrections are laid over it here, editably. */
     entry?: DictionaryEntry;
+    edits?: EntryEdits;
+    onsaveedits: (edits: EntryEdits) => void;
+    oneditclosed: () => void;
     /**
      * Recorded at resolution time. NOT inferred from the live phase: a correct
      * answer auto-advances on desktop, so the phase has already returned to
@@ -32,6 +38,9 @@
 
   let {
     entry,
+    edits,
+    onsaveedits,
+    oneditclosed,
     result,
     showChoices,
     inRequeuePass,
@@ -72,14 +81,11 @@
       <div class="meta">
         {entry.partOfSpeech} · {entry.difficulty}{#each entry.contextTags as tag (tag)} · {tag}{/each}
       </div>
-      <div class="meanings">{entry.meanings.join(', ')}</div>
-
-      {#each entry.examples as example (example.id)}
-        <div class="example">
-          {example.text}
-          {#if example.translation}<div class="hint">{example.translation}</div>{/if}
-        </div>
-      {/each}
+      <!-- Keyed by word, so an editor left open, or hidden lines put on show,
+           never carry over to the next word's entry. -->
+      {#key entry.key}
+        <EntryLines {entry} {edits} onsave={onsaveedits} {oneditclosed} />
+      {/key}
     </div>
 
     {#if showChoices}
@@ -152,12 +158,6 @@
     color: var(--text-secondary);
     font-size: var(--size-tiny);
     margin: 2px 0 8px;
-  }
-
-  .example {
-    color: var(--text-secondary);
-    font-size: var(--size-small);
-    margin-top: 10px;
   }
 
   .choices {

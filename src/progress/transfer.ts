@@ -11,7 +11,7 @@
  */
 
 import { db } from '../database';
-import type { DeckRow, ProgressRow, WordRow } from './schema';
+import type { DeckRow, EntryEdits, ProgressRow, WordRow } from './schema';
 import { bumpRevision, getRevision } from './progress-repo';
 import {
   DEFAULT_GLOBAL_SETTINGS,
@@ -28,6 +28,8 @@ export interface ProfileExport {
   progress: ProgressRow[];
   words: WordRow[];
   decks: DeckRow[];
+  /** Corrections to dictionary entries — user data, unlike the entries themselves. */
+  entryEdits: EntryEdits[];
   settings: GlobalSettings;
 }
 
@@ -35,6 +37,8 @@ export interface TransferCounts {
   words: number;
   vectorStates: number;
   decks: number;
+  /** Words with a corrected meaning or example. */
+  corrections: number;
 }
 
 export class ProfileSchemaError extends Error {
@@ -61,6 +65,7 @@ export async function exportProfile(): Promise<ProfileExport> {
     progress: await db.progress.toArray(),
     words: await db.words.toArray(),
     decks: await db.decks.toArray(),
+    entryEdits: await db.entryEdits.toArray(),
     settings: await getGlobalSettings(),
   };
 }
@@ -70,7 +75,26 @@ export function countsOf(profile: ProfileExport): TransferCounts {
     words: profile.words.length,
     vectorStates: profile.progress.length,
     decks: profile.decks.length,
+    corrections: profile.entryEdits.length,
   };
+}
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === 'object' && value !== null && !Array.isArray(value);
+}
+
+/**
+ * A correction row as it must look to be applied. Malformed rows are dropped
+ * rather than failing the import: a correction is a convenience, the progress
+ * beside it is not.
+ */
+function isEntryEdits(value: unknown): value is EntryEdits {
+  return (
+    isRecord(value) &&
+    typeof value.wordKey === 'string' &&
+    isRecord(value.meanings) &&
+    isRecord(value.examples)
+  );
 }
 
 /**
@@ -106,6 +130,9 @@ export function parseProfile(raw: unknown): ProfileExport {
     progress: candidate.progress,
     words: candidate.words,
     decks: candidate.decks,
+    // Absent corrections are legitimate too: every export made before they
+    // existed has none.
+    entryEdits: Array.isArray(candidate.entryEdits) ? candidate.entryEdits.filter(isEntryEdits) : [],
     // Absent settings are legitimate: an older export, or a hand-edited file.
     // The stored defaults apply on import rather than failing the whole thing.
     settings: candidate.settings ?? DEFAULT_GLOBAL_SETTINGS,
@@ -120,14 +147,17 @@ export function parseProfile(raw: unknown): ProfileExport {
  * solved here yet.
  */
 export async function importProfile(profile: ProfileExport): Promise<TransferCounts> {
-  await db.transaction('rw', db.progress, db.words, db.decks, db.settings, async () => {
+  const stores = [db.progress, db.words, db.decks, db.entryEdits, db.settings];
+  await db.transaction('rw', stores, async () => {
     await db.progress.clear();
     await db.words.clear();
     await db.decks.clear();
+    await db.entryEdits.clear();
 
     if (profile.progress.length > 0) await db.progress.bulkPut(profile.progress);
     if (profile.words.length > 0) await db.words.bulkPut(profile.words);
     if (profile.decks.length > 0) await db.decks.bulkPut(profile.decks);
+    if (profile.entryEdits.length > 0) await db.entryEdits.bulkPut(profile.entryEdits);
 
     if (profile.settings) {
       await db.settings.put({ key: 'globalSettings', value: profile.settings });

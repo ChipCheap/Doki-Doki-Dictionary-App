@@ -123,6 +123,17 @@ The closed enum of question types and the v1 vector definitions.
 No component references — `domain` may not import from `ui`, so the registry
 that maps a method to its component lives on the UI side.
 
+### `entry-edits.ts`
+The user's corrections to an entry, and how they are laid over it.
+
+`RemovedAs` · `LineEdit` · `EntryEdits` · `EntryPart` · `EntryLine` ·
+`entryLines` · `applyEntryEdits` · `canRemoveMeaning` · `withLineEdit` ·
+`hasNoEdits`
+
+Keyed by example id or original meaning text, never by position, so a pack
+update neither loses a correction nor moves it onto another line.
+`applyEntryEdits` never leaves an entry without a meaning.
+
 ### `random.ts`
 `shuffle` · `randomOf`
 
@@ -243,6 +254,12 @@ A deck stores its members **and** the recipe, so a pack update can be diffed.
 `quickCreateDeck` and `updateDeckSettings` copy arrays into plain ones before
 storing — reactive state is a Proxy and structured clone rejects it.
 
+### `entry-edits-repo.ts`
+`listEntryEdits` · `saveEntryEdits`
+
+One row per corrected word, read whole. Saving a row with nothing left in it
+deletes it.
+
 ### `transfer.ts`
 Export and import — disaster recovery, not just portability.
 
@@ -276,6 +293,7 @@ deck recipes to the multi-select shape.
 | `router.svelte.ts` | Hash router | `RouteName` · `Route` · `router` |
 | `app-init.ts` | `persist()`, theme application, install detection, which durability notice to show | `StartupReport` · `requestPersistentStorage` · `isInstalled` · `applySettings` · `startup` · `DurabilityNotice` · `DurabilityInputs` · `durabilityNotice` · `dismissedNotices` · `dismissNotice` |
 | `pwa.svelte.ts` | Install offer capture, installed state, service-worker registration and updates. Owns registration — `injectRegister` is off | `pwa` |
+| `edited-entry.ts` | Joins a dictionary entry with its corrections from `progress` | `editedEntry` |
 | `audio.ts` | The inert seam. `isAvailable` is hard-coded false | `SpeechRequest` · `isAvailable` · `speak` |
 | `theme.css` | Every colour, once, as `light-dark()` pairs | — |
 | `base.css` | Element styling; defines no colour of its own | — |
@@ -317,6 +335,8 @@ rejection note, and the keyboard-help affordance.
 | `components/DeckRow.svelte` | One deck: name, tags, one state-appropriate value, rotating chevron |
 | `components/DeckDetail.svelte` | Ladder distribution bar, overdue count, start button |
 | `components/ResultPanel.svelte` | Outcome, entry, examples, the two buttons, mastery picker, Hide/Unhide |
+| `components/EntryLines.svelte` | An entry's meanings and examples, each correctable by double-click; hidden lines one click away |
+| `components/EntryLineEditor.svelte` | Inline reword / hide / delete for one line; swallows keys so the quiz shortcuts stay inert |
 | `components/DiacriticDiff.svelte` | Per-character highlight, only when diacritics are the sole difference |
 | `components/SettingPreview.svelte` | Live preview using stacked-mark test text |
 

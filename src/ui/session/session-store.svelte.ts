@@ -15,6 +15,7 @@ import type { DictionaryEntry } from '../../dictionary/pack-format';
 import { entriesByPartOfSpeech, entriesForLanguage, getEntries, synonymTerms } from '../../dictionary/queries';
 import { acceptedFormsWithArticle, displayWithArticle } from '../../domain/articles';
 import { pickDistractors, type DistractorResult } from '../../domain/distractors';
+import type { EntryEdits } from '../../domain/entry-edits';
 import { grade, resolveRequeue, type Outcome, type RequeueOutcome } from '../../domain/grading';
 import { toDayNumber, type DayNumber } from '../../domain/ladder';
 import { classifyAnswer, type AnswerVerdict } from '../../domain/matching';
@@ -22,7 +23,9 @@ import { composeSession, type SessionSettings } from '../../domain/session';
 import type { Card, WordKey } from '../../domain/types';
 import { QuestionMethod, vectorById } from '../../domain/vectors';
 import { deckMembers, sessionSettingsFor, type DeckRow } from '../../progress/deck-repo';
+import { listEntryEdits, saveEntryEdits } from '../../progress/entry-edits-repo';
 import { getWordProgress, recordGrade, setHidden } from '../../progress/progress-repo';
+import { editedEntry } from '../edited-entry';
 
 export type Phase =
   /** Field focused, all keys go to it. */
@@ -135,7 +138,15 @@ export class SessionStore {
   /** Words resolved so far. Advances on GRADING only, never on a re-query. */
   graded = $state(0);
 
+  /** As the pack has them. Corrections are applied on the way out, never stored here. */
   #entries = new Map<WordKey, DictionaryEntry>();
+
+  /**
+   * The user's corrections, for every word — distractors come from outside the
+   * session's own words. `$state` and replaced rather than mutated, so the
+   * result panel redraws when a line is corrected.
+   */
+  #edits = $state<ReadonlyMap<WordKey, EntryEdits>>(new Map());
 
   /**
    * Words hidden from the result panel during this session.
@@ -190,6 +201,7 @@ export class SessionStore {
 
     const entries = await getEntries(this.drawn.map((c) => c.wordKey));
     this.#entries = new Map(entries.map((e) => [e.key, e]));
+    this.#edits = await listEntryEdits();
 
     this.loading = false;
     await this.#present();
@@ -200,8 +212,35 @@ export class SessionStore {
     return this.drawn.filter((c) => c.isNew);
   }
 
+  /** The entry as the user sees it, corrections applied. */
   entryFor(key: WordKey): DictionaryEntry | undefined {
+    const entry = this.#entries.get(key);
+    return entry ? this.#edited(entry) : undefined;
+  }
+
+  /** The entry as the pack has it — what the correction editor works against. */
+  originalEntryFor(key: WordKey): DictionaryEntry | undefined {
     return this.#entries.get(key);
+  }
+
+  editsFor(key: WordKey): EntryEdits | undefined {
+    return this.#edits.get(key);
+  }
+
+  /**
+   * Persist a word's corrections. The card already on screen keeps its wording
+   * — rewriting a prompt under someone mid-answer would be worse than the long
+   * gloss — and every later presentation picks the correction up.
+   */
+  async setEntryEdits(edits: EntryEdits): Promise<void> {
+    await saveEntryEdits(edits);
+    const next = new Map(this.#edits);
+    next.set(edits.wordKey, edits);
+    this.#edits = next;
+  }
+
+  #edited(entry: DictionaryEntry): DictionaryEntry {
+    return editedEntry(entry, this.#edits.get(entry.key));
   }
 
   reset(): void {
@@ -219,6 +258,7 @@ export class SessionStore {
     this.graded = 0;
     this.#total = 0;
     this.#entries = new Map();
+    this.#edits = new Map();
     this.#inRequeuePass = false;
     this.hiddenWords = new Set();
   }
@@ -255,14 +295,15 @@ export class SessionStore {
 
     this.#inRequeuePass = this.drawn.length === 0;
 
-    const entry = this.#entries.get(next.wordKey);
+    const original = this.#entries.get(next.wordKey);
     // Either the word vanished from the dictionary between composition and
     // now, or the user hid it mid-session. Drop the card rather than showing
     // an empty question or one the user asked never to see.
-    if (!entry || this.hiddenWords.has(next.wordKey)) {
+    if (!original || this.hiddenWords.has(next.wordKey)) {
       this.#drop(next);
       return this.#present();
     }
+    const entry = this.#edited(original);
 
     const vector = vectorById(next.vectorId);
     const method = vector?.method ?? QuestionMethod.FOREIGN_TO_BASE_MC;
@@ -279,7 +320,9 @@ export class SessionStore {
         card: next,
         entry,
         method,
-        synonyms: await synonymTerms(entry),
+        // The PACK's meanings: synonyms are found through the dictionary's
+        // meaning index, which knows nothing of a shortened gloss.
+        synonyms: await synonymTerms(original),
         promptedMeaning: entry.meanings[0] ?? '',
       };
     }
@@ -293,6 +336,7 @@ export class SessionStore {
   async #buildOptions(entry: DictionaryEntry) {
     const deckPool = [...this.#entries.values()]
       .filter((e) => e.key !== entry.key)
+      .map((candidate) => this.#edited(candidate))
       .map((e) => ({
         key: e.key,
         targetTerm: e.term,
@@ -305,6 +349,7 @@ export class SessionStore {
 
     const dictionaryPool = wider
       .filter((e) => e.key !== entry.key)
+      .map((candidate) => this.#edited(candidate))
       .map((e) => ({
         key: e.key,
         targetTerm: e.term,

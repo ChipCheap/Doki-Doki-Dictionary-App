@@ -6,6 +6,7 @@
  * owns and nothing else (architecture.md D1).
  */
 
+import type { EntryEdits } from '../domain/entry-edits';
 import type { DayNumber, Level } from '../domain/ladder';
 import type { DifficultyTier, WordKey } from '../domain/types';
 import type { VectorId } from '../domain/vectors';
@@ -109,5 +110,14 @@ export const SNAPSHOT_STORES = {
   snapshots: 'id, takenOn',
 } as const;
 
+/**
+ * Added in database version 5: the user's corrections to dictionary entries,
+ * one row per corrected word. Not part of a snapshot — a mass-edit never
+ * touches them, so its undo must not revert them either.
+ */
+export const ENTRY_EDIT_STORES = {
+  entryEdits: 'wordKey',
+} as const;
+
 /** Re-exported so callers of this module do not reach into `domain` for them. */
-export type { DifficultyTier, WordKey, VectorId, DayNumber, Level };
+export type { DifficultyTier, WordKey, VectorId, DayNumber, Level, EntryEdits };

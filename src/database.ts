@@ -13,10 +13,12 @@
 import Dexie, { type Table } from 'dexie';
 import { DICTIONARY_STORES, type DictionaryEntry, type InstalledPack } from './dictionary/schema';
 import {
+  ENTRY_EDIT_STORES,
   PROGRESS_STORES,
   SNAPSHOT_STORES,
   type DeckRecipe,
   type DeckRow,
+  type EntryEdits,
   type LegacyDeckRecipe,
   type ProgressRow,
   type SettingRow,
@@ -32,6 +34,7 @@ export class AppDatabase extends Dexie {
   decks!: Table<DeckRow, string>;
   settings!: Table<SettingRow, string>;
   snapshots!: Table<SnapshotRow, string>;
+  entryEdits!: Table<EntryEdits, string>;
 
   constructor(name = 'doki-doki-dictionary') {
     super(name);
@@ -76,6 +79,11 @@ export class AppDatabase extends Dexie {
         if (!pack.sources || pack.sources.length === 0) pack.ready = false;
       });
     });
+
+    // v5: the user's corrections to dictionary entries. Purely additive — a new
+    // store and no change to any existing row; the dictionary itself is still
+    // never written, so a pack update cannot disturb a correction.
+    this.version(5).stores({ ...ENTRY_EDIT_STORES });
   }
 }
 

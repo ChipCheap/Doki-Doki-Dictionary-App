@@ -26,11 +26,13 @@ import type { WordKey, WordProgress } from '../domain/types';
 import type { VectorId } from '../domain/vectors';
 import { browseCandidates, type BrowseFilter } from '../dictionary/queries';
 import type { DictionaryEntry } from '../dictionary/pack-format';
+import { listEntryEdits } from '../progress/entry-edits-repo';
 import {
   getAllWordProgress,
   getHiddenKeys,
   getWordProgress,
 } from '../progress/progress-repo';
+import { editedEntry } from './edited-entry';
 
 export const PAGE_SIZE = 200;
 
@@ -61,6 +63,8 @@ export async function resolveSelection(input: SelectionInput): Promise<Selection
   const candidates = await browseCandidates(input.browse);
 
   const hidden = await getHiddenKeys();
+  // Applied after the text search, which runs over the pack's own wording.
+  const edits = await listEntryEdits();
   const progress = needsFullProgress(input.progress)
     ? await getAllWordProgress()
     : undefined;
@@ -81,7 +85,7 @@ export async function resolveSelection(input: SelectionInput): Promise<Selection
       if (!matchesProgressFilter(withHidden, input.progress, input.enabledVectors)) continue;
     }
 
-    matches.push(entry);
+    matches.push(editedEntry(entry, edits.get(entry.key)));
   }
 
   return { matches, hiddenExcluded, hidden };
